@@ -1,0 +1,37 @@
+{
+  "presets": ["react", "es2015", "stage-0"],
+
+  "plugins": [
+    "add-module-exports",
+    "transform-decorators-legacy",
+    "transform-react-display-name",
+    "syntax-async-functions",
+    "transform-regenerator",
+    "material-ui",
+    "lodash",
+    [
+      "transform-runtime",
+      {
+        "polyfill": false,
+        "regenerator": true
+      }
+    ]
+  ],
+
+  "env": {
+    "development": {
+      "plugins": [
+        "./src/frontend/webpack/babelRelayPlugin.js",
+        "typecheck",
+        ["react-transform", {
+          "transforms": [
+            {
+              "transform": "react-transform-catch-errors",
+              "imports": ["react", "redbox-react"]
+            }
+          ]
+        }]
+      ]
+    }
+  }
+}

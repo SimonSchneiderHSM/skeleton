@@ -1,0 +1,21 @@
+version: '2.1'
+services:
+  database:
+    image: "postgres"
+    ports:
+     - "5432:5432"
+    environment:
+     - POSTGRES_USER=admin
+     - POSTGRES_PASSWORD=admin
+  demo:
+    image: "demo"
+    ports:
+     - "8000:8000"
+    links:
+     - "database"
+    depends_on:
+     - "database"
+    environment:
+     - datastore__service__data_sources__default__adapter__server__host=database
+     - datastore__service__data_sources__default__adapter__server__database=admin
+     - http__http_extension__server__host=demo

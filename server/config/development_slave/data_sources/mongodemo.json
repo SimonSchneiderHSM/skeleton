@@ -1,0 +1,18 @@
+{
+  "adapter": {
+    "name": "MongoDb",
+    "database": {
+      "$ref":  "#/datastore/data_sources/mongodemo/database"
+    },
+    "server": {
+      "$ref":  "#/datastore/data_sources/mongodemo/server"
+    }
+  },
+  "server": {
+    "host": "localhost",
+    "port": 27017
+  },
+  "database": {
+    "name": "demo"
+  }
+}

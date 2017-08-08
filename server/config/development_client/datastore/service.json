@@ -1,0 +1,8 @@
+{
+  "initializeAllEntityTypesOnStartup": true,
+  "data_sources": {
+    "default": {
+      "$ref": "#/data_sources/proxy"
+    }
+  }
+}

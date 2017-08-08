@@ -1,0 +1,8 @@
+{
+  "namespace": "aCustom",
+  "data_sources": {
+    "default": {
+      "$ref": "#/data_sources/postgres"
+    }
+  }
+}

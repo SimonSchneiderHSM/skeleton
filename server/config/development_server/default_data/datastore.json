@@ -1,0 +1,13 @@
+{
+  "User": {
+    "key": "name",
+    "overwrite": false,
+    "data": [
+      {
+        "name": "John",
+        "password": "Doe",
+        "roles": ["agent"]
+      }
+    ]
+  }
+}

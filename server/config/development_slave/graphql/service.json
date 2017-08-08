@@ -1,0 +1,10 @@
+{
+  "frontendPath": "./src/frontend",
+  "helpersTargetPathName": "helpers",
+  "schemaHelperTargetPathName": "schema",
+  "crudHelperTargetPathName": "crud",
+  "crudHelperTargetFileName": "crud_helper",
+  "mutationHelperTargetPathName": "mutations",
+  "mutationHelperTargetFileName": "index",
+  "skipSchemaGeneration": false
+}

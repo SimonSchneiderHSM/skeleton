@@ -1,0 +1,216 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Process Engine",
+		"_postman_id": "a7ec7125-0df7-e065-8d30-e2d5fe9e32f8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/iam/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"bearer_token\", jsonData.token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://{{host_port}}/iam/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"admin\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/iam/getidentity",
+			"request": {
+				"url": "http://{{host_port}}/iam/getidentity",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{bearer_token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/datastore",
+			"request": {
+				"url": "http://{{host_port}}/datastore",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{bearer_token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"admin\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/datastore/ProcessDef",
+			"request": {
+				"url": "http://{{host_port}}/datastore/ProcessDef",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{bearer_token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"admin\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/datastore/ProcessDef/service/importBpmnFromFile",
+			"request": {
+				"url": "http://{{host_port}}/datastore/ProcessDef/service/importBpmnFromFile",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "//Authorization",
+						"value": "Bearer {{bearer_token}}",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"file\": \"reservation.bpmn\"\n}\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/datastore/user",
+			"request": {
+				"url": "http://{{host_port}}/datastore/user",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{bearer_token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"admin\",\n\t\"roles\": [\"administrator\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/messagebus/publish",
+			"request": {
+				"url": "http://{{host_port}}/messagebus/publish",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{bearer_token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"channel\": \"/processengine\",\n    \"msg\": {\n    \t\"someProp\": \"a value\"\n    }\n}\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/processengine/start",
+			"request": {
+				"url": "http://{{host_port}}/processengine/start",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{bearer_token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

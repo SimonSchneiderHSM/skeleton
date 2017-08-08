@@ -1,0 +1,7 @@
+{
+  "systemUserId": "iam_system",
+  "cacheClaimResults": true,
+  "http": {
+    "url": "/iam/"
+  }
+}

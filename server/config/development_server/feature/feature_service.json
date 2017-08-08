@@ -1,0 +1,37 @@
+{
+  "applications": {
+    "demo_client": {
+      "features": {
+        "Name": "Demo_Client",
+        "Environment": "Client",
+        "Platform": "Chromium",
+        "PlatformVersion": "8.0.0",
+        "UI": true
+      }
+    },
+    "demo_server": {
+      "features": {
+        "Name": "Demo_Server",
+        "Environment": "Server",
+        "Platform": "NodeJS",
+        "PlatformVersion": "7.6.0"
+      }
+    },
+    "demo_slave": {
+      "features": {
+        "Name": "Slave",
+        "Environment": "Server",
+        "Platform": "NodeJS",
+        "PlatformVersion": "8.1.0"
+      }
+    },
+    "demo_raspberry": {
+      "features": {
+        "Name": "Raspberry",
+        "Environment": "Server",
+        "Platform": "NodeJS",
+        "PlatformVersion": "7.6.0"
+      }
+    }
+  }
+}
