@@ -1,5 +1,0 @@
-{
-  "isMaster": false,
-  "endPointName": "http://localhost:8000/mb",    
-  "systemUserId": "messagebus_system"
-}

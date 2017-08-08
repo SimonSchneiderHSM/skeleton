@@ -1,9 +1,0 @@
-{
-  "adapter": {
-    "name": "Proxy",
-    "http": {
-      "url": "/datastore/"
-    }
-  },
-  "schemaMode": "full"
-}
