@@ -23,7 +23,6 @@ var CrudTableHelper = {
     initialVariables: function initialVariables() {
         return {
             showTimer: false,
-            showReservation: false,
             showUser: false,
             showSessionStore: false,
             showUserTask: false,
@@ -52,7 +51,6 @@ var CrudTableHelper = {
         return {
             className: className,
             showTimer: className === 'Timer',
-            showReservation: className === 'Reservation',
             showUser: className === 'User',
             showSessionStore: className === 'SessionStore',
             showUserTask: className === 'UserTask',
@@ -79,7 +77,7 @@ var CrudTableHelper = {
     },
     fragments: {
         catalog: function catalog(variables) {
-            var query = function (RQL_0, RQL_1, RQL_2, RQL_3, RQL_4, RQL_5, RQL_6, RQL_7, RQL_8, RQL_9, RQL_10, RQL_11, RQL_12, RQL_13, RQL_14, RQL_15, RQL_16, RQL_17, RQL_18, RQL_19, RQL_20, RQL_21, RQL_22, RQL_23, RQL_24, RQL_25, RQL_26, RQL_27, RQL_28, RQL_29, RQL_30, RQL_31, RQL_32, RQL_33, RQL_34, RQL_35, RQL_36, RQL_37, RQL_38, RQL_39, RQL_40, RQL_41, RQL_42, RQL_43, RQL_44, RQL_45, RQL_46, RQL_47, RQL_48, RQL_49, RQL_50, RQL_51, RQL_52, RQL_53, RQL_54, RQL_55, RQL_56, RQL_57, RQL_58, RQL_59, RQL_60, RQL_61, RQL_62, RQL_63, RQL_64, RQL_65, RQL_66, RQL_67, RQL_68, RQL_69, RQL_70, RQL_71, RQL_72, RQL_73, RQL_74, RQL_75, RQL_76, RQL_77, RQL_78, RQL_79, RQL_80, RQL_81, RQL_82, RQL_83, RQL_84, RQL_85, RQL_86, RQL_87, RQL_88, RQL_89, RQL_90, RQL_91, RQL_92, RQL_93, RQL_94, RQL_95, RQL_96, RQL_97, RQL_98, RQL_99, RQL_100, RQL_101, RQL_102, RQL_103, RQL_104, RQL_105, RQL_106, RQL_107, RQL_108, RQL_109, RQL_110, RQL_111, RQL_112, RQL_113, RQL_114, RQL_115, RQL_116, RQL_117, RQL_118, RQL_119) {
+            var query = function (RQL_0, RQL_1, RQL_2, RQL_3, RQL_4, RQL_5, RQL_6, RQL_7, RQL_8, RQL_9, RQL_10, RQL_11, RQL_12, RQL_13, RQL_14, RQL_15, RQL_16, RQL_17, RQL_18, RQL_19, RQL_20, RQL_21, RQL_22, RQL_23, RQL_24, RQL_25, RQL_26, RQL_27, RQL_28, RQL_29, RQL_30, RQL_31, RQL_32, RQL_33, RQL_34, RQL_35, RQL_36, RQL_37, RQL_38, RQL_39, RQL_40, RQL_41, RQL_42, RQL_43, RQL_44, RQL_45, RQL_46, RQL_47, RQL_48, RQL_49, RQL_50, RQL_51, RQL_52, RQL_53, RQL_54, RQL_55, RQL_56, RQL_57, RQL_58, RQL_59, RQL_60, RQL_61, RQL_62, RQL_63, RQL_64, RQL_65, RQL_66, RQL_67, RQL_68, RQL_69, RQL_70, RQL_71, RQL_72, RQL_73, RQL_74, RQL_75, RQL_76, RQL_77, RQL_78, RQL_79, RQL_80, RQL_81, RQL_82, RQL_83, RQL_84, RQL_85, RQL_86, RQL_87, RQL_88, RQL_89, RQL_90, RQL_91, RQL_92, RQL_93, RQL_94, RQL_95, RQL_96, RQL_97, RQL_98, RQL_99, RQL_100, RQL_101, RQL_102, RQL_103, RQL_104, RQL_105, RQL_106, RQL_107, RQL_108, RQL_109, RQL_110, RQL_111, RQL_112, RQL_113, RQL_114) {
                 return {
                     children: [].concat.apply([], [{
                         calls: [{
@@ -286,158 +284,6 @@ var CrudTableHelper = {
                                     metadata: {},
                                     type: 'String'
                                 }, {
-                                    fieldName: 'category',
-                                    kind: 'Field',
-                                    metadata: {},
-                                    type: 'String'
-                                }, {
-                                    fieldName: 'isOneWay',
-                                    kind: 'Field',
-                                    metadata: {},
-                                    type: 'Boolean'
-                                }, {
-                                    fieldName: 'navigationSystem',
-                                    kind: 'Field',
-                                    metadata: {},
-                                    type: 'Boolean'
-                                }, {
-                                    fieldName: 'additionalDriver',
-                                    kind: 'Field',
-                                    metadata: {},
-                                    type: 'Boolean'
-                                }, {
-                                    fieldName: 'price',
-                                    kind: 'Field',
-                                    metadata: {},
-                                    type: 'Float'
-                                }, _reactRelay2.default.QL.__frag(RQL_8), _reactRelay2.default.QL.__frag(RQL_9)]),
-                                fieldName: 'node',
-                                kind: 'Field',
-                                metadata: {
-                                    canHaveSubselections: true,
-                                    isRequisite: true
-                                },
-                                type: 'Reservation'
-                            }, {
-                                fieldName: 'cursor',
-                                kind: 'Field',
-                                metadata: {
-                                    isGenerated: true,
-                                    isRequisite: true
-                                },
-                                type: 'String'
-                            }],
-                            fieldName: 'edges',
-                            kind: 'Field',
-                            metadata: {
-                                canHaveSubselections: true,
-                                isPlural: true
-                            },
-                            type: 'ReservationEdge'
-                        }, {
-                            children: [{
-                                fieldName: 'hasNextPage',
-                                kind: 'Field',
-                                metadata: {
-                                    isGenerated: true,
-                                    isRequisite: true
-                                },
-                                type: 'Boolean'
-                            }, {
-                                fieldName: 'hasPreviousPage',
-                                kind: 'Field',
-                                metadata: {
-                                    isGenerated: true,
-                                    isRequisite: true
-                                },
-                                type: 'Boolean'
-                            }],
-                            fieldName: 'pageInfo',
-                            kind: 'Field',
-                            metadata: {
-                                canHaveSubselections: true,
-                                isGenerated: true,
-                                isRequisite: true
-                            },
-                            type: 'PageInfo'
-                        }],
-                        directives: [{
-                            kind: 'Directive',
-                            name: 'include',
-                            args: [{
-                                name: 'if',
-                                value: {
-                                    kind: 'CallVariable',
-                                    callVariableName: 'showReservation'
-                                }
-                            }]
-                        }],
-                        fieldName: 'ReservationConnection',
-                        kind: 'Field',
-                        metadata: {
-                            canHaveSubselections: true,
-                            isConnection: true,
-                            isFindable: true
-                        },
-                        type: 'ReservationConnection'
-                    }, {
-                        calls: [{
-                            kind: 'Call',
-                            metadata: {},
-                            name: 'query',
-                            value: {
-                                kind: 'CallVariable',
-                                callVariableName: 'query'
-                            }
-                        }, {
-                            kind: 'Call',
-                            metadata: {},
-                            name: 'orderBy',
-                            value: {
-                                kind: 'CallVariable',
-                                callVariableName: 'orderBy'
-                            }
-                        }, {
-                            kind: 'Call',
-                            metadata: {
-                                type: 'Int'
-                            },
-                            name: 'first',
-                            value: {
-                                kind: 'CallVariable',
-                                callVariableName: 'first'
-                            }
-                        }, {
-                            kind: 'Call',
-                            metadata: {
-                                type: 'Int'
-                            },
-                            name: 'offset',
-                            value: {
-                                kind: 'CallVariable',
-                                callVariableName: 'offset'
-                            }
-                        }],
-                        children: [{
-                            fieldName: 'totalCount',
-                            kind: 'Field',
-                            metadata: {},
-                            type: 'Int'
-                        }, {
-                            children: [{
-                                children: [].concat.apply([], [{
-                                    fieldName: 'id',
-                                    kind: 'Field',
-                                    metadata: {
-                                        isRequisite: true
-                                    },
-                                    type: 'ID'
-                                }, {
-                                    fieldName: 'name',
-                                    kind: 'Field',
-                                    metadata: {},
-                                    type: 'String'
-                                }, {
                                     fieldName: 'password',
                                     kind: 'Field',
                                     metadata: {},
@@ -447,7 +293,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'String'
-                                }, _reactRelay2.default.QL.__frag(RQL_13), _reactRelay2.default.QL.__frag(RQL_14)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_8), _reactRelay2.default.QL.__frag(RQL_9)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -589,7 +435,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'String'
-                                }, _reactRelay2.default.QL.__frag(RQL_18), _reactRelay2.default.QL.__frag(RQL_19)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_13), _reactRelay2.default.QL.__frag(RQL_14)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -794,7 +640,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'Float'
-                                }, _reactRelay2.default.QL.__frag(RQL_23), _reactRelay2.default.QL.__frag(RQL_24)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_18), _reactRelay2.default.QL.__frag(RQL_19)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -999,7 +845,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'Float'
-                                }, _reactRelay2.default.QL.__frag(RQL_28), _reactRelay2.default.QL.__frag(RQL_29)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_23), _reactRelay2.default.QL.__frag(RQL_24)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -1204,7 +1050,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'Float'
-                                }, _reactRelay2.default.QL.__frag(RQL_33), _reactRelay2.default.QL.__frag(RQL_34)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_28), _reactRelay2.default.QL.__frag(RQL_29)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -1409,7 +1255,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'Float'
-                                }, _reactRelay2.default.QL.__frag(RQL_38), _reactRelay2.default.QL.__frag(RQL_39)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_33), _reactRelay2.default.QL.__frag(RQL_34)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -1614,7 +1460,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'Float'
-                                }, _reactRelay2.default.QL.__frag(RQL_43), _reactRelay2.default.QL.__frag(RQL_44)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_38), _reactRelay2.default.QL.__frag(RQL_39)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -1819,7 +1665,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'Float'
-                                }, _reactRelay2.default.QL.__frag(RQL_48), _reactRelay2.default.QL.__frag(RQL_49)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_43), _reactRelay2.default.QL.__frag(RQL_44)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -2024,7 +1870,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'Float'
-                                }, _reactRelay2.default.QL.__frag(RQL_53), _reactRelay2.default.QL.__frag(RQL_54)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_48), _reactRelay2.default.QL.__frag(RQL_49)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -2234,7 +2080,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'String'
-                                }, _reactRelay2.default.QL.__frag(RQL_58), _reactRelay2.default.QL.__frag(RQL_59)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_53), _reactRelay2.default.QL.__frag(RQL_54)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -2377,7 +2223,7 @@ var CrudTableHelper = {
                                         canHaveSubselections: true
                                     },
                                     type: 'Process'
-                                }, _reactRelay2.default.QL.__frag(RQL_63), _reactRelay2.default.QL.__frag(RQL_64)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_58), _reactRelay2.default.QL.__frag(RQL_59)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -2586,7 +2432,7 @@ var CrudTableHelper = {
                                         isFindable: true
                                     },
                                     type: 'ProcessDefEntity_laneCollection_ConnectionConnection'
-                                }, _reactRelay2.default.QL.__frag(RQL_68), _reactRelay2.default.QL.__frag(RQL_69)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_63), _reactRelay2.default.QL.__frag(RQL_64)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -2749,7 +2595,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'String'
-                                }, _reactRelay2.default.QL.__frag(RQL_73), _reactRelay2.default.QL.__frag(RQL_74)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_68), _reactRelay2.default.QL.__frag(RQL_69)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -2959,7 +2805,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'String'
-                                }, _reactRelay2.default.QL.__frag(RQL_78), _reactRelay2.default.QL.__frag(RQL_79)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_73), _reactRelay2.default.QL.__frag(RQL_74)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -3164,7 +3010,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'Float'
-                                }, _reactRelay2.default.QL.__frag(RQL_83), _reactRelay2.default.QL.__frag(RQL_84)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_78), _reactRelay2.default.QL.__frag(RQL_79)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -3445,7 +3291,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'String'
-                                }, _reactRelay2.default.QL.__frag(RQL_88), _reactRelay2.default.QL.__frag(RQL_89)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_83), _reactRelay2.default.QL.__frag(RQL_84)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -3612,7 +3458,7 @@ var CrudTableHelper = {
                                         isFindable: true
                                     },
                                     type: 'LaneEntity_nodeDefCollection_ConnectionConnection'
-                                }, _reactRelay2.default.QL.__frag(RQL_93), _reactRelay2.default.QL.__frag(RQL_94)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_88), _reactRelay2.default.QL.__frag(RQL_89)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -3807,7 +3653,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'Float'
-                                }, _reactRelay2.default.QL.__frag(RQL_98), _reactRelay2.default.QL.__frag(RQL_99)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_93), _reactRelay2.default.QL.__frag(RQL_94)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -4017,7 +3863,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'String'
-                                }, _reactRelay2.default.QL.__frag(RQL_103), _reactRelay2.default.QL.__frag(RQL_104)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_98), _reactRelay2.default.QL.__frag(RQL_99)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -4222,7 +4068,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'Float'
-                                }, _reactRelay2.default.QL.__frag(RQL_108), _reactRelay2.default.QL.__frag(RQL_109)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_103), _reactRelay2.default.QL.__frag(RQL_104)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -4427,7 +4273,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'Float'
-                                }, _reactRelay2.default.QL.__frag(RQL_113), _reactRelay2.default.QL.__frag(RQL_114)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_108), _reactRelay2.default.QL.__frag(RQL_109)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -4632,7 +4478,7 @@ var CrudTableHelper = {
                                     kind: 'Field',
                                     metadata: {},
                                     type: 'Float'
-                                }, _reactRelay2.default.QL.__frag(RQL_118), _reactRelay2.default.QL.__frag(RQL_119)]),
+                                }, _reactRelay2.default.QL.__frag(RQL_113), _reactRelay2.default.QL.__frag(RQL_114)]),
                                 fieldName: 'node',
                                 kind: 'Field',
                                 metadata: {
@@ -4710,14 +4556,14 @@ var CrudTableHelper = {
                             isRequisite: true
                         },
                         type: 'ID'
-                    }, _reactRelay2.default.QL.__frag(RQL_0), _reactRelay2.default.QL.__frag(RQL_1), _reactRelay2.default.QL.__frag(RQL_2), _reactRelay2.default.QL.__frag(RQL_5), _reactRelay2.default.QL.__frag(RQL_6), _reactRelay2.default.QL.__frag(RQL_7), _reactRelay2.default.QL.__frag(RQL_10), _reactRelay2.default.QL.__frag(RQL_11), _reactRelay2.default.QL.__frag(RQL_12), _reactRelay2.default.QL.__frag(RQL_15), _reactRelay2.default.QL.__frag(RQL_16), _reactRelay2.default.QL.__frag(RQL_17), _reactRelay2.default.QL.__frag(RQL_20), _reactRelay2.default.QL.__frag(RQL_21), _reactRelay2.default.QL.__frag(RQL_22), _reactRelay2.default.QL.__frag(RQL_25), _reactRelay2.default.QL.__frag(RQL_26), _reactRelay2.default.QL.__frag(RQL_27), _reactRelay2.default.QL.__frag(RQL_30), _reactRelay2.default.QL.__frag(RQL_31), _reactRelay2.default.QL.__frag(RQL_32), _reactRelay2.default.QL.__frag(RQL_35), _reactRelay2.default.QL.__frag(RQL_36), _reactRelay2.default.QL.__frag(RQL_37), _reactRelay2.default.QL.__frag(RQL_40), _reactRelay2.default.QL.__frag(RQL_41), _reactRelay2.default.QL.__frag(RQL_42), _reactRelay2.default.QL.__frag(RQL_45), _reactRelay2.default.QL.__frag(RQL_46), _reactRelay2.default.QL.__frag(RQL_47), _reactRelay2.default.QL.__frag(RQL_50), _reactRelay2.default.QL.__frag(RQL_51), _reactRelay2.default.QL.__frag(RQL_52), _reactRelay2.default.QL.__frag(RQL_55), _reactRelay2.default.QL.__frag(RQL_56), _reactRelay2.default.QL.__frag(RQL_57), _reactRelay2.default.QL.__frag(RQL_60), _reactRelay2.default.QL.__frag(RQL_61), _reactRelay2.default.QL.__frag(RQL_62), _reactRelay2.default.QL.__frag(RQL_65), _reactRelay2.default.QL.__frag(RQL_66), _reactRelay2.default.QL.__frag(RQL_67), _reactRelay2.default.QL.__frag(RQL_70), _reactRelay2.default.QL.__frag(RQL_71), _reactRelay2.default.QL.__frag(RQL_72), _reactRelay2.default.QL.__frag(RQL_75), _reactRelay2.default.QL.__frag(RQL_76), _reactRelay2.default.QL.__frag(RQL_77), _reactRelay2.default.QL.__frag(RQL_80), _reactRelay2.default.QL.__frag(RQL_81), _reactRelay2.default.QL.__frag(RQL_82), _reactRelay2.default.QL.__frag(RQL_85), _reactRelay2.default.QL.__frag(RQL_86), _reactRelay2.default.QL.__frag(RQL_87), _reactRelay2.default.QL.__frag(RQL_90), _reactRelay2.default.QL.__frag(RQL_91), _reactRelay2.default.QL.__frag(RQL_92), _reactRelay2.default.QL.__frag(RQL_95), _reactRelay2.default.QL.__frag(RQL_96), _reactRelay2.default.QL.__frag(RQL_97), _reactRelay2.default.QL.__frag(RQL_100), _reactRelay2.default.QL.__frag(RQL_101), _reactRelay2.default.QL.__frag(RQL_102), _reactRelay2.default.QL.__frag(RQL_105), _reactRelay2.default.QL.__frag(RQL_106), _reactRelay2.default.QL.__frag(RQL_107), _reactRelay2.default.QL.__frag(RQL_110), _reactRelay2.default.QL.__frag(RQL_111), _reactRelay2.default.QL.__frag(RQL_112), _reactRelay2.default.QL.__frag(RQL_115), _reactRelay2.default.QL.__frag(RQL_116), _reactRelay2.default.QL.__frag(RQL_117)]),
+                    }, _reactRelay2.default.QL.__frag(RQL_0), _reactRelay2.default.QL.__frag(RQL_1), _reactRelay2.default.QL.__frag(RQL_2), _reactRelay2.default.QL.__frag(RQL_5), _reactRelay2.default.QL.__frag(RQL_6), _reactRelay2.default.QL.__frag(RQL_7), _reactRelay2.default.QL.__frag(RQL_10), _reactRelay2.default.QL.__frag(RQL_11), _reactRelay2.default.QL.__frag(RQL_12), _reactRelay2.default.QL.__frag(RQL_15), _reactRelay2.default.QL.__frag(RQL_16), _reactRelay2.default.QL.__frag(RQL_17), _reactRelay2.default.QL.__frag(RQL_20), _reactRelay2.default.QL.__frag(RQL_21), _reactRelay2.default.QL.__frag(RQL_22), _reactRelay2.default.QL.__frag(RQL_25), _reactRelay2.default.QL.__frag(RQL_26), _reactRelay2.default.QL.__frag(RQL_27), _reactRelay2.default.QL.__frag(RQL_30), _reactRelay2.default.QL.__frag(RQL_31), _reactRelay2.default.QL.__frag(RQL_32), _reactRelay2.default.QL.__frag(RQL_35), _reactRelay2.default.QL.__frag(RQL_36), _reactRelay2.default.QL.__frag(RQL_37), _reactRelay2.default.QL.__frag(RQL_40), _reactRelay2.default.QL.__frag(RQL_41), _reactRelay2.default.QL.__frag(RQL_42), _reactRelay2.default.QL.__frag(RQL_45), _reactRelay2.default.QL.__frag(RQL_46), _reactRelay2.default.QL.__frag(RQL_47), _reactRelay2.default.QL.__frag(RQL_50), _reactRelay2.default.QL.__frag(RQL_51), _reactRelay2.default.QL.__frag(RQL_52), _reactRelay2.default.QL.__frag(RQL_55), _reactRelay2.default.QL.__frag(RQL_56), _reactRelay2.default.QL.__frag(RQL_57), _reactRelay2.default.QL.__frag(RQL_60), _reactRelay2.default.QL.__frag(RQL_61), _reactRelay2.default.QL.__frag(RQL_62), _reactRelay2.default.QL.__frag(RQL_65), _reactRelay2.default.QL.__frag(RQL_66), _reactRelay2.default.QL.__frag(RQL_67), _reactRelay2.default.QL.__frag(RQL_70), _reactRelay2.default.QL.__frag(RQL_71), _reactRelay2.default.QL.__frag(RQL_72), _reactRelay2.default.QL.__frag(RQL_75), _reactRelay2.default.QL.__frag(RQL_76), _reactRelay2.default.QL.__frag(RQL_77), _reactRelay2.default.QL.__frag(RQL_80), _reactRelay2.default.QL.__frag(RQL_81), _reactRelay2.default.QL.__frag(RQL_82), _reactRelay2.default.QL.__frag(RQL_85), _reactRelay2.default.QL.__frag(RQL_86), _reactRelay2.default.QL.__frag(RQL_87), _reactRelay2.default.QL.__frag(RQL_90), _reactRelay2.default.QL.__frag(RQL_91), _reactRelay2.default.QL.__frag(RQL_92), _reactRelay2.default.QL.__frag(RQL_95), _reactRelay2.default.QL.__frag(RQL_96), _reactRelay2.default.QL.__frag(RQL_97), _reactRelay2.default.QL.__frag(RQL_100), _reactRelay2.default.QL.__frag(RQL_101), _reactRelay2.default.QL.__frag(RQL_102), _reactRelay2.default.QL.__frag(RQL_105), _reactRelay2.default.QL.__frag(RQL_106), _reactRelay2.default.QL.__frag(RQL_107), _reactRelay2.default.QL.__frag(RQL_110), _reactRelay2.default.QL.__frag(RQL_111), _reactRelay2.default.QL.__frag(RQL_112)]),
                     id: _reactRelay2.default.QL.__id(),
                     kind: 'Fragment',
                     metadata: {},
                     name: 'Crud_helper_CatalogRelayQL',
                     type: 'Catalog'
                 };
-            }(mutations.CreateTimerMutation.getFragment('catalog').if(variables.showTimer), mutations.RemoveTimerMutation.getFragment('catalog').if(variables.showTimer), mutations.UpdateTimerMutation.getFragment('catalog').if(variables.showTimer), mutations.RemoveTimerMutation.getFragment('timer').if(variables.showTimer), mutations.UpdateTimerMutation.getFragment('timer').if(variables.showTimer), mutations.CreateReservationMutation.getFragment('catalog').if(variables.showReservation), mutations.RemoveReservationMutation.getFragment('catalog').if(variables.showReservation), mutations.UpdateReservationMutation.getFragment('catalog').if(variables.showReservation), mutations.RemoveReservationMutation.getFragment('reservation').if(variables.showReservation), mutations.UpdateReservationMutation.getFragment('reservation').if(variables.showReservation), mutations.CreateUserMutation.getFragment('catalog').if(variables.showUser), mutations.RemoveUserMutation.getFragment('catalog').if(variables.showUser), mutations.UpdateUserMutation.getFragment('catalog').if(variables.showUser), mutations.RemoveUserMutation.getFragment('user').if(variables.showUser), mutations.UpdateUserMutation.getFragment('user').if(variables.showUser), mutations.CreateSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore), mutations.RemoveSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore), mutations.UpdateSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore), mutations.RemoveSessionStoreMutation.getFragment('sessionstore').if(variables.showSessionStore), mutations.UpdateSessionStoreMutation.getFragment('sessionstore').if(variables.showSessionStore), mutations.CreateUserTaskMutation.getFragment('catalog').if(variables.showUserTask), mutations.RemoveUserTaskMutation.getFragment('catalog').if(variables.showUserTask), mutations.UpdateUserTaskMutation.getFragment('catalog').if(variables.showUserTask), mutations.RemoveUserTaskMutation.getFragment('usertask').if(variables.showUserTask), mutations.UpdateUserTaskMutation.getFragment('usertask').if(variables.showUserTask), mutations.CreateSubprocessExternalMutation.getFragment('catalog').if(variables.showSubprocessExternal), mutations.RemoveSubprocessExternalMutation.getFragment('catalog').if(variables.showSubprocessExternal), mutations.UpdateSubprocessExternalMutation.getFragment('catalog').if(variables.showSubprocessExternal), mutations.RemoveSubprocessExternalMutation.getFragment('subprocessexternal').if(variables.showSubprocessExternal), mutations.UpdateSubprocessExternalMutation.getFragment('subprocessexternal').if(variables.showSubprocessExternal), mutations.CreateSubprocessInternalMutation.getFragment('catalog').if(variables.showSubprocessInternal), mutations.RemoveSubprocessInternalMutation.getFragment('catalog').if(variables.showSubprocessInternal), mutations.UpdateSubprocessInternalMutation.getFragment('catalog').if(variables.showSubprocessInternal), mutations.RemoveSubprocessInternalMutation.getFragment('subprocessinternal').if(variables.showSubprocessInternal), mutations.UpdateSubprocessInternalMutation.getFragment('subprocessinternal').if(variables.showSubprocessInternal), mutations.CreateStartEventMutation.getFragment('catalog').if(variables.showStartEvent), mutations.RemoveStartEventMutation.getFragment('catalog').if(variables.showStartEvent), mutations.UpdateStartEventMutation.getFragment('catalog').if(variables.showStartEvent), mutations.RemoveStartEventMutation.getFragment('startevent').if(variables.showStartEvent), mutations.UpdateStartEventMutation.getFragment('startevent').if(variables.showStartEvent), mutations.CreateCatchEventMutation.getFragment('catalog').if(variables.showCatchEvent), mutations.RemoveCatchEventMutation.getFragment('catalog').if(variables.showCatchEvent), mutations.UpdateCatchEventMutation.getFragment('catalog').if(variables.showCatchEvent), mutations.RemoveCatchEventMutation.getFragment('catchevent').if(variables.showCatchEvent), mutations.UpdateCatchEventMutation.getFragment('catchevent').if(variables.showCatchEvent), mutations.CreateThrowEventMutation.getFragment('catalog').if(variables.showThrowEvent), mutations.RemoveThrowEventMutation.getFragment('catalog').if(variables.showThrowEvent), mutations.UpdateThrowEventMutation.getFragment('catalog').if(variables.showThrowEvent), mutations.RemoveThrowEventMutation.getFragment('throwevent').if(variables.showThrowEvent), mutations.UpdateThrowEventMutation.getFragment('throwevent').if(variables.showThrowEvent), mutations.CreateServiceTaskMutation.getFragment('catalog').if(variables.showServiceTask), mutations.RemoveServiceTaskMutation.getFragment('catalog').if(variables.showServiceTask), mutations.UpdateServiceTaskMutation.getFragment('catalog').if(variables.showServiceTask), mutations.RemoveServiceTaskMutation.getFragment('servicetask').if(variables.showServiceTask), mutations.UpdateServiceTaskMutation.getFragment('servicetask').if(variables.showServiceTask), mutations.CreateScriptTaskMutation.getFragment('catalog').if(variables.showScriptTask), mutations.RemoveScriptTaskMutation.getFragment('catalog').if(variables.showScriptTask), mutations.UpdateScriptTaskMutation.getFragment('catalog').if(variables.showScriptTask), mutations.RemoveScriptTaskMutation.getFragment('scripttask').if(variables.showScriptTask), mutations.UpdateScriptTaskMutation.getFragment('scripttask').if(variables.showScriptTask), mutations.CreateProcessTokenMutation.getFragment('catalog').if(variables.showProcessToken), mutations.RemoveProcessTokenMutation.getFragment('catalog').if(variables.showProcessToken), mutations.UpdateProcessTokenMutation.getFragment('catalog').if(variables.showProcessToken), mutations.RemoveProcessTokenMutation.getFragment('processtoken').if(variables.showProcessToken), mutations.UpdateProcessTokenMutation.getFragment('processtoken').if(variables.showProcessToken), mutations.CreateProcessDefMutation.getFragment('catalog').if(variables.showProcessDef), mutations.RemoveProcessDefMutation.getFragment('catalog').if(variables.showProcessDef), mutations.UpdateProcessDefMutation.getFragment('catalog').if(variables.showProcessDef), mutations.RemoveProcessDefMutation.getFragment('processdef').if(variables.showProcessDef), mutations.UpdateProcessDefMutation.getFragment('processdef').if(variables.showProcessDef), mutations.CreateProcessMutation.getFragment('catalog').if(variables.showProcess), mutations.RemoveProcessMutation.getFragment('catalog').if(variables.showProcess), mutations.UpdateProcessMutation.getFragment('catalog').if(variables.showProcess), mutations.RemoveProcessMutation.getFragment('process').if(variables.showProcess), mutations.UpdateProcessMutation.getFragment('process').if(variables.showProcess), mutations.CreateParallelGatewayMutation.getFragment('catalog').if(variables.showParallelGateway), mutations.RemoveParallelGatewayMutation.getFragment('catalog').if(variables.showParallelGateway), mutations.UpdateParallelGatewayMutation.getFragment('catalog').if(variables.showParallelGateway), mutations.RemoveParallelGatewayMutation.getFragment('parallelgateway').if(variables.showParallelGateway), mutations.UpdateParallelGatewayMutation.getFragment('parallelgateway').if(variables.showParallelGateway), mutations.CreateNodeInstanceMutation.getFragment('catalog').if(variables.showNodeInstance), mutations.RemoveNodeInstanceMutation.getFragment('catalog').if(variables.showNodeInstance), mutations.UpdateNodeInstanceMutation.getFragment('catalog').if(variables.showNodeInstance), mutations.RemoveNodeInstanceMutation.getFragment('nodeinstance').if(variables.showNodeInstance), mutations.UpdateNodeInstanceMutation.getFragment('nodeinstance').if(variables.showNodeInstance), mutations.CreateNodeDefMutation.getFragment('catalog').if(variables.showNodeDef), mutations.RemoveNodeDefMutation.getFragment('catalog').if(variables.showNodeDef), mutations.UpdateNodeDefMutation.getFragment('catalog').if(variables.showNodeDef), mutations.RemoveNodeDefMutation.getFragment('nodedef').if(variables.showNodeDef), mutations.UpdateNodeDefMutation.getFragment('nodedef').if(variables.showNodeDef), mutations.CreateLaneMutation.getFragment('catalog').if(variables.showLane), mutations.RemoveLaneMutation.getFragment('catalog').if(variables.showLane), mutations.UpdateLaneMutation.getFragment('catalog').if(variables.showLane), mutations.RemoveLaneMutation.getFragment('lane').if(variables.showLane), mutations.UpdateLaneMutation.getFragment('lane').if(variables.showLane), mutations.CreateFlowDefMutation.getFragment('catalog').if(variables.showFlowDef), mutations.RemoveFlowDefMutation.getFragment('catalog').if(variables.showFlowDef), mutations.UpdateFlowDefMutation.getFragment('catalog').if(variables.showFlowDef), mutations.RemoveFlowDefMutation.getFragment('flowdef').if(variables.showFlowDef), mutations.UpdateFlowDefMutation.getFragment('flowdef').if(variables.showFlowDef), mutations.CreateExclusiveGatewayMutation.getFragment('catalog').if(variables.showExclusiveGateway), mutations.RemoveExclusiveGatewayMutation.getFragment('catalog').if(variables.showExclusiveGateway), mutations.UpdateExclusiveGatewayMutation.getFragment('catalog').if(variables.showExclusiveGateway), mutations.RemoveExclusiveGatewayMutation.getFragment('exclusivegateway').if(variables.showExclusiveGateway), mutations.UpdateExclusiveGatewayMutation.getFragment('exclusivegateway').if(variables.showExclusiveGateway), mutations.CreateEventMutation.getFragment('catalog').if(variables.showEvent), mutations.RemoveEventMutation.getFragment('catalog').if(variables.showEvent), mutations.UpdateEventMutation.getFragment('catalog').if(variables.showEvent), mutations.RemoveEventMutation.getFragment('event').if(variables.showEvent), mutations.UpdateEventMutation.getFragment('event').if(variables.showEvent), mutations.CreateEndEventMutation.getFragment('catalog').if(variables.showEndEvent), mutations.RemoveEndEventMutation.getFragment('catalog').if(variables.showEndEvent), mutations.UpdateEndEventMutation.getFragment('catalog').if(variables.showEndEvent), mutations.RemoveEndEventMutation.getFragment('endevent').if(variables.showEndEvent), mutations.UpdateEndEventMutation.getFragment('endevent').if(variables.showEndEvent), mutations.CreateBoundaryEventMutation.getFragment('catalog').if(variables.showBoundaryEvent), mutations.RemoveBoundaryEventMutation.getFragment('catalog').if(variables.showBoundaryEvent), mutations.UpdateBoundaryEventMutation.getFragment('catalog').if(variables.showBoundaryEvent), mutations.RemoveBoundaryEventMutation.getFragment('boundaryevent').if(variables.showBoundaryEvent), mutations.UpdateBoundaryEventMutation.getFragment('boundaryevent').if(variables.showBoundaryEvent));
+            }(mutations.CreateTimerMutation.getFragment('catalog').if(variables.showTimer), mutations.RemoveTimerMutation.getFragment('catalog').if(variables.showTimer), mutations.UpdateTimerMutation.getFragment('catalog').if(variables.showTimer), mutations.RemoveTimerMutation.getFragment('timer').if(variables.showTimer), mutations.UpdateTimerMutation.getFragment('timer').if(variables.showTimer), mutations.CreateUserMutation.getFragment('catalog').if(variables.showUser), mutations.RemoveUserMutation.getFragment('catalog').if(variables.showUser), mutations.UpdateUserMutation.getFragment('catalog').if(variables.showUser), mutations.RemoveUserMutation.getFragment('user').if(variables.showUser), mutations.UpdateUserMutation.getFragment('user').if(variables.showUser), mutations.CreateSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore), mutations.RemoveSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore), mutations.UpdateSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore), mutations.RemoveSessionStoreMutation.getFragment('sessionstore').if(variables.showSessionStore), mutations.UpdateSessionStoreMutation.getFragment('sessionstore').if(variables.showSessionStore), mutations.CreateUserTaskMutation.getFragment('catalog').if(variables.showUserTask), mutations.RemoveUserTaskMutation.getFragment('catalog').if(variables.showUserTask), mutations.UpdateUserTaskMutation.getFragment('catalog').if(variables.showUserTask), mutations.RemoveUserTaskMutation.getFragment('usertask').if(variables.showUserTask), mutations.UpdateUserTaskMutation.getFragment('usertask').if(variables.showUserTask), mutations.CreateSubprocessExternalMutation.getFragment('catalog').if(variables.showSubprocessExternal), mutations.RemoveSubprocessExternalMutation.getFragment('catalog').if(variables.showSubprocessExternal), mutations.UpdateSubprocessExternalMutation.getFragment('catalog').if(variables.showSubprocessExternal), mutations.RemoveSubprocessExternalMutation.getFragment('subprocessexternal').if(variables.showSubprocessExternal), mutations.UpdateSubprocessExternalMutation.getFragment('subprocessexternal').if(variables.showSubprocessExternal), mutations.CreateSubprocessInternalMutation.getFragment('catalog').if(variables.showSubprocessInternal), mutations.RemoveSubprocessInternalMutation.getFragment('catalog').if(variables.showSubprocessInternal), mutations.UpdateSubprocessInternalMutation.getFragment('catalog').if(variables.showSubprocessInternal), mutations.RemoveSubprocessInternalMutation.getFragment('subprocessinternal').if(variables.showSubprocessInternal), mutations.UpdateSubprocessInternalMutation.getFragment('subprocessinternal').if(variables.showSubprocessInternal), mutations.CreateStartEventMutation.getFragment('catalog').if(variables.showStartEvent), mutations.RemoveStartEventMutation.getFragment('catalog').if(variables.showStartEvent), mutations.UpdateStartEventMutation.getFragment('catalog').if(variables.showStartEvent), mutations.RemoveStartEventMutation.getFragment('startevent').if(variables.showStartEvent), mutations.UpdateStartEventMutation.getFragment('startevent').if(variables.showStartEvent), mutations.CreateCatchEventMutation.getFragment('catalog').if(variables.showCatchEvent), mutations.RemoveCatchEventMutation.getFragment('catalog').if(variables.showCatchEvent), mutations.UpdateCatchEventMutation.getFragment('catalog').if(variables.showCatchEvent), mutations.RemoveCatchEventMutation.getFragment('catchevent').if(variables.showCatchEvent), mutations.UpdateCatchEventMutation.getFragment('catchevent').if(variables.showCatchEvent), mutations.CreateThrowEventMutation.getFragment('catalog').if(variables.showThrowEvent), mutations.RemoveThrowEventMutation.getFragment('catalog').if(variables.showThrowEvent), mutations.UpdateThrowEventMutation.getFragment('catalog').if(variables.showThrowEvent), mutations.RemoveThrowEventMutation.getFragment('throwevent').if(variables.showThrowEvent), mutations.UpdateThrowEventMutation.getFragment('throwevent').if(variables.showThrowEvent), mutations.CreateServiceTaskMutation.getFragment('catalog').if(variables.showServiceTask), mutations.RemoveServiceTaskMutation.getFragment('catalog').if(variables.showServiceTask), mutations.UpdateServiceTaskMutation.getFragment('catalog').if(variables.showServiceTask), mutations.RemoveServiceTaskMutation.getFragment('servicetask').if(variables.showServiceTask), mutations.UpdateServiceTaskMutation.getFragment('servicetask').if(variables.showServiceTask), mutations.CreateScriptTaskMutation.getFragment('catalog').if(variables.showScriptTask), mutations.RemoveScriptTaskMutation.getFragment('catalog').if(variables.showScriptTask), mutations.UpdateScriptTaskMutation.getFragment('catalog').if(variables.showScriptTask), mutations.RemoveScriptTaskMutation.getFragment('scripttask').if(variables.showScriptTask), mutations.UpdateScriptTaskMutation.getFragment('scripttask').if(variables.showScriptTask), mutations.CreateProcessTokenMutation.getFragment('catalog').if(variables.showProcessToken), mutations.RemoveProcessTokenMutation.getFragment('catalog').if(variables.showProcessToken), mutations.UpdateProcessTokenMutation.getFragment('catalog').if(variables.showProcessToken), mutations.RemoveProcessTokenMutation.getFragment('processtoken').if(variables.showProcessToken), mutations.UpdateProcessTokenMutation.getFragment('processtoken').if(variables.showProcessToken), mutations.CreateProcessDefMutation.getFragment('catalog').if(variables.showProcessDef), mutations.RemoveProcessDefMutation.getFragment('catalog').if(variables.showProcessDef), mutations.UpdateProcessDefMutation.getFragment('catalog').if(variables.showProcessDef), mutations.RemoveProcessDefMutation.getFragment('processdef').if(variables.showProcessDef), mutations.UpdateProcessDefMutation.getFragment('processdef').if(variables.showProcessDef), mutations.CreateProcessMutation.getFragment('catalog').if(variables.showProcess), mutations.RemoveProcessMutation.getFragment('catalog').if(variables.showProcess), mutations.UpdateProcessMutation.getFragment('catalog').if(variables.showProcess), mutations.RemoveProcessMutation.getFragment('process').if(variables.showProcess), mutations.UpdateProcessMutation.getFragment('process').if(variables.showProcess), mutations.CreateParallelGatewayMutation.getFragment('catalog').if(variables.showParallelGateway), mutations.RemoveParallelGatewayMutation.getFragment('catalog').if(variables.showParallelGateway), mutations.UpdateParallelGatewayMutation.getFragment('catalog').if(variables.showParallelGateway), mutations.RemoveParallelGatewayMutation.getFragment('parallelgateway').if(variables.showParallelGateway), mutations.UpdateParallelGatewayMutation.getFragment('parallelgateway').if(variables.showParallelGateway), mutations.CreateNodeInstanceMutation.getFragment('catalog').if(variables.showNodeInstance), mutations.RemoveNodeInstanceMutation.getFragment('catalog').if(variables.showNodeInstance), mutations.UpdateNodeInstanceMutation.getFragment('catalog').if(variables.showNodeInstance), mutations.RemoveNodeInstanceMutation.getFragment('nodeinstance').if(variables.showNodeInstance), mutations.UpdateNodeInstanceMutation.getFragment('nodeinstance').if(variables.showNodeInstance), mutations.CreateNodeDefMutation.getFragment('catalog').if(variables.showNodeDef), mutations.RemoveNodeDefMutation.getFragment('catalog').if(variables.showNodeDef), mutations.UpdateNodeDefMutation.getFragment('catalog').if(variables.showNodeDef), mutations.RemoveNodeDefMutation.getFragment('nodedef').if(variables.showNodeDef), mutations.UpdateNodeDefMutation.getFragment('nodedef').if(variables.showNodeDef), mutations.CreateLaneMutation.getFragment('catalog').if(variables.showLane), mutations.RemoveLaneMutation.getFragment('catalog').if(variables.showLane), mutations.UpdateLaneMutation.getFragment('catalog').if(variables.showLane), mutations.RemoveLaneMutation.getFragment('lane').if(variables.showLane), mutations.UpdateLaneMutation.getFragment('lane').if(variables.showLane), mutations.CreateFlowDefMutation.getFragment('catalog').if(variables.showFlowDef), mutations.RemoveFlowDefMutation.getFragment('catalog').if(variables.showFlowDef), mutations.UpdateFlowDefMutation.getFragment('catalog').if(variables.showFlowDef), mutations.RemoveFlowDefMutation.getFragment('flowdef').if(variables.showFlowDef), mutations.UpdateFlowDefMutation.getFragment('flowdef').if(variables.showFlowDef), mutations.CreateExclusiveGatewayMutation.getFragment('catalog').if(variables.showExclusiveGateway), mutations.RemoveExclusiveGatewayMutation.getFragment('catalog').if(variables.showExclusiveGateway), mutations.UpdateExclusiveGatewayMutation.getFragment('catalog').if(variables.showExclusiveGateway), mutations.RemoveExclusiveGatewayMutation.getFragment('exclusivegateway').if(variables.showExclusiveGateway), mutations.UpdateExclusiveGatewayMutation.getFragment('exclusivegateway').if(variables.showExclusiveGateway), mutations.CreateEventMutation.getFragment('catalog').if(variables.showEvent), mutations.RemoveEventMutation.getFragment('catalog').if(variables.showEvent), mutations.UpdateEventMutation.getFragment('catalog').if(variables.showEvent), mutations.RemoveEventMutation.getFragment('event').if(variables.showEvent), mutations.UpdateEventMutation.getFragment('event').if(variables.showEvent), mutations.CreateEndEventMutation.getFragment('catalog').if(variables.showEndEvent), mutations.RemoveEndEventMutation.getFragment('catalog').if(variables.showEndEvent), mutations.UpdateEndEventMutation.getFragment('catalog').if(variables.showEndEvent), mutations.RemoveEndEventMutation.getFragment('endevent').if(variables.showEndEvent), mutations.UpdateEndEventMutation.getFragment('endevent').if(variables.showEndEvent), mutations.CreateBoundaryEventMutation.getFragment('catalog').if(variables.showBoundaryEvent), mutations.RemoveBoundaryEventMutation.getFragment('catalog').if(variables.showBoundaryEvent), mutations.UpdateBoundaryEventMutation.getFragment('catalog').if(variables.showBoundaryEvent), mutations.RemoveBoundaryEventMutation.getFragment('boundaryevent').if(variables.showBoundaryEvent), mutations.UpdateBoundaryEventMutation.getFragment('boundaryevent').if(variables.showBoundaryEvent));
             return query;
         }
     },
@@ -4734,21 +4580,6 @@ var CrudTableHelper = {
                         timerRule: row.timerRule,
                         eventName: row.eventName,
                         lastElapsed: row.lastElapsed,
-                        catalog: catalog
-                    });
-                    break;
-                }
-            case 'Reservation':
-                {
-
-                    mutation = new mutations.CreateReservationMutation({
-                        id: row.id,
-                        name: row.name,
-                        category: row.category,
-                        isOneWay: row.isOneWay,
-                        navigationSystem: row.navigationSystem,
-                        additionalDriver: row.additionalDriver,
-                        price: row.price,
                         catalog: catalog
                     });
                     break;
@@ -5190,16 +5021,6 @@ var CrudTableHelper = {
                     });
                     break;
                 }
-            case 'Reservation':
-                {
-
-                    mutation = new mutations.UpdateReservationMutation({
-                        catalog: catalog,
-                        reservation: entity,
-                        updatedReservation: updatedEntity
-                    });
-                    break;
-                }
             case 'User':
                 {
 
@@ -5436,11 +5257,6 @@ var CrudTableHelper = {
             case 'Timer':
                 {
                     mutation = new mutations.RemoveTimerMutation({ catalog: catalog, timer: entity });
-                    break;
-                }
-            case 'Reservation':
-                {
-                    mutation = new mutations.RemoveReservationMutation({ catalog: catalog, reservation: entity });
                     break;
                 }
             case 'User':

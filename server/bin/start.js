@@ -35,7 +35,6 @@ const frontendHttpIocModule = require('@process-engine-js/frontend_http/ioc_modu
 const frontendIocModule = require('@process-engine-js/frontend/ioc_module');
 const featureIocModule = require('@process-engine-js/feature/ioc_module');
 const routingIocModule = require('@process-engine-js/routing/ioc_module');
-const demoBackendIocModule = require('../src/backend/modules/demo-backend/ioc_module');
 const servicesIocModule = require('@process-engine-js/services/ioc_module');
 const securityServicesIocModule = require('@process-engine-js/security_service/ioc_module');
 const eventAggregatorIocModule = require('@process-engine-js/event_aggregator/ioc_module');
@@ -83,7 +82,6 @@ function start() {
   servicesIocModule.registerInContainer(container);
   securityServicesIocModule.registerInContainer(container);
   eventAggregatorIocModule.registerInContainer(container);
-  demoBackendIocModule.registerInContainer(container);
   timingIocModule.registerInContainer(container);
   pkiServiceIocModule.registerInContainer(container);
   validationServiceIocModule.registerInContainer(container);

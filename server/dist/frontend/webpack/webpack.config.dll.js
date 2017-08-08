@@ -15,11 +15,7 @@ module.exports = {
     'classnames', 'babel-polyfill', 'addict-ioc', 'material-ui', 'es6-promise', 'redux', 'react-router-redux', 'redux-async-connect', 'isomorphic-fetch', 'redux-api', 'react-tap-event-plugin',
     //'react-relay',
     'react-redux', 'react-router', 'react-router-bootstrap', 'react-bootstrap', 'react-helmet', 'react-grid-layout', 'jquery'],
-    ProcessEngineDLL: ['@process-engine-js/bootstrapper', '@process-engine-js/core', '@process-engine-js/core_contracts', '@process-engine-js/data_model', '@process-engine-js/data_model_contracts', '@process-engine-js/datasource_adapter_base', '@process-engine-js/datasource_adapter_localstorage', '@process-engine-js/datasource_adapter_proxy', '@process-engine-js/datastore', '@process-engine-js/datastore_messagebus', '@process-engine-js/event_aggregator', '@process-engine-js/feature',
-    //'@process-engine-js/frontend_mui',
-    '@process-engine-js/http', '@process-engine-js/iam_browser', '@process-engine-js/invocation', '@process-engine-js/invocation_contracts', '@process-engine-js/messagebus', '@process-engine-js/messagebus_adapter_local', '@process-engine-js/messagebus_adapter_faye_browser', '@process-engine-js/metadata', '@process-engine-js/process_engine', '@process-engine-js/process_engine_client_api',
-    //'@process-engine-js/process_engine_client_processable_react',
-    '@process-engine-js/process_repository_browser', '@process-engine-js/routing', '@process-engine-js/security_service', '@process-engine-js/timing']
+    ProcessEngineDLL: ['@process-engine-js/bootstrapper', '@process-engine-js/core', '@process-engine-js/iam_browser', '@process-engine-js/messagebus', '@process-engine-js/messagebus_adapter_faye_browser', '@process-engine-js/process_engine_client_api', '@process-engine-js/http']
   },
   resolve: {
     unsafeCache: true,

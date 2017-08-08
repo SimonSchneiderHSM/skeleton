@@ -1,9 +1,6 @@
 export { default as RemoveTimerMutation } from './RemoveTimerMutation';
 export { default as CreateTimerMutation } from './CreateTimerMutation';
 export { default as UpdateTimerMutation } from './UpdateTimerMutation';
-export { default as RemoveReservationMutation } from './RemoveReservationMutation';
-export { default as CreateReservationMutation } from './CreateReservationMutation';
-export { default as UpdateReservationMutation } from './UpdateReservationMutation';
 export { default as RemoveUserMutation } from './RemoveUserMutation';
 export { default as CreateUserMutation } from './CreateUserMutation';
 export { default as UpdateUserMutation } from './UpdateUserMutation';

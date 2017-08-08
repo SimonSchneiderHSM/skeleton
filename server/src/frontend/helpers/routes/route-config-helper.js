@@ -24,7 +24,7 @@ const routeSetup = {
       isIndexRoute: true,
       component: Home,
       prepareParams: null,
-      queries: relayQueries.CatalogQueries
+      queries: null
     },
    __PROCESS__DEFINITIONS__: {
       key: 1,

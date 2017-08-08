@@ -31,33 +31,6 @@ Object.defineProperty(exports, 'UpdateTimerMutation', {
   }
 });
 
-var _RemoveReservationMutation = require('./RemoveReservationMutation');
-
-Object.defineProperty(exports, 'RemoveReservationMutation', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_RemoveReservationMutation).default;
-  }
-});
-
-var _CreateReservationMutation = require('./CreateReservationMutation');
-
-Object.defineProperty(exports, 'CreateReservationMutation', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_CreateReservationMutation).default;
-  }
-});
-
-var _UpdateReservationMutation = require('./UpdateReservationMutation');
-
-Object.defineProperty(exports, 'UpdateReservationMutation', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_UpdateReservationMutation).default;
-  }
-});
-
 var _RemoveUserMutation = require('./RemoveUserMutation');
 
 Object.defineProperty(exports, 'RemoveUserMutation', {

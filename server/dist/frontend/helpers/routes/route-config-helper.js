@@ -6,11 +6,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _containers = require('../../containers');
 
-var _ProcessDefinitions = require('/Users/patrick/Entwicklung/processengine-js/process_engine_http/dist/commonjs/frontend/container/ProcessDefinitions/ProcessDefinitions.js');
+var _ProcessDefinitions = require('/Users/heiko/Desktop/Projekte/BPMN/process_engine_meta/skeleton/server/node_modules/@process-engine-js/process_engine_http/dist/commonjs/frontend/container/ProcessDefinitions/ProcessDefinitions.js');
 
 var _ProcessDefinitions2 = _interopRequireDefault(_ProcessDefinitions);
 
-var _ProcessDefinition = require('/Users/patrick/Entwicklung/processengine-js/process_engine_http/dist/commonjs/frontend/container/ProcessDefinition/ProcessDefinition.js');
+var _ProcessDefinition = require('/Users/heiko/Desktop/Projekte/BPMN/process_engine_meta/skeleton/server/node_modules/@process-engine-js/process_engine_http/dist/commonjs/frontend/container/ProcessDefinition/ProcessDefinition.js');
 
 var _ProcessDefinition2 = _interopRequireDefault(_ProcessDefinition);
 
@@ -29,7 +29,7 @@ var routeSetup = {
       isIndexRoute: true,
       component: _containers.Home,
       prepareParams: null,
-      queries: relayQueries.CatalogQueries
+      queries: null
     },
     __PROCESS__DEFINITIONS__: {
       key: 1,

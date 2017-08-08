@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://www.npmjs.com"
   },
-  "version": "1.0.27",
+  "version": "0.1.0",
   "description": "demonstration project for showcasing the process engine",
   "license": "MIT",
   "main": "dist/commonjs/index.js",
@@ -23,28 +23,20 @@
     "start-no-webpack-slave": "better-npm-run start-no-webpack-slave",
     "start-no-webpack-raspberry": "better-npm-run start-no-webpack-raspberry",
     "start-no-webpack-no-debug": "better-npm-run start-no-webpack-no-debug",
-    "watch": "concurrently --kill-others \"better-npm-run watch-backend\" \"better-npm-run watch-frontend\"",
-    "build": "gulp prepare-config-bundle && better-npm-run build-frontend && better-npm-run build-backend && npm run build-bundle",
+    "watch": "concurrently --kill-others \"better-npm-run watch-frontend\"",
+    "build": "better-npm-run build-frontend && npm run build-bundle",
     "start-webpack-build": "concurrently --kill-others \"better-npm-run start-webpack-build\"",
     "start-webpack-watch": "concurrently --kill-others \"better-npm-run start-webpack-watch\"",
     "start-webpack-build-dll": "concurrently --kill-others \"better-npm-run start-webpack-build-dll\"",
     "start-webpack-watch-dll": "concurrently --kill-others \"better-npm-run start-webpack-watch-dll\"",
     "watch-frontend": "better-npm-run watch-frontend",
     "build-frontend": "better-npm-run build-frontend",
-    "watch-backend": "better-npm-run watch-backend",
-    "build-backend": "better-npm-run build-backend",
     "build-bundle": "better-npm-run start-webpack-build-dll && better-npm-run start-webpack-build",
     "build-client-config": "gulp prepare-config-bundle"
   },
   "betterScripts": {
-    "watch-backend": {
-      "command": "gulp watch --gulpfile ./src/backend/modules/demo-backend/gulpfile.js --cwd ./src/backend/modules/demo-backend"
-    },
     "watch-frontend": {
       "command": "grunt watch"
-    },
-    "build-backend": {
-      "command": "gulp build --gulpfile ./src/backend/modules/demo-backend/gulpfile.js --cwd ./src/backend/modules/demo-backend"
     },
     "build-frontend": {
       "command": "grunt"
@@ -133,7 +125,7 @@
     "@process-engine-js/messagebus_http": "^1.0.8",
     "@process-engine-js/metadata": "^1.0.8",
     "@process-engine-js/pki_service": "^1.0.1",
-    "@process-engine-js/process_engine": "^1.0.52",
+    "@process-engine-js/process_engine": "^2.0.1",
     "@process-engine-js/process_engine_client_api": "^1.0.10",
     "@process-engine-js/process_engine_client_processable_react": "^1.0.11",
     "@process-engine-js/process_engine_http": "^1.0.12",

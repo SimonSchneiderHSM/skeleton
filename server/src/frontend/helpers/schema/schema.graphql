@@ -46,7 +46,6 @@ type Catalog implements Node {
   schema: Schema
   EntityConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): EntityConnection
   TimerConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): TimerConnection
-  ReservationConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): ReservationConnection
   UserConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): UserConnection
   SessionStoreConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): SessionStoreConnection
   UserTaskConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): UserTaskConnection
@@ -385,22 +384,6 @@ input CreateProcessTokenInput {
 
 type CreateProcessTokenPayload {
   entityEdge: ProcessTokenEdge
-  catalog: Catalog
-  clientMutationId: String
-}
-
-input CreateReservationInput {
-  name: String
-  category: String
-  isOneWay: Boolean
-  navigationSystem: Boolean
-  additionalDriver: Boolean
-  price: Float
-  clientMutationId: String
-}
-
-type CreateReservationPayload {
-  entityEdge: ReservationEdge
   catalog: Catalog
   clientMutationId: String
 }
@@ -810,9 +793,6 @@ type Mutation {
   createTimer(input: CreateTimerInput!): CreateTimerPayload
   updateTimer(input: UpdateTimerInput!): UpdateTimerPayload
   removeTimer(input: RemoveTimerInput!): RemoveTimerPayload
-  createReservation(input: CreateReservationInput!): CreateReservationPayload
-  updateReservation(input: UpdateReservationInput!): UpdateReservationPayload
-  removeReservation(input: RemoveReservationInput!): RemoveReservationPayload
   createUser(input: CreateUserInput!): CreateUserPayload
   updateUser(input: UpdateUserInput!): UpdateUserPayload
   removeUser(input: RemoveUserInput!): RemoveUserPayload
@@ -1333,17 +1313,6 @@ type RemoveProcessTokenPayload {
   clientMutationId: String
 }
 
-input RemoveReservationInput {
-  id: ID!
-  clientMutationId: String
-}
-
-type RemoveReservationPayload {
-  deletedId: ID
-  catalog: Catalog
-  clientMutationId: String
-}
-
 input RemoveScriptTaskInput {
   id: ID!
   clientMutationId: String
@@ -1452,35 +1421,6 @@ type RemoveUserTaskPayload {
   deletedId: ID
   catalog: Catalog
   clientMutationId: String
-}
-
-type Reservation {
-  id: ID!
-  name: String
-  category: String
-  isOneWay: Boolean
-  navigationSystem: Boolean
-  additionalDriver: Boolean
-  price: Float
-}
-
-# A connection to a list of items.
-type ReservationConnection {
-  # Information to aid in pagination.
-  pageInfo: PageInfo!
-
-  # A list of edges.
-  edges: [ReservationEdge]
-  totalCount: Int
-}
-
-# An edge in a connection.
-type ReservationEdge {
-  # The item at the end of the edge
-  node: Reservation
-
-  # A cursor for use in pagination
-  cursor: String!
 }
 
 type Schema implements Node {
@@ -2014,23 +1954,6 @@ input UpdateProcessTokenInput {
 
 type UpdateProcessTokenPayload {
   entity: ProcessToken
-  catalog: Catalog
-  clientMutationId: String
-}
-
-input UpdateReservationInput {
-  id: ID!
-  name: String
-  category: String
-  isOneWay: Boolean
-  navigationSystem: Boolean
-  additionalDriver: Boolean
-  price: Float
-  clientMutationId: String
-}
-
-type UpdateReservationPayload {
-  entity: Reservation
   catalog: Catalog
   clientMutationId: String
 }

@@ -27,26 +27,12 @@ require('es6-promise').polyfill();
 
 class MainApp {
 
-  constructor(datastoreService, iamService, processEngineClientApi) {
-    this._iamService = iamService;
-    this._datastoreService = datastoreService;
-    this._processEngineClientApi = processEngineClientApi;
+  constructor(processEngineClientApi) {
+    this._processEngineClientApi = processEngineClientApi; 
   }
 
-  get model() {
-    return this._model;
-  }
-
-  get datastoreService() {
-    return this._datastoreService;
-  }
-
-  get iamService() {
-    return this._iamService;
-  }
-
-  get processEngineClientApi() {
-    return this._processEngineClientApi;
+  get processEngineClientApi() { 
+    return this._processEngineClientApi; 
   }
 
   initialize() {
@@ -83,9 +69,8 @@ class MainApp {
       })
     );
 
-    const providedRoutes = routesProvider(this._store, clientRouteConfig, {
+    const providedRoutes = routesProvider(this._store, clientRouteConfig, { 
       processEngineClientApi: this.processEngineClientApi,
-      iamService: this.iamService
     });
 
     this._component = (

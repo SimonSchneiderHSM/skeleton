@@ -71,11 +71,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 require('es6-promise').polyfill();
 
 var MainApp = function () {
-  function MainApp(datastoreService, iamService, processEngineClientApi) {
+  function MainApp(processEngineClientApi) {
     (0, _classCallCheck3.default)(this, MainApp);
 
-    this._iamService = iamService;
-    this._datastoreService = datastoreService;
     this._processEngineClientApi = processEngineClientApi;
   }
 
@@ -119,8 +117,7 @@ var MainApp = function () {
       }));
 
       var providedRoutes = (0, _clientHelper.routesProvider)(this._store, _routeConfigHelper2.default, {
-        processEngineClientApi: this.processEngineClientApi,
-        iamService: this.iamService
+        processEngineClientApi: this.processEngineClientApi
       });
 
       this._component = _react2.default.createElement(
@@ -154,21 +151,6 @@ var MainApp = function () {
           this._component
         ), this._dest);
       }
-    }
-  }, {
-    key: 'model',
-    get: function get() {
-      return this._model;
-    }
-  }, {
-    key: 'datastoreService',
-    get: function get() {
-      return this._datastoreService;
-    }
-  }, {
-    key: 'iamService',
-    get: function get() {
-      return this._iamService;
     }
   }, {
     key: 'processEngineClientApi',

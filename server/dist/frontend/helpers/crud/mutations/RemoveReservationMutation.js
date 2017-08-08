@@ -42,183 +42,14 @@ var RemoveReservationMutation = (_temp = _class = function (_Relay$Mutation) {
         key: 'getMutation',
         value: function getMutation() {
             return function () {
-                return {
-                    calls: [{
-                        kind: 'Call',
-                        metadata: {},
-                        name: 'removeReservation',
-                        value: {
-                            kind: 'CallVariable',
-                            callVariableName: 'input'
-                        }
-                    }],
-                    children: [{
-                        fieldName: 'clientMutationId',
-                        kind: 'Field',
-                        metadata: {
-                            isGenerated: true,
-                            isRequisite: true
-                        },
-                        type: 'String'
-                    }],
-                    kind: 'Mutation',
-                    metadata: {
-                        inputType: 'RemoveReservationInput!'
-                    },
-                    name: 'RemoveReservationMutation',
-                    responseType: 'RemoveReservationPayload'
-                };
+                throw new Error('GraphQL validation error ``Cannot query field "removeReservation" on type "Mutation". Did you mean "removeUserTask", "removeUser", or "removeSessionStore"?`` in file `src/frontend/helpers/crud/mutations/RemoveReservationMutation.js`. Try updating your GraphQL schema if an argument/field/type was recently added.');
             }();
         }
     }, {
         key: 'getFatQuery',
         value: function getFatQuery() {
             return function () {
-                return {
-                    children: [{
-                        children: [{
-                            fieldName: 'id',
-                            kind: 'Field',
-                            metadata: {
-                                isRequisite: true
-                            },
-                            type: 'ID'
-                        }, {
-                            calls: [{
-                                kind: 'Call',
-                                metadata: {
-                                    type: 'Int'
-                                },
-                                name: 'first',
-                                value: {
-                                    kind: 'CallValue',
-                                    callValue: 0
-                                }
-                            }],
-                            children: [{
-                                children: [{
-                                    children: [{
-                                        fieldName: 'id',
-                                        kind: 'Field',
-                                        metadata: {
-                                            isRequisite: true
-                                        },
-                                        type: 'ID'
-                                    }, {
-                                        fieldName: 'name',
-                                        kind: 'Field',
-                                        metadata: {},
-                                        type: 'String'
-                                    }, {
-                                        fieldName: 'category',
-                                        kind: 'Field',
-                                        metadata: {},
-                                        type: 'String'
-                                    }, {
-                                        fieldName: 'isOneWay',
-                                        kind: 'Field',
-                                        metadata: {},
-                                        type: 'Boolean'
-                                    }, {
-                                        fieldName: 'navigationSystem',
-                                        kind: 'Field',
-                                        metadata: {},
-                                        type: 'Boolean'
-                                    }, {
-                                        fieldName: 'additionalDriver',
-                                        kind: 'Field',
-                                        metadata: {},
-                                        type: 'Boolean'
-                                    }, {
-                                        fieldName: 'price',
-                                        kind: 'Field',
-                                        metadata: {},
-                                        type: 'Float'
-                                    }],
-                                    fieldName: 'node',
-                                    kind: 'Field',
-                                    metadata: {
-                                        canHaveSubselections: true,
-                                        isRequisite: true
-                                    },
-                                    type: 'Reservation'
-                                }, {
-                                    fieldName: 'cursor',
-                                    kind: 'Field',
-                                    metadata: {
-                                        isGenerated: true,
-                                        isRequisite: true
-                                    },
-                                    type: 'String'
-                                }],
-                                fieldName: 'edges',
-                                kind: 'Field',
-                                metadata: {
-                                    canHaveSubselections: true,
-                                    isPlural: true
-                                },
-                                type: 'ReservationEdge'
-                            }, {
-                                fieldName: 'totalCount',
-                                kind: 'Field',
-                                metadata: {},
-                                type: 'Int'
-                            }, {
-                                children: [{
-                                    fieldName: 'hasNextPage',
-                                    kind: 'Field',
-                                    metadata: {
-                                        isGenerated: true,
-                                        isRequisite: true
-                                    },
-                                    type: 'Boolean'
-                                }, {
-                                    fieldName: 'hasPreviousPage',
-                                    kind: 'Field',
-                                    metadata: {
-                                        isGenerated: true,
-                                        isRequisite: true
-                                    },
-                                    type: 'Boolean'
-                                }],
-                                fieldName: 'pageInfo',
-                                kind: 'Field',
-                                metadata: {
-                                    canHaveSubselections: true,
-                                    isGenerated: true,
-                                    isRequisite: true
-                                },
-                                type: 'PageInfo'
-                            }],
-                            fieldName: 'ReservationConnection',
-                            kind: 'Field',
-                            metadata: {
-                                canHaveSubselections: true,
-                                isConnection: true,
-                                isFindable: true
-                            },
-                            type: 'ReservationConnection'
-                        }],
-                        fieldName: 'catalog',
-                        kind: 'Field',
-                        metadata: {
-                            canHaveSubselections: true,
-                            inferredRootCallName: 'node',
-                            inferredPrimaryKey: 'id'
-                        },
-                        type: 'Catalog'
-                    }, {
-                        fieldName: 'deletedId',
-                        kind: 'Field',
-                        metadata: {},
-                        type: 'ID'
-                    }],
-                    id: _reactRelay2.default.QL.__id(),
-                    kind: 'Fragment',
-                    metadata: {},
-                    name: 'RemoveReservationMutation_ValueRelayQL',
-                    type: 'RemoveReservationPayload'
-                };
+                throw new Error('GraphQL validation error ``Unknown type "RemoveReservationPayload". Did you mean "RemoveUserTaskPayload", "RemoveUserPayload", "RemoveTimerPayload", "RemoveSessionStorePayload", or "RemoveEventPayload"?`` in file `src/frontend/helpers/crud/mutations/RemoveReservationMutation.js`. Try updating your GraphQL schema if an argument/field/type was recently added.');
             }();
         }
     }, {
@@ -263,56 +94,13 @@ var RemoveReservationMutation = (_temp = _class = function (_Relay$Mutation) {
 }(_reactRelay2.default.Mutation), _class.fragments = {
     catalog: function catalog() {
         return function () {
-            return {
-                children: [{
-                    fieldName: 'id',
-                    kind: 'Field',
-                    metadata: {
-                        isRequisite: true
-                    },
-                    type: 'ID'
-                }, {
-                    children: [{
-                        fieldName: 'totalCount',
-                        kind: 'Field',
-                        metadata: {},
-                        type: 'Int'
-                    }],
-                    fieldName: 'ReservationConnection',
-                    kind: 'Field',
-                    metadata: {
-                        canHaveSubselections: true,
-                        isConnection: true,
-                        isFindable: true
-                    },
-                    type: 'ReservationConnection'
-                }],
-                id: _reactRelay2.default.QL.__id(),
-                kind: 'Fragment',
-                metadata: {},
-                name: 'RemoveReservationMutation_CatalogRelayQL',
-                type: 'Catalog'
-            };
+            throw new Error('GraphQL validation error ``Cannot query field "ReservationConnection" on type "Catalog". Did you mean "UserTaskConnection", "UserConnection", "EntityConnection", "SessionStoreConnection", or "TimerConnection"?`` in file `src/frontend/helpers/crud/mutations/RemoveReservationMutation.js`. Try updating your GraphQL schema if an argument/field/type was recently added.');
         }();
     },
 
     reservation: function reservation() {
         return function () {
-            return {
-                children: [{
-                    fieldName: 'id',
-                    kind: 'Field',
-                    metadata: {
-                        isRequisite: true
-                    },
-                    type: 'ID'
-                }],
-                id: _reactRelay2.default.QL.__id(),
-                kind: 'Fragment',
-                metadata: {},
-                name: 'RemoveReservationMutation_ReservationRelayQL',
-                type: 'Reservation'
-            };
+            throw new Error('GraphQL validation error ``Unknown type "Reservation".`` in file `src/frontend/helpers/crud/mutations/RemoveReservationMutation.js`. Try updating your GraphQL schema if an argument/field/type was recently added.');
         }();
     }
 }, _temp);

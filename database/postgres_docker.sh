@@ -2,7 +2,8 @@ COMMAND=$1
 
 DB_USER_NAME=admin
 DB_USER_PASSWORD=admin
-DB_NAME=isolutions_demo
+DB_NAME=processengine
+DB_PORT=5432
 
 DB_CONTAINER_NAME=process_engine_postrgres_container
 VOLUME_CONTAINER_NAME=process_engine_postrgres_volume_container
@@ -26,6 +27,7 @@ create_db_container() {
     --env POSTGRES_USER=$DB_USER_NAME \
     --env POSTGRES_PASSWORD=$DB_USER_PASSWORD \
     --env POSTGRES_DB=$DB_NAME \
+    --publish $DB_PORT:5432 \
     --name $DB_CONTAINER_NAME \
     --volumes-from=${VOLUME_CONTAINER_NAME} \
     postgres > $LOG_PATH

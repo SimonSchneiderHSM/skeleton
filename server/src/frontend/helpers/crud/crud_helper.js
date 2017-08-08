@@ -8,7 +8,6 @@ import * as mutations from './mutations/index';
 const CrudTableHelper = {
     initialVariables: () => ({
         showTimer: false,
-        showReservation: false,
         showUser: false,
         showSessionStore: false,
         showUserTask: false,
@@ -35,7 +34,6 @@ const CrudTableHelper = {
     preparedVariables: (className) => ({
         className,
         showTimer: (className === 'Timer'),
-        showReservation: (className === 'Reservation'),
         showUser: (className === 'User'),
         showSessionStore: (className === 'SessionStore'),
         showUserTask: (className === 'UserTask'),
@@ -78,25 +76,6 @@ const CrudTableHelper = {
                                 lastElapsed,
                                 ${mutations.RemoveTimerMutation.getFragment('timer').if(variables.showTimer)},
                                 ${mutations.UpdateTimerMutation.getFragment('timer').if(variables.showTimer)}
-                            }
-                        }
-                    },
-                    ${mutations.CreateReservationMutation.getFragment('catalog').if(variables.showReservation)},
-                    ${mutations.RemoveReservationMutation.getFragment('catalog').if(variables.showReservation)},
-                    ${mutations.UpdateReservationMutation.getFragment('catalog').if(variables.showReservation)},
-                    ReservationConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showReservation) {
-                        totalCount,
-                        edges {
-                            node {
-                                id,
-                                name,
-                                category,
-                                isOneWay,
-                                navigationSystem,
-                                additionalDriver,
-                                price,
-                                ${mutations.RemoveReservationMutation.getFragment('reservation').if(variables.showReservation)},
-                                ${mutations.UpdateReservationMutation.getFragment('reservation').if(variables.showReservation)}
                             }
                         }
                     },
@@ -617,20 +596,6 @@ const CrudTableHelper = {
                 });
                 break;
             }
-            case 'Reservation': {
-
-                mutation = new mutations.CreateReservationMutation({
-                    id: row.id,
-                    name: row.name,
-                    category: row.category,
-                    isOneWay: row.isOneWay,
-                    navigationSystem: row.navigationSystem,
-                    additionalDriver: row.additionalDriver,
-                    price: row.price,
-                    catalog
-                });
-                break;
-            }
             case 'User': {
 
                 mutation = new mutations.CreateUserMutation({
@@ -1047,15 +1012,6 @@ const CrudTableHelper = {
                 });
                 break;
             }
-            case 'Reservation': {
-
-                mutation = new mutations.UpdateReservationMutation({
-                    catalog,
-                    reservation: entity,
-                    updatedReservation: updatedEntity
-                });
-                break;
-            }
             case 'User': {
 
                 mutation = new mutations.UpdateUserMutation({
@@ -1270,10 +1226,6 @@ const CrudTableHelper = {
         switch (className) {
             case 'Timer': {
                 mutation = new mutations.RemoveTimerMutation({ catalog, timer: entity });
-                break;
-            }
-            case 'Reservation': {
-                mutation = new mutations.RemoveReservationMutation({ catalog, reservation: entity });
                 break;
             }
             case 'User': {

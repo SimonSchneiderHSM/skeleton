@@ -108,10 +108,7 @@ function _wrapComponent(id) {
 var iamActions = _rest_redux2.default.actions;
 
 var App = _wrapComponent('App')((_dec = (0, _reactRedux.connect)(function (state) {
-  return {
-    login: state.login,
-    getIdentity: state.getIdentity
-  };
+  return {};
 }, function (dispatch) {
   return {};
 }), _dec(_class = (_temp = _class2 = function (_Component) {
@@ -134,21 +131,9 @@ var App = _wrapComponent('App')((_dec = (0, _reactRedux.connect)(function (state
     var loggedInAs = 'Guest';
     var loggedInId = 'guest';
 
-    if (_this.isLoggedIn()) {
-      var viewer = props.viewer;
-
-
-      if (viewer && viewer.identity && viewer.identity.name) {
-        loggedInAs = viewer.identity.name;
-        loggedInId = viewer.identity.id;
-      }
-    }
-
     _this.state = {
       authObj: null,
       activeMenuId: null,
-      username: 'John',
-      password: 'Doe',
       loggedInAs: loggedInAs,
       loggedInId: loggedInId
     };
@@ -156,30 +141,6 @@ var App = _wrapComponent('App')((_dec = (0, _reactRedux.connect)(function (state
   }
 
   (0, _createClass3.default)(App, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      if (this.props.route.injectables && this.props.route.injectables.iamService) {
-        var iamService = this.props.route.injectables.iamService;
-        iamService.createAuthObject().then(function (authObj) {
-          _this2.setState({
-            authObj: authObj,
-            loggedInAs: authObj.identity.name,
-            loggedInId: authObj.identity.id
-          });
-        });
-      }
-    }
-  }, {
-    key: 'isLoggedIn',
-    value: function isLoggedIn() {
-      var viewer = this.props.viewer;
-
-
-      return viewer && viewer.identity && viewer.identity.id && viewer.identity.id !== 'guest';
-    }
-  }, {
     key: 'handleMenuClick',
     value: function handleMenuClick(menuId) {
       if (this.state.activeMenuId === menuId) {
@@ -193,170 +154,17 @@ var App = _wrapComponent('App')((_dec = (0, _reactRedux.connect)(function (state
       }
     }
   }, {
-    key: 'handleLogin',
-    value: function handleLogin(e) {
-      var _this3 = this;
-
-      var username = this.refs.username.getCurrentValue();
-      var password = this.refs.password.getCurrentValue();
-      this.context.store.dispatch(iamActions.login.sync(null, {
-        body: JSON.stringify({
-          username: username,
-          password: password
-        })
-      }, function (err, loginData) {
-        if (err) throw err;
-        var authObj = loginData;
-        _this3.setState({
-          authObj: authObj,
-          loggedInAs: authObj.identity.name,
-          loggedInId: authObj.identity.id
-        }, _this3.props.relay.forceFetch);
-      }));
-    }
-  }, {
-    key: 'handleLogout',
-    value: function handleLogout(e) {
-      var _this4 = this;
-
-      this.context.store.dispatch(iamActions.logout.sync(null, null, function (err, data) {
-        if (err) throw err;
-        if (data.result) {
-          _this4.context.store.dispatch(iamActions.login.reset());
-          _this4.context.store.dispatch(iamActions.getIdentity.reset());
-          _this4.context.store.dispatch(iamActions.logout.reset());
-          _this4.setState({
-            authObj: null
-          }, _this4.props.relay.forceFetch);
-        }
-      }));
-    }
-  }, {
-    key: 'handleChangePassword',
-    value: function handleChangePassword(newValue) {
-      this.setState({
-        password: newValue
-      });
-    }
-  }, {
-    key: 'handleChangeUsername',
-    value: function handleChangeUsername(newValue) {
-      this.setState({
-        username: newValue
-      });
-    }
-  }, {
-    key: 'getExecutionContext',
-    value: function getExecutionContext() {
-      var executionContext = null;
-      if (this.props.route.injectables && this.props.route.injectables.iamService && this.state.authObj) {
-        var iamService = this.props.route.injectables.iamService;
-        executionContext = iamService.createContextFromAuthObject(this.state.authObj);
-      }
-
-      return executionContext;
-    }
-  }, {
     key: 'render',
     value: function render() {
-      var _this5 = this;
+      var _this2 = this;
 
       var styles = require('./App.scss');
       var helmetHead = this.props.helmetHead;
-
-      var isLoggedIn = this.isLoggedIn();
-
-      var loginForm = _react3.default.createElement(
-        'div',
-        null,
-        _react3.default.createElement(
-          'span',
-          null,
-          'Viewing as: ',
-          this.state.loggedInAs,
-          ' '
-        ),
-        _react3.default.createElement(_RaisedButton2.default, { theme: (0, _themeProvider.applyTheme)('Header'),
-          muiProps: {
-            label: 'Logout'
-          },
-          qflProps: {
-            onClick: function onClick(e) {
-              _this5.handleLogout(e);
-            },
-            style: {
-              display: 'inline-block',
-              marginTop: '8px'
-            }
-          }
-        })
-      );
-
-      if (!isLoggedIn) {
-        loginForm = _react3.default.createElement(
-          'div',
-          null,
-          _react3.default.createElement(_TextField2.default, { ref: 'username',
-            theme: (0, _themeProvider.applyTheme)('Header'),
-            muiProps: {
-              tabIndex: 1,
-              floatingLabelText: 'Benutzer'
-            },
-            value: this.state.username,
-            onChange: function onChange(newValue) {
-              return _this5.handleChangeUsername(newValue);
-            },
-            qflProps: {
-              style: {
-                display: 'inline-block',
-                marginRight: '10px'
-              }
-            }
-          }),
-          _react3.default.createElement(_TextField2.default, { ref: 'password',
-            theme: (0, _themeProvider.applyTheme)('Header'),
-            muiProps: {
-              tabIndex: 2,
-              floatingLabelText: 'Password',
-              type: 'password'
-            },
-            value: this.state.password,
-            onChange: function onChange(newValue) {
-              return _this5.handleChangePassword(newValue);
-            },
-            qflProps: {
-              style: {
-                display: 'inline-block',
-                marginRight: '10px'
-              }
-            }
-          }),
-          _react3.default.createElement(_RaisedButton2.default, { theme: (0, _themeProvider.applyTheme)('Header'),
-            muiProps: {
-              label: 'Login'
-            },
-            qflProps: {
-              onClick: function onClick(e) {
-                _this5.handleLogin(e);
-              },
-              style: {
-                display: 'inline-block',
-                position: 'relative',
-                bottom: '6px'
-              }
-            }
-          })
-        );
-      }
-
       var childrenWithProps = _react3.default.Children.map(this.props.children, function (child) {
-        var newProps = {
-          loggedIn: isLoggedIn,
-          executionContext: _this5.getExecutionContext()
-        };
+        var newProps = {};
         if (child.props.routerProps && child.props.routerProps.route && child.props.routerProps.route.name === 'processdefinitions') {
           newProps.onRowDoubleClick = function (row) {
-            _this5.context.router.push('/app/process/definition/' + row.id);
+            _this2.context.router.push('/app/process/definition/' + row.id);
           };
         }
         return _react3.default.cloneElement(child, newProps);
@@ -402,17 +210,12 @@ var App = _wrapComponent('App')((_dec = (0, _reactRedux.connect)(function (state
                   )
                 )
               )
-            ),
-            _react3.default.createElement(
-              _Nav2.default,
-              { navbar: true, pullRight: true },
-              loginForm
             )
           )
         ),
         _react3.default.createElement(
           'div',
-          { key: this.state.loggedInId, className: styles.appContent },
+          { className: styles.appContent },
           childrenWithProps
         )
       );
@@ -423,7 +226,6 @@ var App = _wrapComponent('App')((_dec = (0, _reactRedux.connect)(function (state
   children: _react2.PropTypes.object,
   helmetHead: _react2.PropTypes.object,
   viewer: _react2.PropTypes.object,
-  login: _react2.PropTypes.object,
   getIdentity: _react2.PropTypes.object
 }, _class2.contextTypes = {
   store: _react2.PropTypes.object.isRequired,
