@@ -3,7 +3,8 @@ COMMAND=$1
 DB_USER_NAME=admin
 DB_USER_PASSWORD=admin
 DB_NAME=isolutions_demo
-DOCKER_CONTAINER_NAME=process_engine_postrgres_container
+
+DB_CONTAINER_NAME=process_engine_postrgres_container
 VOLUME_CONTAINER_NAME=process_engine_postrgres_volume_container
 
 LOG_PATH=/dev/null
@@ -25,7 +26,7 @@ create_db_container() {
     --env POSTGRES_USER=$DB_USER_NAME \
     --env POSTGRES_PASSWORD=$DB_USER_PASSWORD \
     --env POSTGRES_DB=$DB_NAME \
-    --name $DOCKER_CONTAINER_NAME \
+    --name $DB_CONTAINER_NAME \
     --volumes-from=${VOLUME_CONTAINER_NAME} \
     postgres > $LOG_PATH
 }
@@ -35,11 +36,11 @@ existing_volume_container_id() {
 }
 
 existing_db_container_id() {
-  echo $(docker ps --all --quiet --filter name=$DOCKER_CONTAINER_NAME)
+  echo $(docker ps --all --quiet --filter name=$DB_CONTAINER_NAME)
 }
 
 running_db_container_id() {
-  echo $(docker ps --quiet --filter name=$DOCKER_CONTAINER_NAME)
+  echo $(docker ps --quiet --filter name=$DB_CONTAINER_NAME)
 }
 
 start() {
@@ -52,7 +53,7 @@ start() {
     if [[ $(existing_db_container_id) != "" ]]
     then
       echo "starting DB-Container"
-      docker start $DOCKER_CONTAINER_NAME > $LOG_PATH
+      docker start $DB_CONTAINER_NAME > $LOG_PATH
     else
       echo "creating DB-Container"
       create_db_container
@@ -66,7 +67,7 @@ stop() {
     echo "DB-Container is already stopped"
   else
     echo "stopping DB-Container"
-    docker stop $DOCKER_CONTAINER_NAME > $LOG_PATH
+    docker stop $DB_CONTAINER_NAME > $LOG_PATH
   fi
 }
 
@@ -77,7 +78,7 @@ clear() {
   if [[ $(existing_db_container_id) != "" ]]
   then
     echo "removing DB-Container"
-    docker rm $DOCKER_CONTAINER_NAME > $LOG_PATH
+    docker rm $DB_CONTAINER_NAME > $LOG_PATH
   else
     echo "DB-Container already removed"
   fi
