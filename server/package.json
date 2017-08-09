@@ -14,76 +14,24 @@
     "Simon Reymann <simon.reymann@quantusflow.com>"
   ],
   "scripts": {
-    "start-no-debug": "NODE_ENV=development CONFIG_FILE=config node bin/start.js",
     "start": "better-npm-run start-no-webpack",
-    "start-dev": "NODE_ENV=development DEBUG=*,-babel,-faye,-postgres CONFIG_FILE=config node --expose-debug-as=v8debug $NODE_DEBUG_OPTION bin/start.js",
-    "start-dev-slave": "NODE_ENV=development_slave DEBUG=*,-babel,-faye CONFIG_FILE=config node --expose-debug-as=v8debug $NODE_DEBUG_OPTION bin/start.js",
-    "start-dev-raspberry": "NODE_ENV=development_raspberry DEBUG=*,-babel,-faye CONFIG_FILE=config node --expose-debug-as=v8debug $NODE_DEBUG_OPTION bin/start.js",
-    "start-no-webpack": "better-npm-run start-no-webpack",
-    "start-no-webpack-slave": "better-npm-run start-no-webpack-slave",
-    "start-no-webpack-raspberry": "better-npm-run start-no-webpack-raspberry",
-    "start-no-webpack-no-debug": "better-npm-run start-no-webpack-no-debug",
-    "watch": "concurrently --kill-others \"better-npm-run watch-frontend\"",
-    "build": "better-npm-run build-frontend && npm run build-bundle",
-    "start-webpack-build": "concurrently --kill-others \"better-npm-run start-webpack-build\"",
-    "start-webpack-watch": "concurrently --kill-others \"better-npm-run start-webpack-watch\"",
-    "start-webpack-build-dll": "concurrently --kill-others \"better-npm-run start-webpack-build-dll\"",
-    "start-webpack-watch-dll": "concurrently --kill-others \"better-npm-run start-webpack-watch-dll\"",
-    "watch-frontend": "better-npm-run watch-frontend",
-    "build-frontend": "better-npm-run build-frontend",
-    "build-bundle": "better-npm-run start-webpack-build-dll && better-npm-run start-webpack-build",
-    "build-client-config": "gulp prepare-config-bundle"
+    "build": "better-npm-run build-frontend && better-npm-run start-webpack-build-dll && better-npm-run start-webpack-build"
   },
   "betterScripts": {
-    "watch-frontend": {
-      "command": "grunt watch"
-    },
     "build-frontend": {
       "command": "grunt"
     },
     "start-webpack-build": {
       "command": "webpack --colors --config ./src/frontend/webpack/production/webpack.config.js"
     },
-    "start-webpack-watch": {
-      "command": "webpack --colors -w --config ./src/frontend/webpack/production/webpack.config.js"
-    },
     "start-webpack-build-dll": {
       "command": "webpack --colors --config ./src/frontend/webpack/webpack.config.dll.js"
-    },
-    "start-webpack-watch-dll": {
-      "command": "webpack --colors -w --config ./src/frontend/webpack/webpack.config.dll.js"
     },
     "start-no-webpack": {
       "command": "node --inspect=5858 bin/start.js",
       "env": {
         "NODE_ENV": "development",
         "DEBUG": "*,-babel,-faye",
-        "CONFIG_FILE": "config",
-        "NO_WEBPACK": "1"
-      }
-    },
-    "start-no-webpack-slave": {
-      "command": "node --inspect=5858 bin/start.js",
-      "env": {
-        "NODE_ENV": "development_slave",
-        "DEBUG": "*,-babel,-faye",
-        "CONFIG_FILE": "config",
-        "NO_WEBPACK": "1"
-      }
-    },
-    "start-no-webpack-raspberry": {
-      "command": "node --inspect=5858 bin/start.js",
-      "env": {
-        "NODE_ENV": "development_raspberry",
-        "DEBUG": "*,-babel,-faye",
-        "CONFIG_FILE": "config",
-        "NO_WEBPACK": "1"
-      }
-    },
-    "start-no-webpack-no-debug": {
-      "command": "node bin/start.js",
-      "env": {
-        "NODE_ENV": "development",
         "CONFIG_FILE": "config",
         "NO_WEBPACK": "1"
       }
