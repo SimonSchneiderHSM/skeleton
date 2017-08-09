@@ -46,8 +46,6 @@ type Catalog implements Node {
   schema: Schema
   EntityConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): EntityConnection
   TimerConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): TimerConnection
-  UserConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): UserConnection
-  SessionStoreConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): SessionStoreConnection
   UserTaskConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): UserTaskConnection
   SubprocessExternalConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): SubprocessExternalConnection
   SubprocessInternalConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): SubprocessInternalConnection
@@ -68,6 +66,8 @@ type Catalog implements Node {
   EventConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): EventConnection
   EndEventConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): EndEventConnection
   BoundaryEventConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): BoundaryEventConnection
+  UserConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): UserConnection
+  SessionStoreConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): SessionStoreConnection
 }
 
 type CatchEvent {
@@ -793,12 +793,6 @@ type Mutation {
   createTimer(input: CreateTimerInput!): CreateTimerPayload
   updateTimer(input: UpdateTimerInput!): UpdateTimerPayload
   removeTimer(input: RemoveTimerInput!): RemoveTimerPayload
-  createUser(input: CreateUserInput!): CreateUserPayload
-  updateUser(input: UpdateUserInput!): UpdateUserPayload
-  removeUser(input: RemoveUserInput!): RemoveUserPayload
-  createSessionStore(input: CreateSessionStoreInput!): CreateSessionStorePayload
-  updateSessionStore(input: UpdateSessionStoreInput!): UpdateSessionStorePayload
-  removeSessionStore(input: RemoveSessionStoreInput!): RemoveSessionStorePayload
   createUserTask(input: CreateUserTaskInput!): CreateUserTaskPayload
   updateUserTask(input: UpdateUserTaskInput!): UpdateUserTaskPayload
   removeUserTask(input: RemoveUserTaskInput!): RemoveUserTaskPayload
@@ -859,6 +853,12 @@ type Mutation {
   createBoundaryEvent(input: CreateBoundaryEventInput!): CreateBoundaryEventPayload
   updateBoundaryEvent(input: UpdateBoundaryEventInput!): UpdateBoundaryEventPayload
   removeBoundaryEvent(input: RemoveBoundaryEventInput!): RemoveBoundaryEventPayload
+  createUser(input: CreateUserInput!): CreateUserPayload
+  updateUser(input: UpdateUserInput!): UpdateUserPayload
+  removeUser(input: RemoveUserInput!): RemoveUserPayload
+  createSessionStore(input: CreateSessionStoreInput!): CreateSessionStorePayload
+  updateSessionStore(input: UpdateSessionStoreInput!): UpdateSessionStorePayload
+  removeSessionStore(input: RemoveSessionStoreInput!): RemoveSessionStorePayload
 }
 
 # An object with an ID

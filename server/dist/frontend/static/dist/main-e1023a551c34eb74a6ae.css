@@ -1,0 +1,86 @@
+/**
+ *  Define scss variables here.
+ *
+ *  Available options for Bootstrap:
+ *  http://getbootstrap.com/customize/
+ *
+ */
+@font-face {
+  font-family: 'Open Sans Condensed Bold';
+  src: url(http://localhost:8000/dist/c28df5d67b8e0fd14ff07235537b1c77.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed Light';
+  src: url(http://localhost:8000/dist/78a0d7e644be8aa2110679f957a5b0db.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed Light Italic';
+  src: url(http://localhost:8000/dist/41ed7255ac9480384eaeb613726802a5.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.app___3QlTa .brand___2Hyfp {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: inline-block;
+  background: #2d2d2d url(http://localhost:8000/dist/a4e9c7fd4ae8b23afcd176579a93bb33.png) no-repeat center center;
+  width: 40px;
+  height: 40px;
+  background-size: 80%;
+  margin: 0 10px 0 0;
+  border-radius: 20px;
+}
+
+.app___3QlTa nav .fa {
+  font-size: 2em;
+  line-height: 20px;
+}
+
+.appContent___3WwbW {
+  margin-bottom: 10px;
+  margin-top: 80px;
+  text-align: center;
+}
+.homeContainer___2YkCq {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px !important;
+}
+
+.dashboardGridContainer___2xPvO {
+  width: 100%;
+  max-width: 1200px !important;
+}
+
+@media screen and (min-width: 1200px) {
+  .dashboardGridContainer___2xPvO {
+    min-width: 1000px;
+    max-width: 1200px !important;
+  }
+}
+
+.dashboardCount___DI6v6 {
+  font-size: 48px;
+  color: whitesmoke;
+}
+
+.dashboardCountContainer___2Ncef {
+  background-color: lightblue;
+  padding: 24px;
+}
+
+.dashboardCountTitle___KitxX {
+  background-color: black;
+  color: white;
+  margin: 0;
+}
+
+/*# sourceMappingURL=main-e1023a551c34eb74a6ae.css.map*/
