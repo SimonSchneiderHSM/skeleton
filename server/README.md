@@ -6,9 +6,9 @@ This is is a Server that provides a process-engine-instance and a web-ui to edit
 
 The goal is to provide a minimal starting point for creating a ProcessEngine
 
-### Prerequesites
+### Requirements
 
-- Node > 6.2.1
+- Node >= `6.2.1`
 
 ### Setup/Installation
 
