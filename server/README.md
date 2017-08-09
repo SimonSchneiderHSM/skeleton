@@ -1,30 +1,42 @@
-How to start the stack the first time:
+# ProcessEngineJS Skeleton Server
 
-##### Prepare
-    npm install
-    
-    npm install grunt -g
-    npm install gulp -g
+This is is a Server that provides a process-engine-instance and a web-ui to edit process-models
 
-##### Start without WEBPACK DEV-SERVER
-    npm run start
+## What are the goals of this project?
 
-##### Start with WEBPACK DEV-SERVER
-    npm run start-dev
- 
-##### Start App
-    http://localhost:8000/app
+The goal is to provide a minimal starting point for creating a ProcessEngine
 
-##### Build (only when source files have been changed)
-    npm run build
+### Prerequesites
 
-##### Running in distributed mode on several machines
-    change host names from localhost to reachable ip address in network
+- Node > 6.2.1
 
-    on master:
-    config/<config>/http/http_extension.json:host
-    config/<config>/frontend/service.json:webpackHost
-    config/<config>/frontend/service.json:webpackContentBaseHost
+### Setup/Installation
 
-    additionally on slave:
-    config/<config>/messagebus/faye.json:endPointName
+Install all Dependencies with
+```bash
+npm install
+```
+
+## How do I use this project?
+
+### Usage
+
+Start the server with
+```bash
+npm start
+```
+
+When started, the web-ui is avaliable at `http://localhost:8000/app`
+
+When you want to apply changes made in the frontend, you need to rebuild it with
+```bash
+npm run build
+```
+
+## What else is there to know?
+
+### Authors/Contact information
+
+- Simon Reymann <simon.reymann@quantusflow.com>
+- Patrick Pötschke <patrick.poetschke@quantusflow.com>
+- Heiko Mathes <heiko.mathes@5minds.de>
