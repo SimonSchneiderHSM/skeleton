@@ -87,7 +87,6 @@ function start() {
   validationServiceIocModule.registerInContainer(container);
 
   container.validateDependencies();
-
   bootstrapper.start()
   .then(() => {
     const iamService = container.resolve('IamService');

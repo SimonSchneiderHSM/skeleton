@@ -1,0 +1,4 @@
+{
+  "baseRoute": "app",
+  "appStaticPath": "./dist/frontend/static"
+}

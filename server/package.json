@@ -14,9 +14,9 @@
     "Simon Reymann <simon.reymann@quantusflow.com>"
   ],
   "scripts": {
-    "start-no-debug": "NODE_ENV=development_server CONFIG_FILE=config node bin/start.js",
+    "start-no-debug": "NODE_ENV=development CONFIG_FILE=config node bin/start.js",
     "start": "better-npm-run start-no-webpack",
-    "start-dev": "NODE_ENV=development_server DEBUG=*,-babel,-faye,-postgres CONFIG_FILE=config node --expose-debug-as=v8debug $NODE_DEBUG_OPTION bin/start.js",
+    "start-dev": "NODE_ENV=development DEBUG=*,-babel,-faye,-postgres CONFIG_FILE=config node --expose-debug-as=v8debug $NODE_DEBUG_OPTION bin/start.js",
     "start-dev-slave": "NODE_ENV=development_slave DEBUG=*,-babel,-faye CONFIG_FILE=config node --expose-debug-as=v8debug $NODE_DEBUG_OPTION bin/start.js",
     "start-dev-raspberry": "NODE_ENV=development_raspberry DEBUG=*,-babel,-faye CONFIG_FILE=config node --expose-debug-as=v8debug $NODE_DEBUG_OPTION bin/start.js",
     "start-no-webpack": "better-npm-run start-no-webpack",
@@ -56,7 +56,7 @@
     "start-no-webpack": {
       "command": "node --inspect=5858 bin/start.js",
       "env": {
-        "NODE_ENV": "development_server",
+        "NODE_ENV": "development",
         "DEBUG": "*,-babel,-faye",
         "CONFIG_FILE": "config",
         "NO_WEBPACK": "1"
@@ -83,7 +83,7 @@
     "start-no-webpack-no-debug": {
       "command": "node bin/start.js",
       "env": {
-        "NODE_ENV": "development_server",
+        "NODE_ENV": "development",
         "CONFIG_FILE": "config",
         "NO_WEBPACK": "1"
       }

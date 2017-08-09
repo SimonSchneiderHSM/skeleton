@@ -8,8 +8,8 @@ import {
 } from '../../containers';
 
 
-import ProcessDefinitions from '/Users/heiko/Desktop/Projekte/BPMN/process_engine_meta/skeleton/server/node_modules/@process-engine-js/process_engine_http/dist/commonjs/frontend/container/ProcessDefinitions/ProcessDefinitions.js';
-import ProcessDefinition from '/Users/heiko/Desktop/Projekte/BPMN/process_engine_meta/skeleton/server/node_modules/@process-engine-js/process_engine_http/dist/commonjs/frontend/container/ProcessDefinition/ProcessDefinition.js';
+import ProcessDefinitions from '/Users/heiko/Desktop/Projekte/BPMN/skeleton/server/node_modules/@process-engine-js/process_engine_http/dist/commonjs/frontend/container/ProcessDefinitions/ProcessDefinitions.js';
+import ProcessDefinition from '/Users/heiko/Desktop/Projekte/BPMN/skeleton/server/node_modules/@process-engine-js/process_engine_http/dist/commonjs/frontend/container/ProcessDefinition/ProcessDefinition.js';
 
 const relayQueries = require('../../relay');
 const relayPrepareParams = require('../../relay/prepareParams');

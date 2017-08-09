@@ -16,7 +16,7 @@ var HappyPack = require('happypack');
 var CircularDependencyPlugin = require('circular-dependency-plugin');
 
 const nconf = require('nconf');
-const filePath = appRoot + '/config/development_server/frontend/service.json';
+const filePath = appRoot + '/config/development/frontend/service.json';
 const configProvider = nconf.argv()
   .env()
   .file(filePath);

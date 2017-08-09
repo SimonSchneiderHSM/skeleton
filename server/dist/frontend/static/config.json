@@ -60,10 +60,10 @@
             "UI": true
           }
         },
-        "demo_server": {
+        "skeleton_server": {
           "routingAdapterKey": "MessagebusExternalRoutingAdapter",
           "features": {
-            "Name": "Demo_Server",
+            "Name": "Skeleton_Server",
             "Environment": "Server",
             "Platform": "NodeJS",
             "PlatformVersion": "8.1.0"
@@ -448,7 +448,7 @@
   "USER": "patrick",
   "npm_package_betterScripts_watch_backend_command": "gulp watch --gulpfile ./src/backend/modules/demo-backend/gulpfile.js --cwd ./src/backend/modules/demo-backend",
   "npm_package_scripts_start_webpack_build_dll": "concurrently --kill-others \"better-npm-run start-webpack-build-dll\"",
-  "npm_package_scripts_start_dev": "NODE_ENV=development_server DEBUG=*,-babel,-faye,-postgres CONFIG_FILE=config node --expose-debug-as=v8debug $NODE_DEBUG_OPTION bin/start.js",
+  "npm_package_scripts_start_dev": "NODE_ENV=development DEBUG=*,-babel,-faye,-postgres CONFIG_FILE=config node --expose-debug-as=v8debug $NODE_DEBUG_OPTION bin/start.js",
   "npm_package_license": "MIT",
   "npm_package_devDependencies_less_loader": "^4.0.1",
   "npm_package_devDependencies_grunt_changed": "^1.1.1",
@@ -498,7 +498,7 @@
   "npm_package_devDependencies_strip_loader": "^0.1.2",
   "npm_package_dependencies_camunda_bpmn_moddle": "^0.11.0",
   "npm_package_betterScripts_start_no_webpack_env_CONFIG_FILE": "config",
-  "npm_package_scripts_start_no_debug": "NODE_ENV=development_server CONFIG_FILE=config node bin/start.js",
+  "npm_package_scripts_start_no_debug": "NODE_ENV=development CONFIG_FILE=config node bin/start.js",
   "GOOGLE_API_KEY": "AIzaSyAQfxPJiounkhOjODEO5ZieffeBv6yft2Q",
   "npm_config_json": "",
   "npm_config_access": "",
@@ -576,7 +576,7 @@
   "npm_config_bin_links": "true",
   "ITERM_ORIG_PS1": "\\h:\\W \\u\\$ ",
   "npm_config_searchopts": "",
-  "npm_package_betterScripts_start_no_webpack_env_NODE_ENV": "development_server",
+  "npm_package_betterScripts_start_no_webpack_env_NODE_ENV": "development",
   "npm_config_depth": "Infinity",
   "npm_package_devDependencies_grunt": "^1.0.1",
   "npm_package_betterScripts_start_no_webpack_no_debug_env_NO_WEBPACK": "1",
@@ -642,7 +642,7 @@
   "npm_config_save_optional": "",
   "npm_package_dependencies_jquery": "^3.1.1",
   "npm_package_dependencies_isomorphic_fetch": "^2.2.1",
-  "npm_package_betterScripts_start_no_webpack_no_debug_env_NODE_ENV": "development_server",
+  "npm_package_betterScripts_start_no_webpack_no_debug_env_NODE_ENV": "development",
   "npm_package_betterScripts_start_webpack_watch_dll_command": "webpack --colors -w --config ./src/frontend/webpack/webpack.config.dll.js",
   "npm_config_ignore_scripts": "",
   "npm_config_user_agent": "npm/5.3.0 node/v8.2.1 darwin x64",
