@@ -31,6 +31,60 @@ Object.defineProperty(exports, 'UpdateTimerMutation', {
   }
 });
 
+var _RemoveUserMutation = require('./RemoveUserMutation');
+
+Object.defineProperty(exports, 'RemoveUserMutation', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_RemoveUserMutation).default;
+  }
+});
+
+var _CreateUserMutation = require('./CreateUserMutation');
+
+Object.defineProperty(exports, 'CreateUserMutation', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_CreateUserMutation).default;
+  }
+});
+
+var _UpdateUserMutation = require('./UpdateUserMutation');
+
+Object.defineProperty(exports, 'UpdateUserMutation', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_UpdateUserMutation).default;
+  }
+});
+
+var _RemoveSessionStoreMutation = require('./RemoveSessionStoreMutation');
+
+Object.defineProperty(exports, 'RemoveSessionStoreMutation', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_RemoveSessionStoreMutation).default;
+  }
+});
+
+var _CreateSessionStoreMutation = require('./CreateSessionStoreMutation');
+
+Object.defineProperty(exports, 'CreateSessionStoreMutation', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_CreateSessionStoreMutation).default;
+  }
+});
+
+var _UpdateSessionStoreMutation = require('./UpdateSessionStoreMutation');
+
+Object.defineProperty(exports, 'UpdateSessionStoreMutation', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_UpdateSessionStoreMutation).default;
+  }
+});
+
 var _RemoveUserTaskMutation = require('./RemoveUserTaskMutation');
 
 Object.defineProperty(exports, 'RemoveUserTaskMutation', {
@@ -568,60 +622,6 @@ Object.defineProperty(exports, 'UpdateBoundaryEventMutation', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_UpdateBoundaryEventMutation).default;
-  }
-});
-
-var _RemoveUserMutation = require('./RemoveUserMutation');
-
-Object.defineProperty(exports, 'RemoveUserMutation', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_RemoveUserMutation).default;
-  }
-});
-
-var _CreateUserMutation = require('./CreateUserMutation');
-
-Object.defineProperty(exports, 'CreateUserMutation', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_CreateUserMutation).default;
-  }
-});
-
-var _UpdateUserMutation = require('./UpdateUserMutation');
-
-Object.defineProperty(exports, 'UpdateUserMutation', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_UpdateUserMutation).default;
-  }
-});
-
-var _RemoveSessionStoreMutation = require('./RemoveSessionStoreMutation');
-
-Object.defineProperty(exports, 'RemoveSessionStoreMutation', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_RemoveSessionStoreMutation).default;
-  }
-});
-
-var _CreateSessionStoreMutation = require('./CreateSessionStoreMutation');
-
-Object.defineProperty(exports, 'CreateSessionStoreMutation', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_CreateSessionStoreMutation).default;
-  }
-});
-
-var _UpdateSessionStoreMutation = require('./UpdateSessionStoreMutation');
-
-Object.defineProperty(exports, 'UpdateSessionStoreMutation', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_UpdateSessionStoreMutation).default;
   }
 });
 

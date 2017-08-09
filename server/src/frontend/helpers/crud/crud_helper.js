@@ -8,6 +8,8 @@ import * as mutations from './mutations/index';
 const CrudTableHelper = {
     initialVariables: () => ({
         showTimer: false,
+        showUser: false,
+        showSessionStore: false,
         showUserTask: false,
         showSubprocessExternal: false,
         showSubprocessInternal: false,
@@ -28,12 +30,12 @@ const CrudTableHelper = {
         showEvent: false,
         showEndEvent: false,
         showBoundaryEvent: false,
-        showUser: false,
-        showSessionStore: false,
     }),
     preparedVariables: (className) => ({
         className,
         showTimer: (className === 'Timer'),
+        showUser: (className === 'User'),
+        showSessionStore: (className === 'SessionStore'),
         showUserTask: (className === 'UserTask'),
         showSubprocessExternal: (className === 'SubprocessExternal'),
         showSubprocessInternal: (className === 'SubprocessInternal'),
@@ -54,8 +56,6 @@ const CrudTableHelper = {
         showEvent: (className === 'Event'),
         showEndEvent: (className === 'EndEvent'),
         showBoundaryEvent: (className === 'BoundaryEvent'),
-        showUser: (className === 'User'),
-        showSessionStore: (className === 'SessionStore'),
     }),
     fragments: {
         catalog: (variables) => {
@@ -76,6 +76,39 @@ const CrudTableHelper = {
                                 lastElapsed,
                                 ${mutations.RemoveTimerMutation.getFragment('timer').if(variables.showTimer)},
                                 ${mutations.UpdateTimerMutation.getFragment('timer').if(variables.showTimer)}
+                            }
+                        }
+                    },
+                    ${mutations.CreateUserMutation.getFragment('catalog').if(variables.showUser)},
+                    ${mutations.RemoveUserMutation.getFragment('catalog').if(variables.showUser)},
+                    ${mutations.UpdateUserMutation.getFragment('catalog').if(variables.showUser)},
+                    UserConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showUser) {
+                        totalCount,
+                        edges {
+                            node {
+                                id,
+                                name,
+                                password,
+                                roles,
+                                ${mutations.RemoveUserMutation.getFragment('user').if(variables.showUser)},
+                                ${mutations.UpdateUserMutation.getFragment('user').if(variables.showUser)}
+                            }
+                        }
+                    },
+                    ${mutations.CreateSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore)},
+                    ${mutations.RemoveSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore)},
+                    ${mutations.UpdateSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore)},
+                    SessionStoreConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showSessionStore) {
+                        totalCount,
+                        edges {
+                            node {
+                                id,
+                                identityId,
+                                systemUserId,
+                                data,
+                                roles,
+                                ${mutations.RemoveSessionStoreMutation.getFragment('sessionstore').if(variables.showSessionStore)},
+                                ${mutations.UpdateSessionStoreMutation.getFragment('sessionstore').if(variables.showSessionStore)}
                             }
                         }
                     },
@@ -542,39 +575,6 @@ const CrudTableHelper = {
                             }
                         }
                     },
-                    ${mutations.CreateUserMutation.getFragment('catalog').if(variables.showUser)},
-                    ${mutations.RemoveUserMutation.getFragment('catalog').if(variables.showUser)},
-                    ${mutations.UpdateUserMutation.getFragment('catalog').if(variables.showUser)},
-                    UserConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showUser) {
-                        totalCount,
-                        edges {
-                            node {
-                                id,
-                                name,
-                                password,
-                                roles,
-                                ${mutations.RemoveUserMutation.getFragment('user').if(variables.showUser)},
-                                ${mutations.UpdateUserMutation.getFragment('user').if(variables.showUser)}
-                            }
-                        }
-                    },
-                    ${mutations.CreateSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore)},
-                    ${mutations.RemoveSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore)},
-                    ${mutations.UpdateSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore)},
-                    SessionStoreConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showSessionStore) {
-                        totalCount,
-                        edges {
-                            node {
-                                id,
-                                identityId,
-                                systemUserId,
-                                data,
-                                roles,
-                                ${mutations.RemoveSessionStoreMutation.getFragment('sessionstore').if(variables.showSessionStore)},
-                                ${mutations.UpdateSessionStoreMutation.getFragment('sessionstore').if(variables.showSessionStore)}
-                            }
-                        }
-                    },
                 }
             `;
             return query;
@@ -592,6 +592,29 @@ const CrudTableHelper = {
                     timerRule: row.timerRule,
                     eventName: row.eventName,
                     lastElapsed: row.lastElapsed,
+                    catalog
+                });
+                break;
+            }
+            case 'User': {
+
+                mutation = new mutations.CreateUserMutation({
+                    id: row.id,
+                    name: row.name,
+                    password: row.password,
+                    roles: row.roles,
+                    catalog
+                });
+                break;
+            }
+            case 'SessionStore': {
+
+                mutation = new mutations.CreateSessionStoreMutation({
+                    id: row.id,
+                    identityId: row.identityId,
+                    systemUserId: row.systemUserId,
+                    data: row.data,
+                    roles: row.roles,
                     catalog
                 });
                 break;
@@ -959,29 +982,6 @@ const CrudTableHelper = {
                 });
                 break;
             }
-            case 'User': {
-
-                mutation = new mutations.CreateUserMutation({
-                    id: row.id,
-                    name: row.name,
-                    password: row.password,
-                    roles: row.roles,
-                    catalog
-                });
-                break;
-            }
-            case 'SessionStore': {
-
-                mutation = new mutations.CreateSessionStoreMutation({
-                    id: row.id,
-                    identityId: row.identityId,
-                    systemUserId: row.systemUserId,
-                    data: row.data,
-                    roles: row.roles,
-                    catalog
-                });
-                break;
-            }
             default: {
                 mutation = null;
             }
@@ -1009,6 +1009,24 @@ const CrudTableHelper = {
                     catalog,
                     timer: entity,
                     updatedTimer: updatedEntity
+                });
+                break;
+            }
+            case 'User': {
+
+                mutation = new mutations.UpdateUserMutation({
+                    catalog,
+                    user: entity,
+                    updatedUser: updatedEntity
+                });
+                break;
+            }
+            case 'SessionStore': {
+
+                mutation = new mutations.UpdateSessionStoreMutation({
+                    catalog,
+                    sessionstore: entity,
+                    updatedSessionStore: updatedEntity
                 });
                 break;
             }
@@ -1192,24 +1210,6 @@ const CrudTableHelper = {
                 });
                 break;
             }
-            case 'User': {
-
-                mutation = new mutations.UpdateUserMutation({
-                    catalog,
-                    user: entity,
-                    updatedUser: updatedEntity
-                });
-                break;
-            }
-            case 'SessionStore': {
-
-                mutation = new mutations.UpdateSessionStoreMutation({
-                    catalog,
-                    sessionstore: entity,
-                    updatedSessionStore: updatedEntity
-                });
-                break;
-            }
             default: {
                 mutation = null;
             }
@@ -1226,6 +1226,14 @@ const CrudTableHelper = {
         switch (className) {
             case 'Timer': {
                 mutation = new mutations.RemoveTimerMutation({ catalog, timer: entity });
+                break;
+            }
+            case 'User': {
+                mutation = new mutations.RemoveUserMutation({ catalog, user: entity });
+                break;
+            }
+            case 'SessionStore': {
+                mutation = new mutations.RemoveSessionStoreMutation({ catalog, sessionstore: entity });
                 break;
             }
             case 'UserTask': {
@@ -1306,14 +1314,6 @@ const CrudTableHelper = {
             }
             case 'BoundaryEvent': {
                 mutation = new mutations.RemoveBoundaryEventMutation({ catalog, boundaryevent: entity });
-                break;
-            }
-            case 'User': {
-                mutation = new mutations.RemoveUserMutation({ catalog, user: entity });
-                break;
-            }
-            case 'SessionStore': {
-                mutation = new mutations.RemoveSessionStoreMutation({ catalog, sessionstore: entity });
                 break;
             }
             default: {
