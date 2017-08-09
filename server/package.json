@@ -129,7 +129,7 @@
     "@process-engine-js/process_engine_client_api": "^1.0.10",
     "@process-engine-js/process_engine_client_processable_react": "^1.0.11",
     "@process-engine-js/process_engine_http": "^1.0.12",
-    "@process-engine-js/process_repository": "^1.0.7",
+    "@process-engine-js/process_repository": "^2.0.0",
     "@process-engine-js/process_repository_browser": "^1.0.0",
     "@process-engine-js/routing": "^1.0.0",
     "@process-engine-js/security_service": "^1.0.1",
