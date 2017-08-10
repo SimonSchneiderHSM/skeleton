@@ -7,18 +7,19 @@ import * as mutations from './mutations/index';
 
 const CrudTableHelper = {
     initialVariables: () => ({
-        showTimer: false,
         showUserTask: false,
-        showSubprocessExternal: false,
-        showSubprocessInternal: false,
-        showStartEvent: false,
-        showCatchEvent: false,
+        showUser: false,
+        showTimer: false,
         showThrowEvent: false,
+        showSubprocessInternal: false,
+        showSubprocessExternal: false,
+        showStartEvent: false,
+        showSessionStore: false,
         showServiceTask: false,
         showScriptTask: false,
         showProcessToken: false,
-        showProcessDef: false,
         showProcess: false,
+        showProcessDef: false,
         showParallelGateway: false,
         showNodeInstance: false,
         showNodeDef: false,
@@ -27,24 +28,24 @@ const CrudTableHelper = {
         showExclusiveGateway: false,
         showEvent: false,
         showEndEvent: false,
+        showCatchEvent: false,
         showBoundaryEvent: false,
-        showUser: false,
-        showSessionStore: false,
     }),
     preparedVariables: (className) => ({
         className,
-        showTimer: (className === 'Timer'),
         showUserTask: (className === 'UserTask'),
-        showSubprocessExternal: (className === 'SubprocessExternal'),
-        showSubprocessInternal: (className === 'SubprocessInternal'),
-        showStartEvent: (className === 'StartEvent'),
-        showCatchEvent: (className === 'CatchEvent'),
+        showUser: (className === 'User'),
+        showTimer: (className === 'Timer'),
         showThrowEvent: (className === 'ThrowEvent'),
+        showSubprocessInternal: (className === 'SubprocessInternal'),
+        showSubprocessExternal: (className === 'SubprocessExternal'),
+        showStartEvent: (className === 'StartEvent'),
+        showSessionStore: (className === 'SessionStore'),
         showServiceTask: (className === 'ServiceTask'),
         showScriptTask: (className === 'ScriptTask'),
         showProcessToken: (className === 'ProcessToken'),
-        showProcessDef: (className === 'ProcessDef'),
         showProcess: (className === 'Process'),
+        showProcessDef: (className === 'ProcessDef'),
         showParallelGateway: (className === 'ParallelGateway'),
         showNodeInstance: (className === 'NodeInstance'),
         showNodeDef: (className === 'NodeDef'),
@@ -53,32 +54,13 @@ const CrudTableHelper = {
         showExclusiveGateway: (className === 'ExclusiveGateway'),
         showEvent: (className === 'Event'),
         showEndEvent: (className === 'EndEvent'),
+        showCatchEvent: (className === 'CatchEvent'),
         showBoundaryEvent: (className === 'BoundaryEvent'),
-        showUser: (className === 'User'),
-        showSessionStore: (className === 'SessionStore'),
     }),
     fragments: {
         catalog: (variables) => {
             const query = Relay.QL`
                 fragment on Catalog {
-                    ${mutations.CreateTimerMutation.getFragment('catalog').if(variables.showTimer)},
-                    ${mutations.RemoveTimerMutation.getFragment('catalog').if(variables.showTimer)},
-                    ${mutations.UpdateTimerMutation.getFragment('catalog').if(variables.showTimer)},
-                    TimerConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showTimer) {
-                        totalCount,
-                        edges {
-                            node {
-                                id,
-                                timerType,
-                                timerIsoString,
-                                timerRule,
-                                eventName,
-                                lastElapsed,
-                                ${mutations.RemoveTimerMutation.getFragment('timer').if(variables.showTimer)},
-                                ${mutations.UpdateTimerMutation.getFragment('timer').if(variables.showTimer)}
-                            }
-                        }
-                    },
                     ${mutations.CreateUserTaskMutation.getFragment('catalog').if(variables.showUserTask)},
                     ${mutations.RemoveUserTaskMutation.getFragment('catalog').if(variables.showUserTask)},
                     ${mutations.UpdateUserTaskMutation.getFragment('catalog').if(variables.showUserTask)},
@@ -102,10 +84,44 @@ const CrudTableHelper = {
                             }
                         }
                     },
-                    ${mutations.CreateSubprocessExternalMutation.getFragment('catalog').if(variables.showSubprocessExternal)},
-                    ${mutations.RemoveSubprocessExternalMutation.getFragment('catalog').if(variables.showSubprocessExternal)},
-                    ${mutations.UpdateSubprocessExternalMutation.getFragment('catalog').if(variables.showSubprocessExternal)},
-                    SubprocessExternalConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showSubprocessExternal) {
+                    ${mutations.CreateUserMutation.getFragment('catalog').if(variables.showUser)},
+                    ${mutations.RemoveUserMutation.getFragment('catalog').if(variables.showUser)},
+                    ${mutations.UpdateUserMutation.getFragment('catalog').if(variables.showUser)},
+                    UserConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showUser) {
+                        totalCount,
+                        edges {
+                            node {
+                                id,
+                                name,
+                                password,
+                                roles,
+                                ${mutations.RemoveUserMutation.getFragment('user').if(variables.showUser)},
+                                ${mutations.UpdateUserMutation.getFragment('user').if(variables.showUser)}
+                            }
+                        }
+                    },
+                    ${mutations.CreateTimerMutation.getFragment('catalog').if(variables.showTimer)},
+                    ${mutations.RemoveTimerMutation.getFragment('catalog').if(variables.showTimer)},
+                    ${mutations.UpdateTimerMutation.getFragment('catalog').if(variables.showTimer)},
+                    TimerConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showTimer) {
+                        totalCount,
+                        edges {
+                            node {
+                                id,
+                                timerType,
+                                timerIsoString,
+                                timerRule,
+                                eventName,
+                                lastElapsed,
+                                ${mutations.RemoveTimerMutation.getFragment('timer').if(variables.showTimer)},
+                                ${mutations.UpdateTimerMutation.getFragment('timer').if(variables.showTimer)}
+                            }
+                        }
+                    },
+                    ${mutations.CreateThrowEventMutation.getFragment('catalog').if(variables.showThrowEvent)},
+                    ${mutations.RemoveThrowEventMutation.getFragment('catalog').if(variables.showThrowEvent)},
+                    ${mutations.UpdateThrowEventMutation.getFragment('catalog').if(variables.showThrowEvent)},
+                    ThrowEventConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showThrowEvent) {
                         totalCount,
                         edges {
                             node {
@@ -120,8 +136,8 @@ const CrudTableHelper = {
                                 application,
                                 processToken,
                                 instanceCounter,
-                                ${mutations.RemoveSubprocessExternalMutation.getFragment('subprocessexternal').if(variables.showSubprocessExternal)},
-                                ${mutations.UpdateSubprocessExternalMutation.getFragment('subprocessexternal').if(variables.showSubprocessExternal)}
+                                ${mutations.RemoveThrowEventMutation.getFragment('throwevent').if(variables.showThrowEvent)},
+                                ${mutations.UpdateThrowEventMutation.getFragment('throwevent').if(variables.showThrowEvent)}
                             }
                         }
                     },
@@ -148,6 +164,29 @@ const CrudTableHelper = {
                             }
                         }
                     },
+                    ${mutations.CreateSubprocessExternalMutation.getFragment('catalog').if(variables.showSubprocessExternal)},
+                    ${mutations.RemoveSubprocessExternalMutation.getFragment('catalog').if(variables.showSubprocessExternal)},
+                    ${mutations.UpdateSubprocessExternalMutation.getFragment('catalog').if(variables.showSubprocessExternal)},
+                    SubprocessExternalConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showSubprocessExternal) {
+                        totalCount,
+                        edges {
+                            node {
+                                id,
+                                name,
+                                key,
+                                process,
+                                nodeDef,
+                                type,
+                                state,
+                                participant,
+                                application,
+                                processToken,
+                                instanceCounter,
+                                ${mutations.RemoveSubprocessExternalMutation.getFragment('subprocessexternal').if(variables.showSubprocessExternal)},
+                                ${mutations.UpdateSubprocessExternalMutation.getFragment('subprocessexternal').if(variables.showSubprocessExternal)}
+                            }
+                        }
+                    },
                     ${mutations.CreateStartEventMutation.getFragment('catalog').if(variables.showStartEvent)},
                     ${mutations.RemoveStartEventMutation.getFragment('catalog').if(variables.showStartEvent)},
                     ${mutations.UpdateStartEventMutation.getFragment('catalog').if(variables.showStartEvent)},
@@ -171,49 +210,20 @@ const CrudTableHelper = {
                             }
                         }
                     },
-                    ${mutations.CreateCatchEventMutation.getFragment('catalog').if(variables.showCatchEvent)},
-                    ${mutations.RemoveCatchEventMutation.getFragment('catalog').if(variables.showCatchEvent)},
-                    ${mutations.UpdateCatchEventMutation.getFragment('catalog').if(variables.showCatchEvent)},
-                    CatchEventConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showCatchEvent) {
+                    ${mutations.CreateSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore)},
+                    ${mutations.RemoveSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore)},
+                    ${mutations.UpdateSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore)},
+                    SessionStoreConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showSessionStore) {
                         totalCount,
                         edges {
                             node {
                                 id,
-                                name,
-                                key,
-                                process,
-                                nodeDef,
-                                type,
-                                state,
-                                participant,
-                                application,
-                                processToken,
-                                instanceCounter,
-                                ${mutations.RemoveCatchEventMutation.getFragment('catchevent').if(variables.showCatchEvent)},
-                                ${mutations.UpdateCatchEventMutation.getFragment('catchevent').if(variables.showCatchEvent)}
-                            }
-                        }
-                    },
-                    ${mutations.CreateThrowEventMutation.getFragment('catalog').if(variables.showThrowEvent)},
-                    ${mutations.RemoveThrowEventMutation.getFragment('catalog').if(variables.showThrowEvent)},
-                    ${mutations.UpdateThrowEventMutation.getFragment('catalog').if(variables.showThrowEvent)},
-                    ThrowEventConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showThrowEvent) {
-                        totalCount,
-                        edges {
-                            node {
-                                id,
-                                name,
-                                key,
-                                process,
-                                nodeDef,
-                                type,
-                                state,
-                                participant,
-                                application,
-                                processToken,
-                                instanceCounter,
-                                ${mutations.RemoveThrowEventMutation.getFragment('throwevent').if(variables.showThrowEvent)},
-                                ${mutations.UpdateThrowEventMutation.getFragment('throwevent').if(variables.showThrowEvent)}
+                                identityId,
+                                systemUserId,
+                                data,
+                                roles,
+                                ${mutations.RemoveSessionStoreMutation.getFragment('sessionstore').if(variables.showSessionStore)},
+                                ${mutations.UpdateSessionStoreMutation.getFragment('sessionstore').if(variables.showSessionStore)}
                             }
                         }
                     },
@@ -279,6 +289,25 @@ const CrudTableHelper = {
                             }
                         }
                     },
+                    ${mutations.CreateProcessMutation.getFragment('catalog').if(variables.showProcess)},
+                    ${mutations.RemoveProcessMutation.getFragment('catalog').if(variables.showProcess)},
+                    ${mutations.UpdateProcessMutation.getFragment('catalog').if(variables.showProcess)},
+                    ProcessConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showProcess) {
+                        totalCount,
+                        edges {
+                            node {
+                                id,
+                                name,
+                                key,
+                                status,
+                                processDef,
+                                isSubProcess,
+                                callerId,
+                                ${mutations.RemoveProcessMutation.getFragment('process').if(variables.showProcess)},
+                                ${mutations.UpdateProcessMutation.getFragment('process').if(variables.showProcess)}
+                            }
+                        }
+                    },
                     ${mutations.CreateProcessDefMutation.getFragment('catalog').if(variables.showProcessDef)},
                     ${mutations.RemoveProcessDefMutation.getFragment('catalog').if(variables.showProcessDef)},
                     ${mutations.UpdateProcessDefMutation.getFragment('catalog').if(variables.showProcessDef)},
@@ -304,25 +333,6 @@ const CrudTableHelper = {
                                 laneCollection,
                                 ${mutations.RemoveProcessDefMutation.getFragment('processdef').if(variables.showProcessDef)},
                                 ${mutations.UpdateProcessDefMutation.getFragment('processdef').if(variables.showProcessDef)}
-                            }
-                        }
-                    },
-                    ${mutations.CreateProcessMutation.getFragment('catalog').if(variables.showProcess)},
-                    ${mutations.RemoveProcessMutation.getFragment('catalog').if(variables.showProcess)},
-                    ${mutations.UpdateProcessMutation.getFragment('catalog').if(variables.showProcess)},
-                    ProcessConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showProcess) {
-                        totalCount,
-                        edges {
-                            node {
-                                id,
-                                name,
-                                key,
-                                status,
-                                processDef,
-                                isSubProcess,
-                                callerId,
-                                ${mutations.RemoveProcessMutation.getFragment('process').if(variables.showProcess)},
-                                ${mutations.UpdateProcessMutation.getFragment('process').if(variables.showProcess)}
                             }
                         }
                     },
@@ -519,6 +529,29 @@ const CrudTableHelper = {
                             }
                         }
                     },
+                    ${mutations.CreateCatchEventMutation.getFragment('catalog').if(variables.showCatchEvent)},
+                    ${mutations.RemoveCatchEventMutation.getFragment('catalog').if(variables.showCatchEvent)},
+                    ${mutations.UpdateCatchEventMutation.getFragment('catalog').if(variables.showCatchEvent)},
+                    CatchEventConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showCatchEvent) {
+                        totalCount,
+                        edges {
+                            node {
+                                id,
+                                name,
+                                key,
+                                process,
+                                nodeDef,
+                                type,
+                                state,
+                                participant,
+                                application,
+                                processToken,
+                                instanceCounter,
+                                ${mutations.RemoveCatchEventMutation.getFragment('catchevent').if(variables.showCatchEvent)},
+                                ${mutations.UpdateCatchEventMutation.getFragment('catchevent').if(variables.showCatchEvent)}
+                            }
+                        }
+                    },
                     ${mutations.CreateBoundaryEventMutation.getFragment('catalog').if(variables.showBoundaryEvent)},
                     ${mutations.RemoveBoundaryEventMutation.getFragment('catalog').if(variables.showBoundaryEvent)},
                     ${mutations.UpdateBoundaryEventMutation.getFragment('catalog').if(variables.showBoundaryEvent)},
@@ -542,39 +575,6 @@ const CrudTableHelper = {
                             }
                         }
                     },
-                    ${mutations.CreateUserMutation.getFragment('catalog').if(variables.showUser)},
-                    ${mutations.RemoveUserMutation.getFragment('catalog').if(variables.showUser)},
-                    ${mutations.UpdateUserMutation.getFragment('catalog').if(variables.showUser)},
-                    UserConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showUser) {
-                        totalCount,
-                        edges {
-                            node {
-                                id,
-                                name,
-                                password,
-                                roles,
-                                ${mutations.RemoveUserMutation.getFragment('user').if(variables.showUser)},
-                                ${mutations.UpdateUserMutation.getFragment('user').if(variables.showUser)}
-                            }
-                        }
-                    },
-                    ${mutations.CreateSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore)},
-                    ${mutations.RemoveSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore)},
-                    ${mutations.UpdateSessionStoreMutation.getFragment('catalog').if(variables.showSessionStore)},
-                    SessionStoreConnection(query: $query, orderBy: $orderBy, first: $first, offset: $offset) @include(if: $showSessionStore) {
-                        totalCount,
-                        edges {
-                            node {
-                                id,
-                                identityId,
-                                systemUserId,
-                                data,
-                                roles,
-                                ${mutations.RemoveSessionStoreMutation.getFragment('sessionstore').if(variables.showSessionStore)},
-                                ${mutations.UpdateSessionStoreMutation.getFragment('sessionstore').if(variables.showSessionStore)}
-                            }
-                        }
-                    },
                 }
             `;
             return query;
@@ -583,19 +583,6 @@ const CrudTableHelper = {
     create: (className, catalog, row) => {
         let mutation = null;
         switch (className) {
-            case 'Timer': {
-
-                mutation = new mutations.CreateTimerMutation({
-                    id: row.id,
-                    timerType: row.timerType,
-                    timerIsoString: row.timerIsoString,
-                    timerRule: row.timerRule,
-                    eventName: row.eventName,
-                    lastElapsed: row.lastElapsed,
-                    catalog
-                });
-                break;
-            }
             case 'UserTask': {
 
                 mutation = new mutations.CreateUserTaskMutation({
@@ -614,9 +601,33 @@ const CrudTableHelper = {
                 });
                 break;
             }
-            case 'SubprocessExternal': {
+            case 'User': {
 
-                mutation = new mutations.CreateSubprocessExternalMutation({
+                mutation = new mutations.CreateUserMutation({
+                    id: row.id,
+                    name: row.name,
+                    password: row.password,
+                    roles: row.roles,
+                    catalog
+                });
+                break;
+            }
+            case 'Timer': {
+
+                mutation = new mutations.CreateTimerMutation({
+                    id: row.id,
+                    timerType: row.timerType,
+                    timerIsoString: row.timerIsoString,
+                    timerRule: row.timerRule,
+                    eventName: row.eventName,
+                    lastElapsed: row.lastElapsed,
+                    catalog
+                });
+                break;
+            }
+            case 'ThrowEvent': {
+
+                mutation = new mutations.CreateThrowEventMutation({
                     id: row.id,
                     name: row.name,
                     key: row.key,
@@ -650,6 +661,24 @@ const CrudTableHelper = {
                 });
                 break;
             }
+            case 'SubprocessExternal': {
+
+                mutation = new mutations.CreateSubprocessExternalMutation({
+                    id: row.id,
+                    name: row.name,
+                    key: row.key,
+                    process: row.process,
+                    nodeDef: row.nodeDef,
+                    type: row.type,
+                    state: row.state,
+                    participant: row.participant,
+                    application: row.application,
+                    processToken: row.processToken,
+                    instanceCounter: row.instanceCounter,
+                    catalog
+                });
+                break;
+            }
             case 'StartEvent': {
 
                 mutation = new mutations.CreateStartEventMutation({
@@ -668,38 +697,14 @@ const CrudTableHelper = {
                 });
                 break;
             }
-            case 'CatchEvent': {
+            case 'SessionStore': {
 
-                mutation = new mutations.CreateCatchEventMutation({
+                mutation = new mutations.CreateSessionStoreMutation({
                     id: row.id,
-                    name: row.name,
-                    key: row.key,
-                    process: row.process,
-                    nodeDef: row.nodeDef,
-                    type: row.type,
-                    state: row.state,
-                    participant: row.participant,
-                    application: row.application,
-                    processToken: row.processToken,
-                    instanceCounter: row.instanceCounter,
-                    catalog
-                });
-                break;
-            }
-            case 'ThrowEvent': {
-
-                mutation = new mutations.CreateThrowEventMutation({
-                    id: row.id,
-                    name: row.name,
-                    key: row.key,
-                    process: row.process,
-                    nodeDef: row.nodeDef,
-                    type: row.type,
-                    state: row.state,
-                    participant: row.participant,
-                    application: row.application,
-                    processToken: row.processToken,
-                    instanceCounter: row.instanceCounter,
+                    identityId: row.identityId,
+                    systemUserId: row.systemUserId,
+                    data: row.data,
+                    roles: row.roles,
                     catalog
                 });
                 break;
@@ -751,6 +756,20 @@ const CrudTableHelper = {
                 });
                 break;
             }
+            case 'Process': {
+
+                mutation = new mutations.CreateProcessMutation({
+                    id: row.id,
+                    name: row.name,
+                    key: row.key,
+                    status: row.status,
+                    processDef: row.processDef,
+                    isSubProcess: row.isSubProcess,
+                    callerId: row.callerId,
+                    catalog
+                });
+                break;
+            }
             case 'ProcessDef': {
 
                 mutation = new mutations.CreateProcessDefMutation({
@@ -770,20 +789,6 @@ const CrudTableHelper = {
                     nodeDefCollection: row.nodeDefCollection,
                     flowDefCollection: row.flowDefCollection,
                     laneCollection: row.laneCollection,
-                    catalog
-                });
-                break;
-            }
-            case 'Process': {
-
-                mutation = new mutations.CreateProcessMutation({
-                    id: row.id,
-                    name: row.name,
-                    key: row.key,
-                    status: row.status,
-                    processDef: row.processDef,
-                    isSubProcess: row.isSubProcess,
-                    callerId: row.callerId,
                     catalog
                 });
                 break;
@@ -941,9 +946,9 @@ const CrudTableHelper = {
                 });
                 break;
             }
-            case 'BoundaryEvent': {
+            case 'CatchEvent': {
 
-                mutation = new mutations.CreateBoundaryEventMutation({
+                mutation = new mutations.CreateCatchEventMutation({
                     id: row.id,
                     name: row.name,
                     key: row.key,
@@ -959,25 +964,20 @@ const CrudTableHelper = {
                 });
                 break;
             }
-            case 'User': {
+            case 'BoundaryEvent': {
 
-                mutation = new mutations.CreateUserMutation({
+                mutation = new mutations.CreateBoundaryEventMutation({
                     id: row.id,
                     name: row.name,
-                    password: row.password,
-                    roles: row.roles,
-                    catalog
-                });
-                break;
-            }
-            case 'SessionStore': {
-
-                mutation = new mutations.CreateSessionStoreMutation({
-                    id: row.id,
-                    identityId: row.identityId,
-                    systemUserId: row.systemUserId,
-                    data: row.data,
-                    roles: row.roles,
+                    key: row.key,
+                    process: row.process,
+                    nodeDef: row.nodeDef,
+                    type: row.type,
+                    state: row.state,
+                    participant: row.participant,
+                    application: row.application,
+                    processToken: row.processToken,
+                    instanceCounter: row.instanceCounter,
                     catalog
                 });
                 break;
@@ -1003,15 +1003,6 @@ const CrudTableHelper = {
 
         let mutation = null;
         switch (className) {
-            case 'Timer': {
-
-                mutation = new mutations.UpdateTimerMutation({
-                    catalog,
-                    timer: entity,
-                    updatedTimer: updatedEntity
-                });
-                break;
-            }
             case 'UserTask': {
 
                 mutation = new mutations.UpdateUserTaskMutation({
@@ -1021,12 +1012,30 @@ const CrudTableHelper = {
                 });
                 break;
             }
-            case 'SubprocessExternal': {
+            case 'User': {
 
-                mutation = new mutations.UpdateSubprocessExternalMutation({
+                mutation = new mutations.UpdateUserMutation({
                     catalog,
-                    subprocessexternal: entity,
-                    updatedSubprocessExternal: updatedEntity
+                    user: entity,
+                    updatedUser: updatedEntity
+                });
+                break;
+            }
+            case 'Timer': {
+
+                mutation = new mutations.UpdateTimerMutation({
+                    catalog,
+                    timer: entity,
+                    updatedTimer: updatedEntity
+                });
+                break;
+            }
+            case 'ThrowEvent': {
+
+                mutation = new mutations.UpdateThrowEventMutation({
+                    catalog,
+                    throwevent: entity,
+                    updatedThrowEvent: updatedEntity
                 });
                 break;
             }
@@ -1039,6 +1048,15 @@ const CrudTableHelper = {
                 });
                 break;
             }
+            case 'SubprocessExternal': {
+
+                mutation = new mutations.UpdateSubprocessExternalMutation({
+                    catalog,
+                    subprocessexternal: entity,
+                    updatedSubprocessExternal: updatedEntity
+                });
+                break;
+            }
             case 'StartEvent': {
 
                 mutation = new mutations.UpdateStartEventMutation({
@@ -1048,21 +1066,12 @@ const CrudTableHelper = {
                 });
                 break;
             }
-            case 'CatchEvent': {
+            case 'SessionStore': {
 
-                mutation = new mutations.UpdateCatchEventMutation({
+                mutation = new mutations.UpdateSessionStoreMutation({
                     catalog,
-                    catchevent: entity,
-                    updatedCatchEvent: updatedEntity
-                });
-                break;
-            }
-            case 'ThrowEvent': {
-
-                mutation = new mutations.UpdateThrowEventMutation({
-                    catalog,
-                    throwevent: entity,
-                    updatedThrowEvent: updatedEntity
+                    sessionstore: entity,
+                    updatedSessionStore: updatedEntity
                 });
                 break;
             }
@@ -1093,21 +1102,21 @@ const CrudTableHelper = {
                 });
                 break;
             }
-            case 'ProcessDef': {
-
-                mutation = new mutations.UpdateProcessDefMutation({
-                    catalog,
-                    processdef: entity,
-                    updatedProcessDef: updatedEntity
-                });
-                break;
-            }
             case 'Process': {
 
                 mutation = new mutations.UpdateProcessMutation({
                     catalog,
                     process: entity,
                     updatedProcess: updatedEntity
+                });
+                break;
+            }
+            case 'ProcessDef': {
+
+                mutation = new mutations.UpdateProcessDefMutation({
+                    catalog,
+                    processdef: entity,
+                    updatedProcessDef: updatedEntity
                 });
                 break;
             }
@@ -1183,30 +1192,21 @@ const CrudTableHelper = {
                 });
                 break;
             }
+            case 'CatchEvent': {
+
+                mutation = new mutations.UpdateCatchEventMutation({
+                    catalog,
+                    catchevent: entity,
+                    updatedCatchEvent: updatedEntity
+                });
+                break;
+            }
             case 'BoundaryEvent': {
 
                 mutation = new mutations.UpdateBoundaryEventMutation({
                     catalog,
                     boundaryevent: entity,
                     updatedBoundaryEvent: updatedEntity
-                });
-                break;
-            }
-            case 'User': {
-
-                mutation = new mutations.UpdateUserMutation({
-                    catalog,
-                    user: entity,
-                    updatedUser: updatedEntity
-                });
-                break;
-            }
-            case 'SessionStore': {
-
-                mutation = new mutations.UpdateSessionStoreMutation({
-                    catalog,
-                    sessionstore: entity,
-                    updatedSessionStore: updatedEntity
                 });
                 break;
             }
@@ -1224,32 +1224,36 @@ const CrudTableHelper = {
     remove: (className, catalog, row, entity) => {
         let mutation = null;
         switch (className) {
-            case 'Timer': {
-                mutation = new mutations.RemoveTimerMutation({ catalog, timer: entity });
-                break;
-            }
             case 'UserTask': {
                 mutation = new mutations.RemoveUserTaskMutation({ catalog, usertask: entity });
                 break;
             }
-            case 'SubprocessExternal': {
-                mutation = new mutations.RemoveSubprocessExternalMutation({ catalog, subprocessexternal: entity });
+            case 'User': {
+                mutation = new mutations.RemoveUserMutation({ catalog, user: entity });
+                break;
+            }
+            case 'Timer': {
+                mutation = new mutations.RemoveTimerMutation({ catalog, timer: entity });
+                break;
+            }
+            case 'ThrowEvent': {
+                mutation = new mutations.RemoveThrowEventMutation({ catalog, throwevent: entity });
                 break;
             }
             case 'SubprocessInternal': {
                 mutation = new mutations.RemoveSubprocessInternalMutation({ catalog, subprocessinternal: entity });
                 break;
             }
+            case 'SubprocessExternal': {
+                mutation = new mutations.RemoveSubprocessExternalMutation({ catalog, subprocessexternal: entity });
+                break;
+            }
             case 'StartEvent': {
                 mutation = new mutations.RemoveStartEventMutation({ catalog, startevent: entity });
                 break;
             }
-            case 'CatchEvent': {
-                mutation = new mutations.RemoveCatchEventMutation({ catalog, catchevent: entity });
-                break;
-            }
-            case 'ThrowEvent': {
-                mutation = new mutations.RemoveThrowEventMutation({ catalog, throwevent: entity });
+            case 'SessionStore': {
+                mutation = new mutations.RemoveSessionStoreMutation({ catalog, sessionstore: entity });
                 break;
             }
             case 'ServiceTask': {
@@ -1264,12 +1268,12 @@ const CrudTableHelper = {
                 mutation = new mutations.RemoveProcessTokenMutation({ catalog, processtoken: entity });
                 break;
             }
-            case 'ProcessDef': {
-                mutation = new mutations.RemoveProcessDefMutation({ catalog, processdef: entity });
-                break;
-            }
             case 'Process': {
                 mutation = new mutations.RemoveProcessMutation({ catalog, process: entity });
+                break;
+            }
+            case 'ProcessDef': {
+                mutation = new mutations.RemoveProcessDefMutation({ catalog, processdef: entity });
                 break;
             }
             case 'ParallelGateway': {
@@ -1304,16 +1308,12 @@ const CrudTableHelper = {
                 mutation = new mutations.RemoveEndEventMutation({ catalog, endevent: entity });
                 break;
             }
+            case 'CatchEvent': {
+                mutation = new mutations.RemoveCatchEventMutation({ catalog, catchevent: entity });
+                break;
+            }
             case 'BoundaryEvent': {
                 mutation = new mutations.RemoveBoundaryEventMutation({ catalog, boundaryevent: entity });
-                break;
-            }
-            case 'User': {
-                mutation = new mutations.RemoveUserMutation({ catalog, user: entity });
-                break;
-            }
-            case 'SessionStore': {
-                mutation = new mutations.RemoveSessionStoreMutation({ catalog, sessionstore: entity });
                 break;
             }
             default: {

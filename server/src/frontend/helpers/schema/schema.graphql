@@ -45,18 +45,19 @@ type Catalog implements Node {
   id: ID!
   schema: Schema
   EntityConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): EntityConnection
-  TimerConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): TimerConnection
   UserTaskConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): UserTaskConnection
-  SubprocessExternalConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): SubprocessExternalConnection
-  SubprocessInternalConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): SubprocessInternalConnection
-  StartEventConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): StartEventConnection
-  CatchEventConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): CatchEventConnection
+  UserConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): UserConnection
+  TimerConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): TimerConnection
   ThrowEventConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): ThrowEventConnection
+  SubprocessInternalConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): SubprocessInternalConnection
+  SubprocessExternalConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): SubprocessExternalConnection
+  StartEventConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): StartEventConnection
+  SessionStoreConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): SessionStoreConnection
   ServiceTaskConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): ServiceTaskConnection
   ScriptTaskConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): ScriptTaskConnection
   ProcessTokenConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): ProcessTokenConnection
-  ProcessDefConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): ProcessDefConnection
   ProcessConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): ProcessConnection
+  ProcessDefConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): ProcessDefConnection
   ParallelGatewayConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): ParallelGatewayConnection
   NodeInstanceConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): NodeInstanceConnection
   NodeDefConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): NodeDefConnection
@@ -65,9 +66,8 @@ type Catalog implements Node {
   ExclusiveGatewayConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): ExclusiveGatewayConnection
   EventConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): EventConnection
   EndEventConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): EndEventConnection
+  CatchEventConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): CatchEventConnection
   BoundaryEventConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): BoundaryEventConnection
-  UserConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): UserConnection
-  SessionStoreConnection(after: String, first: Int, before: String, last: Int, query: String, find: String, orderBy: String, offset: Int): SessionStoreConnection
 }
 
 type CatchEvent {
@@ -790,27 +790,30 @@ input LaneReferenceInput {
 }
 
 type Mutation {
-  createTimer(input: CreateTimerInput!): CreateTimerPayload
-  updateTimer(input: UpdateTimerInput!): UpdateTimerPayload
-  removeTimer(input: RemoveTimerInput!): RemoveTimerPayload
   createUserTask(input: CreateUserTaskInput!): CreateUserTaskPayload
   updateUserTask(input: UpdateUserTaskInput!): UpdateUserTaskPayload
   removeUserTask(input: RemoveUserTaskInput!): RemoveUserTaskPayload
-  createSubprocessExternal(input: CreateSubprocessExternalInput!): CreateSubprocessExternalPayload
-  updateSubprocessExternal(input: UpdateSubprocessExternalInput!): UpdateSubprocessExternalPayload
-  removeSubprocessExternal(input: RemoveSubprocessExternalInput!): RemoveSubprocessExternalPayload
-  createSubprocessInternal(input: CreateSubprocessInternalInput!): CreateSubprocessInternalPayload
-  updateSubprocessInternal(input: UpdateSubprocessInternalInput!): UpdateSubprocessInternalPayload
-  removeSubprocessInternal(input: RemoveSubprocessInternalInput!): RemoveSubprocessInternalPayload
-  createStartEvent(input: CreateStartEventInput!): CreateStartEventPayload
-  updateStartEvent(input: UpdateStartEventInput!): UpdateStartEventPayload
-  removeStartEvent(input: RemoveStartEventInput!): RemoveStartEventPayload
-  createCatchEvent(input: CreateCatchEventInput!): CreateCatchEventPayload
-  updateCatchEvent(input: UpdateCatchEventInput!): UpdateCatchEventPayload
-  removeCatchEvent(input: RemoveCatchEventInput!): RemoveCatchEventPayload
+  createUser(input: CreateUserInput!): CreateUserPayload
+  updateUser(input: UpdateUserInput!): UpdateUserPayload
+  removeUser(input: RemoveUserInput!): RemoveUserPayload
+  createTimer(input: CreateTimerInput!): CreateTimerPayload
+  updateTimer(input: UpdateTimerInput!): UpdateTimerPayload
+  removeTimer(input: RemoveTimerInput!): RemoveTimerPayload
   createThrowEvent(input: CreateThrowEventInput!): CreateThrowEventPayload
   updateThrowEvent(input: UpdateThrowEventInput!): UpdateThrowEventPayload
   removeThrowEvent(input: RemoveThrowEventInput!): RemoveThrowEventPayload
+  createSubprocessInternal(input: CreateSubprocessInternalInput!): CreateSubprocessInternalPayload
+  updateSubprocessInternal(input: UpdateSubprocessInternalInput!): UpdateSubprocessInternalPayload
+  removeSubprocessInternal(input: RemoveSubprocessInternalInput!): RemoveSubprocessInternalPayload
+  createSubprocessExternal(input: CreateSubprocessExternalInput!): CreateSubprocessExternalPayload
+  updateSubprocessExternal(input: UpdateSubprocessExternalInput!): UpdateSubprocessExternalPayload
+  removeSubprocessExternal(input: RemoveSubprocessExternalInput!): RemoveSubprocessExternalPayload
+  createStartEvent(input: CreateStartEventInput!): CreateStartEventPayload
+  updateStartEvent(input: UpdateStartEventInput!): UpdateStartEventPayload
+  removeStartEvent(input: RemoveStartEventInput!): RemoveStartEventPayload
+  createSessionStore(input: CreateSessionStoreInput!): CreateSessionStorePayload
+  updateSessionStore(input: UpdateSessionStoreInput!): UpdateSessionStorePayload
+  removeSessionStore(input: RemoveSessionStoreInput!): RemoveSessionStorePayload
   createServiceTask(input: CreateServiceTaskInput!): CreateServiceTaskPayload
   updateServiceTask(input: UpdateServiceTaskInput!): UpdateServiceTaskPayload
   removeServiceTask(input: RemoveServiceTaskInput!): RemoveServiceTaskPayload
@@ -820,12 +823,12 @@ type Mutation {
   createProcessToken(input: CreateProcessTokenInput!): CreateProcessTokenPayload
   updateProcessToken(input: UpdateProcessTokenInput!): UpdateProcessTokenPayload
   removeProcessToken(input: RemoveProcessTokenInput!): RemoveProcessTokenPayload
-  createProcessDef(input: CreateProcessDefInput!): CreateProcessDefPayload
-  updateProcessDef(input: UpdateProcessDefInput!): UpdateProcessDefPayload
-  removeProcessDef(input: RemoveProcessDefInput!): RemoveProcessDefPayload
   createProcess(input: CreateProcessInput!): CreateProcessPayload
   updateProcess(input: UpdateProcessInput!): UpdateProcessPayload
   removeProcess(input: RemoveProcessInput!): RemoveProcessPayload
+  createProcessDef(input: CreateProcessDefInput!): CreateProcessDefPayload
+  updateProcessDef(input: UpdateProcessDefInput!): UpdateProcessDefPayload
+  removeProcessDef(input: RemoveProcessDefInput!): RemoveProcessDefPayload
   createParallelGateway(input: CreateParallelGatewayInput!): CreateParallelGatewayPayload
   updateParallelGateway(input: UpdateParallelGatewayInput!): UpdateParallelGatewayPayload
   removeParallelGateway(input: RemoveParallelGatewayInput!): RemoveParallelGatewayPayload
@@ -850,15 +853,12 @@ type Mutation {
   createEndEvent(input: CreateEndEventInput!): CreateEndEventPayload
   updateEndEvent(input: UpdateEndEventInput!): UpdateEndEventPayload
   removeEndEvent(input: RemoveEndEventInput!): RemoveEndEventPayload
+  createCatchEvent(input: CreateCatchEventInput!): CreateCatchEventPayload
+  updateCatchEvent(input: UpdateCatchEventInput!): UpdateCatchEventPayload
+  removeCatchEvent(input: RemoveCatchEventInput!): RemoveCatchEventPayload
   createBoundaryEvent(input: CreateBoundaryEventInput!): CreateBoundaryEventPayload
   updateBoundaryEvent(input: UpdateBoundaryEventInput!): UpdateBoundaryEventPayload
   removeBoundaryEvent(input: RemoveBoundaryEventInput!): RemoveBoundaryEventPayload
-  createUser(input: CreateUserInput!): CreateUserPayload
-  updateUser(input: UpdateUserInput!): UpdateUserPayload
-  removeUser(input: RemoveUserInput!): RemoveUserPayload
-  createSessionStore(input: CreateSessionStoreInput!): CreateSessionStorePayload
-  updateSessionStore(input: UpdateSessionStoreInput!): UpdateSessionStorePayload
-  removeSessionStore(input: RemoveSessionStoreInput!): RemoveSessionStorePayload
 }
 
 # An object with an ID

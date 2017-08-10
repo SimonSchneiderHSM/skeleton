@@ -21,7 +21,7 @@
       "path": "process/definitions",
       "componentName": "ProcessDefinitions",
       "componentQueriesName": "Catalog",
-      "componentPath": "../../process_engine_http/dist/commonjs/frontend/container/ProcessDefinitions/ProcessDefinitions.js"
+      "componentPath": "../../../../node_modules/@process-engine-js/process_engine_http/dist/commonjs/frontend/container/ProcessDefinitions/ProcessDefinitions.js"
     },
     "__PROCESS__DEFINITION__": {
       "name": "processdefinition",
@@ -29,7 +29,7 @@
       "componentName": "ProcessDefinition",
       "componentQueriesName": "Catalog",
       "prepareParamFuncName": "prepareIDParams",
-      "componentPath": "../../process_engine_http/dist/commonjs/frontend/container/ProcessDefinition/ProcessDefinition.js"
+      "componentPath": "../../../../node_modules/@process-engine-js/process_engine_http/dist/commonjs/frontend/container/ProcessDefinition/ProcessDefinition.js"
     }
   },
   "frontendPath": "./src/frontend",
