@@ -1,0 +1,25 @@
+/**
+ * Override Bootstrap styles that you can't modify via variables here.
+ *
+ */
+
+@font-face {
+  font-family: 'Open Sans Condensed Light';
+  src: url('../../theme/Default/fonts/OpenSans-CondLight.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed Light Italic';
+  src: url('../../theme/Default/fonts/OpenSans-CondLightItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed Bold';
+  src: url('../../theme/Default/fonts/OpenSans-CondBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
