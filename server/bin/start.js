@@ -6,6 +6,7 @@ const Container = require('addict-ioc').Container;
 const debug = require('debug')('bootstrapper');
 
 const iocModuleNames = [
+  '@process-engine-js/services',
   '@process-engine-js/bootstrapper',
   '@process-engine-js/bootstrapper_node',
   '@process-engine-js/core',
