@@ -31,7 +31,6 @@
       "command": "node --inspect=5858 bin/start.js",
       "env": {
         "NODE_ENV": "development",
-        "DEBUG": "*,-babel,-faye",
         "CONFIG_FILE": "config",
         "NO_WEBPACK": "1"
       }
@@ -81,7 +80,7 @@
     "@process-engine-js/process_repository_browser": "^1.0.0",
     "@process-engine-js/routing": "^1.0.0",
     "@process-engine-js/security_service": "^1.0.1",
-    "@process-engine-js/services": "^1.0.10",
+    "@process-engine-js/services": "^1.0.11",
     "@process-engine-js/timing": "^1.0.0",
     "@process-engine-js/utils": "^1.0.2",
     "@process-engine-js/validation": "^1.0.0",

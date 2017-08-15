@@ -1,9 +1,3 @@
 {
-  "port": 465,
-  "secure": true,
-  "ignoreTLS": true,
-  "tls": {
-    "rejectUnauthorized": false
-  },
   "from": "processengine@quantusflow.com"
 }
