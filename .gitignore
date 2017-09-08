@@ -44,3 +44,5 @@ typings
 src/backend/modules/demo-backend/typings
 id_rsa*
 .npmrc
+dist
+
