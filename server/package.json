@@ -82,7 +82,7 @@
     "@process-engine-js/security_service": "^1.0.1",
     "@process-engine-js/services": "^1.0.11",
     "@process-engine-js/timing": "^1.0.0",
-    "@process-engine-js/utils": "^1.0.2",
+    "@process-engine-js/foundation": "^1.0.0",
     "@process-engine-js/validation": "^1.0.0",
     "addict-ioc": "^2.0.8",
     "babel-polyfill": "^6.23.0",
