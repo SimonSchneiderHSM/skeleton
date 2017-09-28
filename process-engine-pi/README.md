@@ -94,7 +94,7 @@ npm install
 - set the ip of the messagebus-master as `endPointName` in `config/development/messagebus/faye.json`, e.g. `http://192.168.161.20:8000/mb`. Also set `isMaster` to false in the same file
 
 #### Make the process-engine autostart on boot
-see *[this tutorial](https://linuxconfig.org/how-to-automatically-execute-shell-script-at-startup-boot-on-systemd-linux)*
+see *[this tutorial](https://linuxconfig.org/how-to-automatically-execute-shell-script-at-startup-boot-on-systemd-linux)* and *[this tutorial](https://gist.github.com/joepie91/73ce30dd258296bd24af23e9c5f761aa)*
 
 create the file `/etc/systemd/system/process-engine.service` with the following content:
 ```
@@ -103,11 +103,14 @@ After=network-online.target
 
 [Service]
 Type=forking
-ExecStart=/usr/bin/screen -dmL process-engine.log -S process-engine npm start --prefix /PATH-TO-YOUR-PROJECT
+User=pi
+Environment=NODE_VERSION=7
+ExecStart=/usr/bin/screen -dmL process-engine.log -S process-engine /home/pi/.nvm/nvm-exec npm start --prefix /home/pi/process-engine-pi
 
 [Install]
 WantedBy=multi-user.target
 ```
+*(change the username, node-version, logfile-name, screen-name and/or project-path if necessary)*
 
 install the systemd-service:
 ```
