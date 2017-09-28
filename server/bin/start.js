@@ -2,7 +2,7 @@
 
 const bootstrapperIocModule = require('@process-engine-js/bootstrapper/ioc_module');
 const bootstrapperNodeIocModule = require('@process-engine-js/bootstrapper_node/ioc_module');
-const Container = require('addict-ioc').Container;
+const InvocationContainer = require('addict-ioc').InvocationContainer;
 const debug = require('debug')('bootstrapper');
 
 const iocModuleNames = [
@@ -19,9 +19,6 @@ const iocModuleNames = [
   '@process-engine-js/datastore_messagebus',
   '@process-engine-js/event_aggregator',
   '@process-engine-js/feature',
-  '@process-engine-js/frontend',
-  '@process-engine-js/graphiql',
-  '@process-engine-js/graphiql_http',
   '@process-engine-js/http_extension',
   '@process-engine-js/iam',
   '@process-engine-js/iam_http',
@@ -38,9 +35,6 @@ const iocModuleNames = [
   '@process-engine-js/routing',
   '@process-engine-js/timing',
   '@process-engine-js/validation',
-
-  // This needs to be registered last, otherwise the frontend won't be delivered correctly
-  '@process-engine-js/frontend_http',
 ];
 
 const iocModules = iocModuleNames.map((moduleName) => {
@@ -49,23 +43,40 @@ const iocModules = iocModuleNames.map((moduleName) => {
 
 function start() {
   
-  const container = new Container();
+  const container = new InvocationContainer({
+    defaults: {
+      conventionCalls: ['initialize'],
+    },
+  });
+
+
   for (const iocModule of iocModules) {
     iocModule.registerInContainer(container);
   }
 
   container.validateDependencies();
 
-  const bootstrapper = container.resolve('AppBootstrapper');
-  bootstrapper.start()
+  let datastoreService;
+  let iamService;
+
+  let internalContext;
+  container.resolveAsync('AppBootstrapper')
+    .then((bootstrapper) => {
+      return bootstrapper.start()
+    })
     .then(() => {
-      const iamService = container.resolve('IamService');
+      return container.resolveAsync('IamService');
+    })
+    .then((iamService) => {
       return iamService.createInternalContext('iam_system');
     })
     .then((context) => {
       debug('IamService found - context generated');
-      const datastoreService = container.resolve('DatastoreService');
-      return datastoreService.importDefaultData(context);
+      internalContext = context;
+      return container.resolveAsync('DatastoreService');
+    })
+    .then((datastoreService) => {
+      return datastoreService.importDefaultData(internalContext);
     })
     .then(() => {
       debug('Bootstrapper started successfully.');
@@ -73,6 +84,7 @@ function start() {
     .catch((error) => {
       debug('Bootstrapper failed to start.', error);
     });
+    
 }
 
 start();
