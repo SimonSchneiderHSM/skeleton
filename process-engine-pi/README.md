@@ -20,11 +20,12 @@ Install [raspbian lite](https://www.raspberrypi.org/downloads/raspbian/) as it i
 
 #### Configure Language and SSH
 
-activate ssh, expand file-system, set language and rename the pi through raspi-config
+activate ssh, enable i2c, set language and rename the pi through raspi-config
 ```
 sudo raspi-config
 ```
 - select `Interfacing Options` -> `SSH` -> `Yes` -> `Ok`
+- select `Interfacing Options` -> `I2C` -> `Yes` -> `Ok`
 - select `Localisation Options` -> `Change Locale` -> Select your Locale (e.g. `de_DE.UTF-8 UTF-8`) -> `Ok` -> Select system-locale (e.g. `de_DE.UTF-8`)
 - select `Localisation Options` -> `Change Keyboard Layout` -> Select the correct layout -> `Ok` -> Select the correct language -> `OK` -> Select the correct variant
 - select `Hostname` -> `Ok` -> enter a new name -> `Ok`
