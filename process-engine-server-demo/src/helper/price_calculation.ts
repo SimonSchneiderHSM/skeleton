@@ -10,19 +10,11 @@ export class PriceCalculation {
     const leather = token.history.ut_WaehleExtras ? token.history.ut_WaehleExtras.leather : false;
     const chauffeur = token.history.UserTask_Luxus ? token.history.UserTask_Luxus.chauffeur : false;
 
-    let price = 0;
-
-    switch (category) {
-      case 'smallClass':
-        price = 50;
-        break;
-
-      case 'mediumClass':
-        price = 100;
-        break;
-
-      default:
-        price = 200;
+    let price = 200;
+    if (category === 'smallClass') {
+      price = 50;
+    } else if (category === 'mediumClass') {
+      price = 100;
     }
 
     if (oneWay) {

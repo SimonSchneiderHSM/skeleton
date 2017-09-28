@@ -8,8 +8,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "build": "gulp build"
+    "start": "node index.js"
   },
   "dependencies": {
     "@process-engine-js/bootstrapper": "^2.0.2",

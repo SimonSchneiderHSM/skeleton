@@ -19,7 +19,7 @@ See
 ### Setup/Installation
 
 - start a database as described in the [database-setup](database/README.md#setup)
-- setup the process-engine-server-instance as described in the  [server-setup](process-engine-server/README.md#setupinstallation)
+- if you use the minimal skeleton, setup the process-engine-server-instance as described in the [server-setup](process-engine-server/README.md#setupinstallation). If you use the demo-skeleton, setup the process-engine-server-demo-instance as described in the [server-demo-setup](process-engine-server/README.md#setupinstallation)
 - If you want to use the pi, setup the process-engine-pi-instance as described in the  [pi-setup](process-engine-pi/README.md#setupinstallation)
 - clone the [charon-frontend](https://github.com/5minds/charon) and follow its [setup-guide](https://github.com/5minds/charon#setupinstallation)
 
@@ -29,7 +29,7 @@ See
 ### Usage
 
 - you don't really need to do anything with the DB. if you want to anyway, see the [database-usage](database/README.md#usage)
-- start the process-engine-server-instance as described in the [server-usage](process-engine-server/README.md#usage)
+- if you use the minimal skeleton, start the process-engine-server-instance as described in the [server-usage](process-engine-server/README.md#usage). If you use the demo-skeleton, start the process-engine-server-demo-instance as described in the [server-demo-setup](process-engine-server/README.md#setupinstallation)
 - If you want to use the pi, start the process-engine-pi-instance as described in the [pi-usage](process-engine-pi/README.md#usage)
 - start the charon-frontend as desribed in its [usage-guide](https://github.com/5minds/charon#wie-kann-ich-das-projekt-benutzen)
 
@@ -37,7 +37,7 @@ See
 
 ### Workarounds
 
-There are still some bugs in the process engine. Because of this, There are a few workarounds applied to the process-engine-server. See [server-workarounds](process-engine-server/README.md#workarounds) for detailed info.
+There are still some bugs in the process engine. Because of this, There are a few workarounds applied to the process-engine-server-demo. See [server-demo-workarounds](process-engine-server-demo/README.md#workarounds) for detailed info.
 
 
 ### Authors/Contact information

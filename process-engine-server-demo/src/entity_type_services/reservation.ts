@@ -37,7 +37,7 @@ export class ReservationEntityTypeService implements IReservationEntityTypeServi
 
     const createOptions: IFromPojoOptions = {};
 
-    const dataStoreService: IDatastoreService = (await this.getDatastoreService());
+    const dataStoreService: IDatastoreService = await this.getDatastoreService();
     const reservationEntityType: IEntityType<IReservationEntity> = await dataStoreService.getEntityType<IReservationEntity>('Reservation');
     const reservationEntity: IReservationEntity = await reservationEntityType.createEntity<IReservationEntity>(context, data, createOptions);
 
@@ -45,8 +45,6 @@ export class ReservationEntityTypeService implements IReservationEntityTypeServi
     await reservationEntity.save(context, saveOptions);
 
     const toPojoOptions: IToPojoOptions = {};
-    const pojo: any = await reservationEntity.toPojo(context, toPojoOptions);
-
-    return pojo;
+    return reservationEntity.toPojo(context, toPojoOptions);
   }
 }
