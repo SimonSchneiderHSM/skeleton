@@ -14,29 +14,23 @@ The goal is to provide a minimal starting point for creating a ProcessEngine-Ins
 
 ### Setup/Installation
 
+This guide was written on the 28.09.2017 for raspbian stretch lite
+
 Install [raspbian lite](https://www.raspberrypi.org/downloads/raspbian/) as it is described on the website.
 
-#### Update the OS
-```
-apt-get update
-apt-get upgrade
-apt-get dist-upgrade
-```
-
-install make, g++, screen, nano raspi-config:
-```
-apt-get install make g++ screen nano raspi-config smbus python-smbus
-```
+#### Configure Language and SSH
 
 activate ssh, expand file-system, set language and rename the pi through raspi-config
 ```
-raspi-config
+sudo raspi-config
 ```
 - select `Interfacing Options` -> `SSH` -> `Yes` -> `Ok`
 - select `Localisation Options` -> `Change Locale` -> Select your Locale (e.g. `de_DE.UTF-8 UTF-8`) -> `Ok` -> Select system-locale (e.g. `de_DE.UTF-8`)
+- select `Localisation Options` -> `Change Keyboard Layout` -> Select the correct layout -> `Ok` -> Select the correct language -> `OK` -> Select the correct variant
 - select `Hostname` -> `Ok` -> enter a new name -> `Ok`
+- choose `yes` when asked if you want to reboot
 
-#### setup WIfi
+#### Setup WIfi
 
 create `/etc/network/interfaces.d/wifi` with the following content:
 ```
@@ -46,7 +40,7 @@ wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 iface default inet dhcp
 ```
 
-create the file `/etc/wpa_supplicant/wpa_supplicant.conf` with the following content:
+create/update the file `/etc/wpa_supplicant/wpa_supplicant.conf` with the following content:
 ```
 network={
   ssid="yourssid"
@@ -59,7 +53,19 @@ get the PIs IP-Address:
 ```
 ifconfig wlan0
 ```
-remeber that IP address. From now on, use ssh to access the pi as this is easier
+remeber that IP address. From now on, use ssh to access the pi as this is easier. alternatively you should be able to use the PIs hostname as address, e.g. `ssh pi@bpmn-pi`
+
+#### Update the OS
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+```
+
+install screen and python-smbus:
+```
+sudo apt-get install screen python-smbus
+```
 
 #### Install node
 *see [installing nvm](https://github.com/creationix/nvm)*
