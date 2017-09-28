@@ -3,7 +3,7 @@
     "name": "Postgres",
     "skipMigration": false,
     "server": {
-      "host": "localhost",
+      "host": "192.168.161.20",
       "port": 5432,
       "database": "processengine",
       "user": "admin",

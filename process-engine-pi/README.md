@@ -80,6 +80,9 @@ nvm install 7
 ```bash
 npm install
 ```
+- set the ip of the machine with the Database in `config/development/data_sources/postgres.json`
+  - If the process-engine can't connect to the db, try setting the user to the postgres-superuser (e.g. `postgres`) and set its password in `config/development/data_sources/postgres.json`
+- set the ip of the messagebus-master as `endPointName` in `config/development/messagebus/faye.json`, e.g. `http://192.168.161.20:8000/mb`. Also set `isMaster` to false in the same file
 
 #### Make the process-engine autostart on boot
 see *[this tutorial](https://linuxconfig.org/how-to-automatically-execute-shell-script-at-startup-boot-on-systemd-linux)*
