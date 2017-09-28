@@ -8,7 +8,8 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "gulp build"
   },
   "dependencies": {
     "@process-engine-js/bootstrapper": "^2.0.2",
@@ -41,5 +42,8 @@
     "@process-engine-js/timing": "^2.0.2",
     "@process-engine-js/validation": "^2.0.2",
     "addict-ioc": "^2.2.8"
+  },
+  "devDependencies": {
+    "gulptraum": "^2.2.2"
   }
 }

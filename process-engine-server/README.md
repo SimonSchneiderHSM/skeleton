@@ -32,6 +32,16 @@ When started, the process-engine-instance is avaliable at `http://localhost:8000
 
 ## What else is there to know?
 
+### Stuff in here, that's not *really* necessary for a skeleton
+
+TL;DR: the following files/folders are only necessary for the reservation-process:
+- src
+- dist
+- gulpfile.js
+- tsconfig.json
+
+This skeleton registeres a `ReservationEntity` and a reservation-process to the ioc-container, because it's needed by the reservation-process. If you don't need the revervation-process, you don't need to care about certain files/folders.
+
 ### Workarounds
 
 There are still some bugs in the process engine. Because of this, the following workarounds are applied to this application:
