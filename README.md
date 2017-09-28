@@ -4,13 +4,15 @@ This is is a Database, process-engine-instance and web-ui to edit process-models
 
 ## What are the goals of this project?
 
-The goal is to provide a minimal starting point for creating a ProcessEngine
+This Project has two goals:
+1. provide a minimal starting point for creating a ProcessEngine
+2. provide the minimal implementation necessary to run the reservation-demo
 
 ### Requirements
 
 See
 - [database-requirements](database/README.md#requirements)
-- [process-engine-server-requirements](process-engine-server/README.md#requirements)
+- If you want to use the minmal skeleton, see [process-engine-server-requirements](process-engine-server/README.md#requirements). If you want to use the reservation-demo, see [process-engine-server-demo-requirements](process-engine-server-demo/README.md#requirements)
 - if you want to use the pi, see the [process-engine-pi-requirements](process-engine-pi/README.md#requirements)
 - [frontend-requirements](https://github.com/5minds/charon#voraussetzungen)
 
