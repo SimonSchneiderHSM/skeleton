@@ -10,7 +10,6 @@ The goal is to provide a minimal starting point for creating a ProcessEngine-Ins
 
 - Node >= `6.2.1`
 - Raspberry PI 3
-- 
 
 ### Setup/Installation
 
@@ -76,7 +75,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | b
 exit
 ```
 
-reconnect
+reconnect to the pi
 ```
 nvm install 7
 ```
@@ -90,7 +89,6 @@ nvm install 7
 npm install
 ```
 - set the ip of the machine with the Database in `config/development/data_sources/postgres.json`
-  - If the process-engine can't connect to the db, try setting the user to the postgres-superuser (e.g. `postgres`) and set its password in `config/development/data_sources/postgres.json`
 - set the ip of the messagebus-master as `endPointName` in `config/development/messagebus/faye.json`, e.g. `http://192.168.161.20:8000/mb`. Also set `isMaster` to false in the same file
 
 #### Make the process-engine autostart on boot
@@ -123,10 +121,12 @@ sudo systemctl enable process-engine.service
 
 ### Usage
 
-Start the process-engine-instance with
+To Start the process-engine-instance manually, run
 ```bash
 npm start
 ```
+
+With autostart setup, you probably don't need to do this though.
 
 ## What else is there to know?
 
