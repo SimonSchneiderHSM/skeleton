@@ -1,10 +1,10 @@
-import {Entity} from '@process-engine-js/data_model_contracts';
+import {IEntity} from '@process-engine-js/core_contracts'
 
 export interface IReservationEntityTypeService {
   createReservation(context, token): Promise<any>;
 }
 
-export interface IReservationEntity extends Entity {
+export interface IReservationEntity extends IEntity {
   name: string;
   category: string;
   isOneWay: boolean;

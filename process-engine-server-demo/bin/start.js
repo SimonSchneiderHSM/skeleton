@@ -6,7 +6,7 @@ const InvocationContainer = require('addict-ioc').InvocationContainer;
 const debug = require('debug')('bootstrapper');
 
 const iocModuleNames = [
-  './dist/commonjs',
+  '..',
   '@process-engine-js/services',
   '@process-engine-js/bootstrapper',
   '@process-engine-js/bootstrapper_node',

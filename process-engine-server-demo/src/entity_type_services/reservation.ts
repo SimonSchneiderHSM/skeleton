@@ -1,7 +1,7 @@
 import {ExecutionContext, IFromPojoOptions, IPublicSaveOptions, IToPojoOptions} from '@process-engine-js/core_contracts';
 import {IDatastoreService, IEntityType} from '@process-engine-js/data_model_contracts';
 import {IFactoryAsync} from 'addict-ioc';
-import {IReservationEntity, IReservationEntityTypeService} from './interfaces';
+import {IReservationEntity, IReservationEntityTypeService} from '../interfaces';
 
 export class ReservationEntityTypeService implements IReservationEntityTypeService {
 
