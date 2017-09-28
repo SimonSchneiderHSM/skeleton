@@ -25,7 +25,7 @@ activate ssh, enable i2c, set language and rename the pi through raspi-config
 sudo raspi-config
 ```
 - select `Interfacing Options` -> `SSH` -> `Yes` -> `Ok`
-- select `Interfacing Options` -> `I2C` -> `Yes` -> `Ok` (this is necessary to use smbus)
+- select `Interfacing Options` -> `I2C` -> `Yes` -> `Ok` (this is necessary to use smbu)
 - select `Localisation Options` -> `Change Locale` -> Select your Locale (e.g. `de_DE.UTF-8 UTF-8`) -> `Ok` -> Select system-locale (e.g. `de_DE.UTF-8`)
 - select `Localisation Options` -> `Change Keyboard Layout` -> Select the correct layout -> `Ok` -> Select the correct language -> `OK` -> Select the correct variant
 - select `Hostname` -> `Ok` -> enter a new name -> `Ok`
@@ -103,7 +103,7 @@ After=network-online.target
 
 [Service]
 Type=forking
-ExecStart=/usr/bin/screen -dmLS process-engine npm start --prefix /PATH-TO-YOUR-PROJECT
+ExecStart=/usr/bin/screen -dmL process-engine.log -S process-engine npm start --prefix /PATH-TO-YOUR-PROJECT
 
 [Install]
 WantedBy=multi-user.target
@@ -111,9 +111,9 @@ WantedBy=multi-user.target
 
 install the systemd-service:
 ```
-chmod 664 /etc/systemd/system/process-engine.service
-systemctl daemon-reload
-systemctl enable process-engine.service
+sudo chmod 664 /etc/systemd/system/process-engine.service
+sudo systemctl daemon-reload
+sudo systemctl enable process-engine.service
 ```
 
 ## How do I use this project?

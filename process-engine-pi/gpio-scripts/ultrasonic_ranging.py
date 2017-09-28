@@ -34,7 +34,7 @@ def distance():
   return during * 340 / 2 * 100
 
 def loop():
-  while True:
+  for x in range(0, int(sys.argv[1])):
     dis = distance()
     print dis, 'cm'
     print ''
