@@ -10,14 +10,12 @@ const entityDiscoveryTag = require('@process-engine-js/core_contracts').EntityDi
 
 const fs = require('fs');
 const path = require('path');
-/*
 const reservationBpmn = fs.readFileSync(path.join('bpmn', 'reservation.bpmn'), 'utf8');
-*/
+
 function registerInContainer(container) {
-/*
-  container.registerObject(reservationFile, reservationBpmn)
-    .setTag('bpmn_process', 'internal') // category: internal
-*/
+
+  container.registerObject('reservationProcess', reservationBpmn)
+    .setTag('bpmn_process', 'internal')
 
   container.register('ReservationEntity', ReservationEntity)
     .tags(entityDiscoveryTag);
