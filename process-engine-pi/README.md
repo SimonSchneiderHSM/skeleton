@@ -53,7 +53,7 @@ get the PIs IP-Address:
 ```
 ifconfig wlan0
 ```
-remeber that IP address. From now on, use ssh to access the pi as this is easier. alternatively you should be able to use the PIs hostname as address, e.g. `ssh pi@bpmn-pi`
+remeber that IP address. From now on, use ssh to access the pi as this is easier. Alternatively you should be able to use the PIs hostname as address, e.g. `ssh pi@bpmn-pi`
 
 #### Update the OS
 ```
