@@ -88,7 +88,7 @@ nvm install 7
 ```bash
 npm install
 ```
-- set the ip of the machine with the Database in `config/development/data_sources/postgres.json`
+-  in `config/development/data_sources/postgres.json`, set the ip to the ip of the computer that runs the Database
 - set the ip of the messagebus-master as `endPointName` in `config/development/messagebus/faye.json`, e.g. `http://192.168.161.20:8000/mb`. Also set `isMaster` to false in the same file
 
 #### Make the process-engine autostart on boot
