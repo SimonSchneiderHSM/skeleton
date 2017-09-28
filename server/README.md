@@ -26,12 +26,7 @@ Start the server with
 npm start
 ```
 
-When started, the web-ui is avaliable at `http://localhost:8000/app`
-
-When you want to apply changes made in the frontend, you need to rebuild it with
-```bash
-npm run build
-```
+When started, the process-engine-instance is avaliable at `http://localhost:8000`
 
 ## What else is there to know?
 
