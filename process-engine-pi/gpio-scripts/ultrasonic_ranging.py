@@ -2,6 +2,9 @@
 
 import RPi.GPIO as GPIO
 import time
+import sys
+
+GPIO.setwarnings(False)
 
 TRIG = 11
 ECHO = 12
@@ -35,6 +38,7 @@ def loop():
     dis = distance()
     print dis, 'cm'
     print ''
+    sys.stdout.flush()
     time.sleep(0.1)
 
 def destroy():
