@@ -13,7 +13,8 @@
         "Name": "Raspberry",
         "Environment": "Server",
         "Platform": "NodeJS",
-        "PlatformVersion": "7.10.1"
+        "PlatformVersion": "7.10.1",
+        "UI": true
       }
     }
   }

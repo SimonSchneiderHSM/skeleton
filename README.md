@@ -33,6 +33,11 @@ See
 
 ## What else is there to know?
 
+### Workarounds
+
+There are still some bugs in the process engine. Because of this, There are a few workarounds applied to the process-engine-server. See [server-workarounds](process-engine-server/README.md#workarounds) for detailed info.
+
+
 ### Authors/Contact information
 
 - Simon Reymann <simon.reymann@quantusflow.com>
