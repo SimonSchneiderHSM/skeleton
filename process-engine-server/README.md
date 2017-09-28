@@ -1,6 +1,6 @@
 # ProcessEngineJS Skeleton Server
 
-This is is a Server that provides a process-engine-instance and a web-ui to edit process-models
+This is a Server that provides a process-engine-instance
 
 ## What are the goals of this project?
 
@@ -21,10 +21,12 @@ npm install
 
 ### Usage
 
-Start the server with
+Start the server on your main machine with
 ```bash
-npm start
+npm run start
 ```
+
+if you want to interact with the raspberry-pi
 
 When started, the process-engine-instance is avaliable at `http://localhost:8000`
 
