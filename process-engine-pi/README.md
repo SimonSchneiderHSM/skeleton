@@ -82,7 +82,9 @@ nvm install 7
 
 #### Setup the Process-Engine
 - copy this folder (process-engine-pi) to your pi
-- ssh into your pi, move into the folder you just copied and install the necessary dependencies with
+- ssh into your pi, move into the folder you just copied
+- if the process-engine isn't public yet, login with `npm login` to gain access to the process-engine-packages
+- install the necessary dependencies with
 ```bash
 npm install
 ```
