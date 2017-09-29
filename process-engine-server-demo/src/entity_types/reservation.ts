@@ -13,8 +13,8 @@ export class ReservationEntity extends Entity implements IReservationEntity {
     super(entityDependencyHelper, context, schema, propertyBag, entityType);
   }
 
-  public async initialize(): Promise<void> {
-    await super.initialize(this);
+  public initialize(): Promise<void> {
+    return super.initialize(this);
   }
 
   @schemaAttribute({ type: SchemaAttributeType.string })
