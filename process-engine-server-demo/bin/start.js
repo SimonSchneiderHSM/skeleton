@@ -42,7 +42,7 @@ const iocModules = iocModuleNames.map((moduleName) => {
   return require(`${moduleName}/ioc_module`);
 });
 
-function start() {
+async function start() {
   
   const container = new InvocationContainer({
     defaults: {
@@ -50,42 +50,27 @@ function start() {
     },
   });
 
-
   for (const iocModule of iocModules) {
     iocModule.registerInContainer(container);
   }
 
   container.validateDependencies();
 
-  let datastoreService;
-  let iamService;
+  try {
+    const bootstrapper = await container.resolveAsync('AppBootstrapper');
+    await bootstrapper.start();
 
-  let internalContext;
-  container.resolveAsync('AppBootstrapper')
-    .then((bootstrapper) => {
-      return bootstrapper.start()
-    })
-    .then(() => {
-      return container.resolveAsync('IamService');
-    })
-    .then((iamService) => {
-      return iamService.createInternalContext('iam_system');
-    })
-    .then((context) => {
-      debug('IamService found - context generated');
-      internalContext = context;
-      return container.resolveAsync('DatastoreService');
-    })
-    .then((datastoreService) => {
-      return datastoreService.importDefaultData(internalContext);
-    })
-    .then(() => {
-      debug('Bootstrapper started successfully.');
-    })
-    .catch((error) => {
-      debug('Bootstrapper failed to start.', error);
-    });
-    
+    const iamService = await container.resolveAsync('IamService');
+    const internalContext = await iamService.createInternalContext('iam_system');
+    debug('IamService found - context generated');
+
+    const datastoreService = await container.resolveAsync('DatastoreService');
+    await datastoreService.importDefaultData(internalContext);
+
+    debug('Bootstrapper started successfully.');
+  } catch(error) {
+    debug('Bootstrapper failed to start.', error);
+  }
 }
 
 start();
