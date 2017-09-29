@@ -24,7 +24,7 @@ npm run build
 
 Start the server on your main machine with
 ```bash
-npm run start
+npm start
 ```
 
 When started, the process-engine-instance is avaliable at `http://localhost:8000`

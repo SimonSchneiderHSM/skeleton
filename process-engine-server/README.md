@@ -23,7 +23,7 @@ npm install
 
 Start the server on your main machine with
 ```bash
-npm run start
+npm start
 ```
 
 if you want to interact with the raspberry-pi
