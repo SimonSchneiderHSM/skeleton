@@ -89,7 +89,7 @@ nvm install 7
 npm install
 ```
 -  in `config/development/data_sources/postgres.json`, set the ip to the ip of the computer that runs the Database
-- set the ip of the messagebus-master as `endPointName` in `config/development/messagebus/faye.json`, e.g. `http://192.168.161.20:8000/mb`. Also set `isMaster` to false in the same file
+- set the ip of the messagebus-master as `endPointName` in `config/development/messagebus/faye.json`, e.g. `http://192.168.161.20:8000/mb`
 
 #### Make the process-engine autostart on boot
 see *[this tutorial](https://linuxconfig.org/how-to-automatically-execute-shell-script-at-startup-boot-on-systemd-linux)* and *[this tutorial](https://gist.github.com/joepie91/73ce30dd258296bd24af23e9c5f761aa)*
