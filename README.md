@@ -30,7 +30,7 @@ For the minimal setup:
 
 For the reservation-demo setup:
 - start a database as described in the [database-setup](database/README.md#setup)
-- setup the process-engine-server-demo-instance as described in the [server-demo-setup](process-engine-server/README.md#setupinstallation)
+- setup the process-engine-server-demo-instance as described in the [server-demo-setup](process-engine-server-demo/README.md#setupinstallation)
 - setup the process-engine-pi-instance as described in the [pi-setup](process-engine-pi/README.md#setupinstallation)
 - clone the [charon-frontend](https://github.com/5minds/charon) and follow its [setup-guide](https://github.com/5minds/charon#setupinstallation)
 
@@ -46,7 +46,7 @@ For the minimal setup:
 
 For the reservation-demo setup:
 - you don't really need to do anything with the DB. if you want to anyway, see the [database-usage](database/README.md#usage)
-- start the process-engine-server-demo-instance as described in the [server-demo-setup](process-engine-server/README.md#setupinstallation)
+- start the process-engine-server-demo-instance as described in the [server-demo-setup](process-engine-server-demo/README.md#setupinstallation)
 - start the process-engine-pi-instance as described in the [pi-usage](process-engine-pi/README.md#usage)
 - start the charon-frontend as desribed in its [usage-guide](https://github.com/5minds/charon#wie-kann-ich-das-projekt-benutzen)
 
