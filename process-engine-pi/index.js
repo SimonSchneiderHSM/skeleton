@@ -3,7 +3,7 @@
 const bootstrapperIocModule = require('@process-engine-js/bootstrapper/ioc_module');
 const bootstrapperNodeIocModule = require('@process-engine-js/bootstrapper_node/ioc_module');
 const InvocationContainer = require('addict-ioc').InvocationContainer;
-const debug = require('debug')('bootstrapper');
+const logger = require('loggerhythm').Logger.createLogger('bootstrapper');
 
 const iocModuleNames = [
   '@process-engine-js/services',
@@ -61,14 +61,13 @@ async function start() {
 
     const iamService = await container.resolveAsync('IamService');
     const internalContext = await iamService.createInternalContext('iam_system');
-    debug('IamService found - context generated');
 
     const datastoreService = await container.resolveAsync('DatastoreService');
     await datastoreService.importDefaultData(internalContext);
 
-    debug('Bootstrapper started successfully.');
+    logger.info('Bootstrapper started successfully.');
   } catch(error) {
-    debug('Bootstrapper failed to start.', error);
+    logger.error('Bootstrapper failed to start.', error);
   }
 }
 
