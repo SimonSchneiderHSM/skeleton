@@ -21,6 +21,7 @@ const iocModuleNames = [
   '@process-engine-js/event_aggregator',
   '@process-engine-js/feature',
   '@process-engine-js/http_extension',
+  '@process-engine-js/caching',
   '@process-engine-js/iam',
   '@process-engine-js/iam_http',
   '@process-engine-js/invocation',
