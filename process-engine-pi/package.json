@@ -13,6 +13,7 @@
   "dependencies": {
     "@process-engine-js/bootstrapper": "^2.0.2",
     "@process-engine-js/bootstrapper_node": "^2.0.2",
+    "@process-engine-js/caching": "^1.0.0",
     "@process-engine-js/core": "^2.0.2",
     "@process-engine-js/data_model": "^2.0.3",
     "@process-engine-js/data_model_contracts": "^2.0.2",
