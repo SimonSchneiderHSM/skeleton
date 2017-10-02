@@ -41,7 +41,7 @@
     "@process-engine-js/services": "^2.0.4",
     "@process-engine-js/timing": "^2.0.2",
     "@process-engine-js/validation": "^2.0.2",
-    "addict-ioc": "^2.2.8",
+    "addict-ioc": "^2.2.11",
     "loggerhythm": "^3.0.0"
   },
   "devDependencies": {
