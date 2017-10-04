@@ -9,6 +9,7 @@ const iocModuleNames = [
   '@process-engine-js/services',
   '@process-engine-js/bootstrapper',
   '@process-engine-js/bootstrapper_node',
+  '@process-engine-js/caching',
   '@process-engine-js/core',
   '@process-engine-js/data_model',
   '@process-engine-js/data_model_contracts',
