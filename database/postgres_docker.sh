@@ -5,6 +5,7 @@ DB_USER_PASSWORD=admin
 DB_NAME=processengine
 DB_PORT=5432
 
+DB_DOCKER_IMAGE_NAME=process_engine_postrgres
 DB_CONTAINER_NAME=process_engine_postrgres_container
 VOLUME_CONTAINER_NAME=process_engine_postrgres_volume_container
 
@@ -22,6 +23,7 @@ create_volume_container() {
 }
 
 create_db_container() {
+  docker build -t $DB_DOCKER_IMAGE_NAME .
   docker run \
     --detach \
     --env POSTGRES_USER=$DB_USER_NAME \
@@ -30,7 +32,7 @@ create_db_container() {
     --publish $DB_PORT:5432 \
     --name $DB_CONTAINER_NAME \
     --volumes-from=${VOLUME_CONTAINER_NAME} \
-    postgres > $LOG_PATH
+    $DB_DOCKER_IMAGE_NAME > $LOG_PATH
 }
 
 existing_volume_container_id() {
