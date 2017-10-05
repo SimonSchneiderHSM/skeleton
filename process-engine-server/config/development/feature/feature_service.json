@@ -5,15 +5,8 @@
         "Name": "Skeleton_Server",
         "Environment": "Server",
         "Platform": "NodeJS",
-        "PlatformVersion": "7.6.0"
-      }
-    },
-    "skeleton_pi": {
-      "features": {
-        "Name": "Raspberry",
-        "Environment": "Server",
-        "Platform": "NodeJS",
-        "PlatformVersion": "7.10.1"
+        "PlatformVersion": "7.6.0",
+        "UI": true
       }
     }
   }
