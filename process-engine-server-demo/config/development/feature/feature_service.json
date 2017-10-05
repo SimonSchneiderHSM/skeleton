@@ -5,7 +5,8 @@
         "Name": "Skeleton_Server",
         "Environment": "Server",
         "Platform": "NodeJS",
-        "PlatformVersion": "7.6.0"
+        "PlatformVersion": "7.6.0",
+        "UI": true
       }
     },
     "skeleton_pi": {
@@ -13,8 +14,7 @@
         "Name": "Raspberry",
         "Environment": "Server",
         "Platform": "NodeJS",
-        "PlatformVersion": "7.10.1",
-        "UI": true
+        "PlatformVersion": "7.10.1"
       }
     }
   }
