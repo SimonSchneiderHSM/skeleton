@@ -54,7 +54,7 @@ For the reservation-demo setup:
 
 ### Workarounds
 
-There are still some bugs in the process engine. Because of this, There are a few workarounds applied to the process-engine-server-demo. See [server-demo-workarounds](process-engine-server-demo/README.md#workarounds) for detailed info.
+There are still some bugs in the process engine. Because of this, There are a few workarounds applied to the process-engine-server-demo. See [server-workarounds](process-engine-server/README.md#workarounds) and [server-demo-workarounds](process-engine-server-demo/README.md#workarounds) for detailed info.
 
 
 ### Authors/Contact information
