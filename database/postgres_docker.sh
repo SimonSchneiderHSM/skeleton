@@ -1,4 +1,5 @@
 COMMAND=$1
+DB_SCENARIO=$2
 
 DB_USER_NAME=admin
 DB_USER_PASSWORD=admin
@@ -7,23 +8,23 @@ DB_PORT=5432
 
 DB_DOCKER_IMAGE_NAME=process_engine_postrgres
 DB_CONTAINER_NAME=process_engine_postrgres_container
-VOLUME_CONTAINER_NAME=process_engine_postrgres_volume_container
+DB_VOLUME_NAME=process_engine_postgres_volume
 
 LOG_PATH=/dev/null
-
-create_volume_container() {
-  if [[ $(existing_volume_container_id) == "" ]]
-  then
-    echo "creating volume container"
-    docker create \
-      --name ${VOLUME_CONTAINER_NAME} \
-      --volume /dbdata \
-      postgres /bin/true > $LOG_PATH
-  fi
-}
+ABSOLUTE_SCRIPT_FOLDER="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 create_db_container() {
-  docker build -t $DB_DOCKER_IMAGE_NAME .
+  DOCKERFILE="Dockerfile.skeleton"
+  if [[ $DB_SCENARIO == "demo" ]]
+  then
+    DOCKERFILE="Dockerfile.skeleton.demo"
+  fi
+
+  docker build \
+    --file $ABSOLUTE_SCRIPT_FOLDER/$DOCKERFILE \
+    --tag $DB_DOCKER_IMAGE_NAME \
+    $ABSOLUTE_SCRIPT_FOLDER
+
   docker run \
     --detach \
     --env POSTGRES_USER=$DB_USER_NAME \
@@ -31,12 +32,12 @@ create_db_container() {
     --env POSTGRES_DB=$DB_NAME \
     --publish $DB_PORT:5432 \
     --name $DB_CONTAINER_NAME \
-    --volumes-from=${VOLUME_CONTAINER_NAME} \
+    --mount source=$DB_VOLUME_NAME,target=/dbdata \
     $DB_DOCKER_IMAGE_NAME > $LOG_PATH
 }
 
-existing_volume_container_id() {
-  echo $(docker ps --all --quiet --filter name=${VOLUME_CONTAINER_NAME})
+existing_volume_id() {
+  echo $(docker volume ls --quiet --filter name=$DB_VOLUME_NAME)
 }
 
 existing_db_container_id() {
@@ -53,7 +54,6 @@ start() {
   then
     echo "Container is already running"
   else
-    create_volume_container
     if [[ $(existing_db_container_id) != "" ]]
     then
       echo "starting DB-Container"
@@ -88,12 +88,12 @@ clear() {
   fi
 
   # Remove the Volume-Container with the corresponding volume
-  if [[ $(existing_volume_container_id) != "" ]]
+  if [[ $(existing_volume_id) != "" ]]
   then
-    echo "removing Volume-Container"
-    docker rm --volumes $VOLUME_CONTAINER_NAME > $LOG_PATH
+    echo "removing Volume"
+    docker volume rm $DB_VOLUME_NAME > $LOG_PATH
   else
-    echo "Volume-Container already removed"
+    echo "Volume already removed"
   fi
 }
 
