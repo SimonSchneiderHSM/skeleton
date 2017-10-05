@@ -61,12 +61,6 @@ async function start() {
     const bootstrapper = await container.resolveAsync('AppBootstrapper');
     await bootstrapper.start();
 
-    const iamService = await container.resolveAsync('IamService');
-    const internalContext = await iamService.createInternalContext('iam_system');
-
-    const datastoreService = await container.resolveAsync('DatastoreService');
-    await datastoreService.importDefaultData(internalContext);
-
     logger.info('Bootstrapper started successfully.');
   } catch(error) {
     logger.error('Bootstrapper failed to start.', error);

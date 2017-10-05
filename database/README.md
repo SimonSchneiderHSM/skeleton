@@ -10,8 +10,14 @@
 
 ### Build and start the volume- and database-containers
 
+To brootstrap the minimal skeleton, run 
 ```bash
 ./postgres_docker.sh start
+```
+
+To bootstrap the database for the reservation-process, run 
+```bash
+./postgres_docker.sh start demo
 ```
 
 ## Configuration
@@ -36,13 +42,24 @@ password: password
 roles: ['user']
 ```
 
+If the database was bootstrapped for the reservation-process, the following user will also be added
+```
+username: operator
+password: operator
+roles: ['operator']
+```
+
 the convinience-script `postgres_docker.sh` lets you:
 ```bash
-./postgres_docker.sh start   # create and start the volume and db container
-./postgres_docker.sh stop    # stop the db container
-./postgres_docker.sh restart # run stop and then start
-./postgres_docker.sh reset   # run stop, then delete volume and db-container and then run start
+./postgres_docker.sh start [scenario]   # create and start the volume and db container
+./postgres_docker.sh stop               # stop the db container
+./postgres_docker.sh restart            # run stop and then start
+./postgres_docker.sh reset [scenario]   # run stop, then delete volume and db-container and then run start
 ```
+
+- if you omit the `scenario`, the db will be seeded with the default minimal-skeleton data (the two users mentioned above).
+- if you set `scenario` to `demo`, the db will be seeded with the reservation-process data (incl. the third user mentioned above).
+
 
 ## What else is there to know?
 
