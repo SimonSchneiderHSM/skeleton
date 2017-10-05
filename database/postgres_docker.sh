@@ -23,7 +23,7 @@ create_db_container() {
   docker build \
     --file $ABSOLUTE_SCRIPT_FOLDER/$DOCKERFILE \
     --tag $DB_DOCKER_IMAGE_NAME \
-    $ABSOLUTE_SCRIPT_FOLDER
+    $ABSOLUTE_SCRIPT_FOLDER > $LOG_PATH
 
   docker run \
     --detach \
