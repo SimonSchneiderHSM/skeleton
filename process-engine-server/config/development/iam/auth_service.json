@@ -40,12 +40,6 @@
       "user": {
         "rolesInherited": []
       },
-      "agent": {
-        "rolesInherited": ["default"]
-      },
-      "operator": {
-        "rolesInherited": ["default"]
-      },
       "_iam_internal": {
         "rolesInherited": []
       },
