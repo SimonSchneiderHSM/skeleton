@@ -39,7 +39,7 @@ export class ReservationEntityTypeService implements IReservationEntityTypeServi
 
     const dataStoreService: IDatastoreService = await this.getDatastoreService();
     const reservationEntityType: IEntityType<IReservationEntity> = await dataStoreService.getEntityType<IReservationEntity>('Reservation');
-    const reservationEntity: IReservationEntity = await reservationEntityType.createEntity<IReservationEntity>(context, data, createOptions);
+    const reservationEntity: IReservationEntity = await reservationEntityType.createEntity(context, data, createOptions);
 
     const saveOptions: IPublicSaveOptions = {};
     await reservationEntity.save(context, saveOptions);
