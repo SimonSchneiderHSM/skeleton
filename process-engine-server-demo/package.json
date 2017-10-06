@@ -19,7 +19,7 @@
     "@process-engine-js/data_model": "^3.0.0",
     "@process-engine-js/data_model_contracts": "^2.0.3",
     "@process-engine-js/datasource_adapter_base": "^2.0.2",
-    "@process-engine-js/datasource_adapter_postgres": "^2.0.2",
+    "@process-engine-js/datasource_adapter_postgres": "^2.0.3",
     "@process-engine-js/datastore": "^2.0.2",
     "@process-engine-js/datastore_http": "^2.0.2",
     "@process-engine-js/datastore_messagebus": "^2.0.2",
