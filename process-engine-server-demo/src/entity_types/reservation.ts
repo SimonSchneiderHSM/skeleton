@@ -1,7 +1,7 @@
-import {ExecutionContext, IEntity, IInheritedSchema, SchemaAttributeType} from '@process-engine-js/core_contracts';
-import {Entity, EntityDependencyHelper, IEntityType, IPropertyBag} from '@process-engine-js/data_model_contracts';
+import {ExecutionContext, IEntity, IInheritedSchema, SchemaAttributeType} from '@essential-projects/core_contracts';
+import {Entity, EntityDependencyHelper, IEntityType, IPropertyBag} from '@essential-projects/data_model_contracts';
 import {IReservationEntity} from '../interfaces';
-import {schemaAttribute} from '@process-engine-js/metadata';
+import {schemaAttribute} from '@essential-projects/metadata';
 
 export class ReservationEntity extends Entity implements IReservationEntity {
 

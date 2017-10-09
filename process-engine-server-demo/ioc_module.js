@@ -6,7 +6,7 @@ const {
   PriceCalculation
 } = require('./dist/commonjs');
 
-const entityDiscoveryTag = require('@process-engine-js/core_contracts').EntityDiscoveryTag;
+const entityDiscoveryTag = require('@essential-projects/core_contracts').EntityDiscoveryTag;
 
 const fs = require('fs');
 const path = require('path');

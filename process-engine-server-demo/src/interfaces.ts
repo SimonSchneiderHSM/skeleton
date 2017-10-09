@@ -1,4 +1,4 @@
-import {IEntity} from '@process-engine-js/core_contracts'
+import {IEntity} from '@essential-projects/core_contracts'
 
 export interface IReservationEntityTypeService {
   createReservation(context, token): Promise<any>;
