@@ -4,7 +4,7 @@
 
 - an x86 computer
 - bash
-- docker >= `1.9`
+- docker >= `17.06.0-ce`
 
 ## Setup
 
