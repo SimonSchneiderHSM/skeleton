@@ -26,10 +26,6 @@ function runCommand(command) {
         return reject(error);
       }
 
-      if (stderr) {
-        return reject(new Error(stderr));
-      }
-
       return resolve(stdout);
     });
   });
@@ -141,4 +137,7 @@ async function run() {
   }
 }
 
-run();
+run()
+  .catch((error) => {
+    console.log('error executing your command:', error);
+  });
