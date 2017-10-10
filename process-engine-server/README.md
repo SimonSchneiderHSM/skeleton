@@ -8,7 +8,7 @@ The goal is to provide a minimal starting point for creating a ProcessEngine
 
 ### Requirements
 
-- Node >= `6.2.1`
+- Node >= `7.6.0`
 
 ### Setup/Installation
 
