@@ -1,4 +1,4 @@
-# ProcessEngineJS Skeleton
+# process-engine Skeleton
 
 This is is a Database, process-engine-instance and web-ui to edit process-models
 

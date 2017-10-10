@@ -1,4 +1,4 @@
-# ProcessEngineJS Skeleton PI
+# process-engine Skeleton PI
 
 This is a Server that provides a process-engine-instance for a raspberry pi
 

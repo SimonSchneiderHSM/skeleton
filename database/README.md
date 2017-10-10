@@ -1,4 +1,4 @@
-# ProcessEngineJS Skeleton PostgreSQL-DB
+# process-engine Skeleton PostgreSQL-DB
 
 ## Requirements
 

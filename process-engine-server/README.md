@@ -1,4 +1,4 @@
-# ProcessEngineJS Skeleton Server
+# process-engine Skeleton Server
 
 This is a Server that provides a process-engine-instance
 

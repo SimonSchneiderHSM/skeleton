@@ -1,4 +1,4 @@
-# ProcessEngineJS Skeleton Server Demo
+# process-engine Skeleton Server Demo
 
 This is a copy of the [../process-engine-server](skeleton) that includes implementation and workarounds for the reservation-demo
 
