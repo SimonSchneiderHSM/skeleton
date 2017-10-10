@@ -14,7 +14,7 @@ const db_docker_image_name = 'process_engine_postrgres';
 const db_container_name = 'process_engine_postrgres_container';
 const db_volume_name = 'process_engine_postgres_volume';
 
-const log_path = '/dev/null';
+let log_path = '/dev/null';
 if (os.platform() === 'win32') {
   log_path = 'NUL';
 }
