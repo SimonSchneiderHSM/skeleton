@@ -1,5 +1,6 @@
 const exec = require('child_process').exec;
 const path = require('path');
+const os = require('os');
 
 const command = process.argv[2]
 const db_scenario = process.argv[3]
@@ -14,6 +15,9 @@ const db_container_name = 'process_engine_postrgres_container';
 const db_volume_name = 'process_engine_postgres_volume';
 
 const log_path = '/dev/null';
+if (os.platform() === 'win32') {
+  log_path = 'NUL';
+}
 
 function runCommand(command) {
   return new Promise((resolve, reject) => {
