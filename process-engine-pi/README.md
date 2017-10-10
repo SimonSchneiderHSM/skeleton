@@ -130,6 +130,12 @@ With autostart setup, you probably don't need to do this though.
 
 ## What else is there to know?
 
+### Workarounds
+
+There are still some bugs in the process engine. Because of this, the following workarounds are applied to this application:
+
+- the feature-config that tells the server what the it can do (in `config/development/feature/feature_service.json`) says, that the server and the pi can render UI (`UI: true`), even though they can't. This makes them send the necessary UI-messages, that then get caught by the frontend, wich in turn CAN render UI. Without this workaround, the server and the pi wouldn't even try to send the necessary UI-messages.
+
 ### Authors/Contact information
 
 - Simon Reymann <simon.reymann@quantusflow.com>
