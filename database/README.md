@@ -12,21 +12,21 @@
 
 To brootstrap the minimal skeleton, run 
 ```bash
-./postgres_docker.sh start
+node postgres_docker.js start
 ```
 
 To bootstrap the database for the reservation-process, run 
 ```bash
-./postgres_docker.sh start demo
+node postgres_docker.js start demo
 ```
 
 ## Configuration
 
 The docker containers can be configured in the `postgres_docker.sh`:
 
-- `DB_USER_NAME` is the username of the db-admin-account
-- `DB_USER_PASSWORD` is the password of the db-admin-account
-- `DB_NAME` is the name the processengine-database will have
+- `db_user_name` is the username of the db-admin-account
+- `db_user_password` is the password of the db-admin-account
+- `db_name` is the name the processengine-database will have
 
 ## Usage
 The Database is avaliable on it's default port `5432`
@@ -51,10 +51,10 @@ roles: ['operator']
 
 the convinience-script `postgres_docker.sh` lets you:
 ```bash
-./postgres_docker.sh start [scenario]   # create and start the volume and db container
-./postgres_docker.sh stop               # stop the db container
-./postgres_docker.sh restart            # run stop and then start
-./postgres_docker.sh reset [scenario]   # run stop, then delete volume and db-container and then run start
+node postgres_docker.js start [scenario]   # create and start the volume and db container
+node postgres_docker.js stop               # stop the db container
+node postgres_docker.js restart            # run stop and then start
+node postgres_docker.js reset [scenario]   # run stop, then delete volume and db-container and then run start
 ```
 
 - if you omit the `scenario`, the db will be seeded with the default minimal-skeleton data (the two users mentioned above).
