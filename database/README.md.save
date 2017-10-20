@@ -10,12 +10,12 @@
 
 ### Build and start the volume- and database-containers
 
-To brootstrap the minimal skeleton, run
+To brootstrap the minimal skeleton, run 
 ```bash
 node postgres_docker.js start
 ```
 
-To bootstrap the database for the reservation-process, run
+To bootstrap the database for the reservation-process, run 
 ```bash
 node postgres_docker.js start demo
 ```
@@ -60,12 +60,6 @@ node postgres_docker.js reset [scenario]   # run stop, then delete volume and db
 - if you omit the `scenario`, the db will be seeded with the default minimal-skeleton data (the two users mentioned above).
 - if you set `scenario` to `demo`, the db will be seeded with the reservation-process data (incl. the third user mentioned above).
 
-## Setup demo database without docker
-If you want to setup the demo database without installing docker, go to the setup_database_demo folder and execute the included script. It will run the necessary SQL commands to create the database "procesengine", the role "admin" and populate the DB with the demo data.
-
-Pre-requisites:
-- Installed and running postgres.
-- The database "processengine" and the role "admin" must not yet exist.
 
 ## What else is there to know?
 
@@ -82,3 +76,7 @@ pg_dump \
   --username "admin" \
   --verbose \
 ```
+
+## Setup database for demo without using Docker:
+
+Go to setup_database_demo folder and execute the setup_database_demo.sh script.
