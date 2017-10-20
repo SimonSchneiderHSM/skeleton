@@ -60,13 +60,6 @@ node postgres_docker.js reset [scenario]   # run stop, then delete volume and db
 - if you omit the `scenario`, the db will be seeded with the default minimal-skeleton data (the two users mentioned above).
 - if you set `scenario` to `demo`, the db will be seeded with the reservation-process data (incl. the third user mentioned above).
 
-## Setup demo database without docker
-If you want to setup the demo database without installing docker, go to the setup_database_demo folder and execute the included script. It will run the necessary SQL commands to create the database "procesengine", the role "admin" and populate the DB with the demo data.
-
-Pre-requisites:
-- Installed and running postgres.
-- The database "processengine" and the role "admin" must not yet exist.
-
 ## What else is there to know?
 
 The command used to create the user-table-backup is:
