@@ -6,7 +6,6 @@ CREATE TABLE "User" (
     roles jsonb
 );
 
-
 ALTER TABLE "User" OWNER TO admin;
 
 COPY "User" (id, name, password, roles) FROM stdin;
@@ -17,4 +16,3 @@ COPY "User" (id, name, password, roles) FROM stdin;
 
 ALTER TABLE ONLY "User"
     ADD CONSTRAINT "User_pkey" PRIMARY KEY (id);
-    
